@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+*.log
+.netlify/
+node_modules/
+
+# raw resume source (CV is published at assets/Md_Faiz_Akhtar_CV.pdf)
+faiz_resume
+faiz_resume.*

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 3 · Will two elements even mix? — From Atoms to Agents</title>
+<meta name="description" content="COMPASS: orbital descriptors that classify binary alloy phase behaviour — isomorphous, intermetallic or immiscible — interpretably. Md Faiz Akhtar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%23a78bfa' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%23a78bfa'/></svg>">
+<style>:root{--ac:var(--c3)}</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="dot"></span><span>From Atoms to Agents<small>Chapter 3 · Chemistry</small></span></a>
+    <button class="nav-toggle" aria-label="menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="chapter1.html">1 · Strength</a>
+      <a href="chapter2.html">2 · Direction</a>
+      <a href="chapter3.html">3 · Chemistry</a>
+      <a href="chapter4.html">4 · Real metal</a>
+      <a href="chapter5.html">5 · Automation</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<header class="ch-hero">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter 3 · Chemistry at scale</div>
+    <h1>Will two elements even mix?</h1>
+    <p class="scaleline">Pull back from one grain to the whole periodic table. Before strength or slip, there is a more basic
+      question &mdash; given any two metals, do they dissolve, compound, or refuse each other? <strong>COMPASS</strong> answers it
+      from orbitals.</p>
+    <div class="ch-meta">
+      <span class="chip"><b>Method</b> &nbsp;Tight-binding orbital descriptors + DFT/LOBSTER</span>
+      <span class="chip"><b>Benchmark</b> &nbsp;610 binary pairs &middot; 48 elements</span>
+      <span class="chip"><b>Status</b> &nbsp;Manuscript under review (2026)</span>
+    </div>
+  </div>
+</header>
+
+<article class="prose section">
+
+  <p class="first reveal">The Hume&ndash;Rothery rules are the oldest piece of alloy intuition we have: two metals form a solid
+    solution if their atoms are similar in size, electronegativity, valence and crystal structure. Generations of metallurgists
+    have carried them in their heads. The trouble is they are qualitative &mdash; two fuzzy rules of thumb &mdash; and on a fair,
+    hand-checked benchmark they are right only a little more often than a coin weighted by luck.</p>
+
+  <p class="reveal">I wanted to keep the <em>interpretability</em> of Hume&ndash;Rothery &mdash; the whole point is that a human can
+    understand the answer &mdash; while making it quantitative and honest. That is <strong>COMPASS</strong>: a small set of
+    orbital descriptors that predict how any binary pair behaves, and tell you <em>why</em>.</p>
+
+  <a class="linkout reveal" href="https://compass-explorer.netlify.app/" target="_blank" rel="noopener">
+    <span class="ic">&#129517;</span>
+    <span class="tx"><b>Try the COMPASS Explorer &mdash; live tool</b>
+      <span>Pick any two of the 48 elements and watch the descriptors and predicted phase behaviour update in real time &mdash; the interactive app I built on top of this work.</span></span>
+    <span class="arr">&rarr;</span>
+  </a>
+
+  <h2 class="reveal">Twelve descriptors, built from the atom up</h2>
+  <p class="reveal">Eight of the descriptors (D1&ndash;D8, &ldquo;COMPASS-8&rdquo;) come straight from Harrison tight-binding
+    theory and free-atom data &mdash; orbital energies, radii, bond-energy estimates. Four more (D9&ndash;D12,
+    &ldquo;COMPASS-12&rdquo;) come from first-principles DFT bonding analysis &mdash; the same ICOHP and ICOBI bond measures that
+    run through this whole thesis. Every descriptor is a physical quantity you can name.</p>
+
+  <div class="diagram reveal">
+    <svg viewBox="0 0 820 300" role="img" aria-label="COMPASS descriptor pipeline diagram">
+      <defs>
+        <marker id="arr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#a78bfa"/></marker>
+        <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#818cf8"/></linearGradient>
+      </defs>
+      <!-- two atoms -->
+      <circle cx="70" cy="150" r="34" fill="none" stroke="#a78bfa" stroke-width="2"/>
+      <circle cx="70" cy="150" r="11" fill="#a78bfa"/>
+      <text x="70" y="215" fill="#93a0b8" font-size="13" text-anchor="middle" font-family="JetBrains Mono">element A</text>
+      <circle cx="70" cy="150" r="34" fill="none" stroke="#818cf8" stroke-width="2" transform="translate(46,0)"/>
+      <text x="116" y="150" fill="#fff" font-size="20" text-anchor="middle" font-family="JetBrains Mono" dy="6">B</text>
+      <path d="M150,150 L210,150" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr)"/>
+
+      <!-- descriptor stack -->
+      <rect x="220" y="60" width="210" height="180" rx="12" fill="#172238" stroke="#22304b"/>
+      <text x="325" y="86" fill="#a78bfa" font-size="13" text-anchor="middle" font-family="JetBrains Mono">12 ORBITAL DESCRIPTORS</text>
+      <text x="240" y="116" fill="#e8ecf4" font-size="13" font-family="JetBrains Mono">D2 · orbital-energy mismatch</text>
+      <text x="240" y="142" fill="#e8ecf4" font-size="13" font-family="JetBrains Mono">D7 · size mismatch</text>
+      <text x="240" y="168" fill="#93a0b8" font-size="13" font-family="JetBrains Mono">D1,D3–D6 · bonding</text>
+      <text x="240" y="194" fill="#93a0b8" font-size="13" font-family="JetBrains Mono">D8 · valence</text>
+      <text x="240" y="220" fill="#6b7892" font-size="12" font-family="JetBrains Mono">D9–D12 · ICOHP / ICOBI (DFT)</text>
+      <path d="M440,150 L500,150" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr)"/>
+
+      <!-- four classes -->
+      <g font-family="Inter" font-size="13">
+        <rect x="510" y="60"  width="290" height="40" rx="9" fill="#0e1422" stroke="#34d399"/>
+        <text x="528" y="85" fill="#34d399">Isomorphous &mdash; full solid solution</text>
+        <rect x="510" y="108" width="290" height="40" rx="9" fill="#0e1422" stroke="#60a5fa"/>
+        <text x="528" y="133" fill="#60a5fa">Partial solubility</text>
+        <rect x="510" y="156" width="290" height="40" rx="9" fill="#0e1422" stroke="#fbbf24"/>
+        <text x="528" y="181" fill="#fbbf24">Intermetallic &mdash; ordered compound</text>
+        <rect x="510" y="204" width="290" height="40" rx="9" fill="#0e1422" stroke="#fb7185"/>
+        <text x="528" y="229" fill="#fb7185">Immiscible &mdash; will not mix</text>
+      </g>
+    </svg>
+    <figcaption style="margin-top:14px;font-size:.86rem;color:var(--muted)">How COMPASS reads a binary pair: free-atom orbital
+      properties &rarr; twelve interpretable descriptors &rarr; one of four phase-behaviour classes, the four outcomes a
+      metallurgist actually cares about.</figcaption>
+  </div>
+
+  <h2 class="reveal">The honest benchmark</h2>
+  <p class="reveal">A model is only as trustworthy as the data it is judged on, so I built the benchmark by hand:
+    <strong>610 binary pairs across 48 elements</strong>, each one labelled by reading the actual CALPHAD phase diagram and
+    sorting it into isomorphous, partial, intermetallic or immiscible. No scraped labels, no shortcuts. Then I tested COMPASS
+    against it &mdash; and against the classic two-rule Hume&ndash;Rothery baseline and a 132-feature machine-learning model.</p>
+
+  <div class="kpis reveal">
+    <div class="kpi"><div class="n">0.673</div><div class="l">macro-F1 (COMPASS-12), up from 0.629 with 8 descriptors</div></div>
+    <div class="kpi"><div class="n">+0.16</div><div class="l">balanced-accuracy gain over Hume&ndash;Rothery (P &lt; 0.001)</div></div>
+    <div class="kpi"><div class="n">~89%</div><div class="l">of a 132-feature MAGPIE model&rsquo;s score &mdash; at 1/10 the size</div></div>
+    <div class="kpi"><div class="n">12</div><div class="l">descriptors, every one physically interpretable</div></div>
+  </div>
+
+  <figure class="reveal">
+    <img src="assets/img/ch3_classmap.png" alt="COMPASS classification map: the four phase classes separated in descriptor space">
+    <figcaption><b>FIG 1 &middot; the one to remember</b> &nbsp;The 610 hand-verified binary pairs, plotted in the
+      D<sub>2</sub>&ndash;D<sub>7</sub> descriptor plane and coloured by class (a&ndash;d). Each phase behaviour occupies its own
+      region; panel (e) is the PLS-DA projection and (f) the class co-occurrence matrix. The classes genuinely separate &mdash;
+      that is the whole result, in one picture.<span class="fig-pub">&middot; from the COMPASS manuscript</span></figcaption>
+  </figure>
+
+  <p class="pull reveal">Two master variables carry most of the signal: D2, the bond-weighted orbital-energy mismatch, and
+    D7, the Hume&ndash;Rothery size mismatch. Eighty years on, size and energy still rule &mdash; but now with numbers.</p>
+
+  <figure class="reveal">
+    <img src="assets/img/ch3_drivers.png" alt="PLS-DA first-component descriptor loadings for each of the four phase classes">
+    <figcaption><b>FIG 2</b> &nbsp;Which descriptors drive each class. The PLS-DA loadings show, for example, that immiscibility is
+      pushed by a large negative D<sub>7</sub> (size mismatch) while the intermetallic class leans on D<sub>2</sub> and the bonding
+      descriptors D<sub>10</sub>&ndash;D<sub>12</sub>. Nothing here is a black box.<span class="fig-pub">&middot; from the COMPASS manuscript</span></figcaption>
+  </figure>
+
+  <div class="tbl-scroll reveal">
+    <table class="dtable">
+      <caption>Macro-F1 across feature sets (five-fold CV) &mdash; smaller and interpretable beats big and opaque</caption>
+      <thead><tr><th>Feature set</th><th># features</th><th>Macro-F1</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>Hume&ndash;Rothery (2 rules)</td><td class="num">2</td><td class="num">0.510</td><td>classic baseline</td></tr>
+        <tr><td>COMPASS-8</td><td class="num">8</td><td class="num">0.629</td><td>tight-binding orbital descriptors</td></tr>
+        <tr><td>COMPASS-12</td><td class="num">12</td><td class="num hl">0.673</td><td>+ DFT bonding (ICOHP / ICOBI)</td></tr>
+        <tr><td>MAGPIE (full)</td><td class="num">132</td><td class="num">0.760</td><td>COMPASS-12 recovers ~89% of this</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="reveal">And because the bonding descriptors come from the same first-principles machinery as the rest of this thesis,
+    I could check them against DFT directly: D6 correlates with ICOHP at r = 0.88 for the pure metals, and the orbital bond
+    order tracks the Friedel bond-order estimate at r = 0.69. The tight-binding shortcuts are not hand-waving &mdash; they agree
+    with the full quantum calculation.</p>
+
+  <div class="note reveal"><b>Where this stands:</b> COMPASS is a recent manuscript (2026), under review. The interactive
+    <a href="https://compass-explorer.netlify.app/" target="_blank" rel="noopener" style="color:var(--ac)">COMPASS Explorer</a>
+    is already live if you want to try the descriptors on any element pair yourself.</div>
+
+  <h2 class="reveal">Why it matters for the rest of the journey</h2>
+  <p class="reveal">With Chapter 3 the bond-centred view reaches its widest: from one bond in one grain, out to a map of how
+    every pair of elements behaves. That is as far as pure electronic structure can take you on its own. To go further &mdash; to
+    predict how a <em>real</em> piece of titanium yields and textures when you pull on it &mdash; the electrons have to hand off to
+    larger scales. That hand-off is Chapter 4.</p>
+
+  <div class="pager">
+    <a href="chapter2.html"><div class="dir">&larr; PREVIOUS</div><div class="ttl">2 · Which way does a metal slip?</div></a>
+    <a class="next" href="chapter4.html"><div class="dir">NEXT &rarr;</div><div class="ttl">4 · Does it hold up in a real metal?</div></a>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div><div class="brand" style="margin-bottom:8px"><span class="dot"></span><span>From Atoms to Agents</span></div>
+      <div style="font-size:.85rem">&copy; 2026 Md Faiz Akhtar · MSE, IIT Kanpur</div></div>
+    <div class="foot-links">
+      <a href="about.html">About &amp; CV</a>
+      <a href="mailto:faiza21@iitk.ac.in">Email</a>
+      <a href="https://www.linkedin.com/in/md-faiz-akhtar-a51960246/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/akhtar07" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://compass-explorer.netlify.app/" target="_blank" rel="noopener">COMPASS Explorer</a>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

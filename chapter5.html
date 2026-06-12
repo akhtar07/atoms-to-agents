@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 5 · Can an agent do this for me? — From Atoms to Agents</title>
+<meta name="description" content="A multi-agent ICME framework where VASP, LAMMPS and DAMASK agents set up and run multiscale simulations from a plain-English request. Md Faiz Akhtar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%2338bdf8' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%2338bdf8'/></svg>">
+<style>:root{--ac:var(--c5)}
+.term{background:#0a0e17;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:34px 0;box-shadow:var(--shadow)}
+.term .bar{display:flex;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--ink-2)}
+.term .bar i{width:12px;height:12px;border-radius:50%;display:inline-block}
+.term .body{padding:20px 22px;font-family:var(--mono);font-size:.9rem;line-height:1.85;color:#cdd5e6;overflow-x:auto}
+.term .pr{color:#38bdf8}.term .u{color:#fff}.term .ok{color:#34d399}.term .dim{color:#6b7892}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="dot"></span><span>From Atoms to Agents<small>Chapter 5 · Automation</small></span></a>
+    <button class="nav-toggle" aria-label="menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="chapter1.html">1 · Strength</a>
+      <a href="chapter2.html">2 · Direction</a>
+      <a href="chapter3.html">3 · Chemistry</a>
+      <a href="chapter4.html">4 · Real metal</a>
+      <a href="chapter5.html">5 · Automation</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<header class="ch-hero">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter 5 · The culmination</div>
+    <h1>Can an agent do this for me?</h1>
+    <p class="scaleline">The last scale isn&rsquo;t a length &mdash; it&rsquo;s the human one. Four chapters of expert hand-work,
+      handed to a team of AI agents that set up, run and connect the simulations themselves.</p>
+    <div class="ch-meta">
+      <span class="chip"><b>Idea</b> &nbsp;multi-agent ICME orchestration</span>
+      <span class="chip"><b>Agents</b> &nbsp;VASP &middot; LAMMPS &middot; DAMASK</span>
+      <span class="chip"><b>Status</b> &nbsp;VASP agent ~60% · others in progress</span>
+    </div>
+  </div>
+</header>
+
+<article class="prose section">
+
+  <p class="first reveal">By the end of Chapter 4 I had built, by hand, a machine for turning electrons into the
+    stress&ndash;strain curve of a real metal. It worked. It was also slow, fragile and almost entirely locked inside my own
+    head &mdash; which k-point grid, which potential, which DAMASK flag, which queue on which cluster. I kept thinking: if I
+    can write down the rules I follow, why am <em>I</em> the one following them at 2 a.m.?</p>
+
+  <p class="reveal">Chapter 5 is my attempt to put those rules into software that can act. Not a script &mdash; scripts break the
+    moment the input changes &mdash; but a set of <strong>agents</strong> that take a request in plain English, decide what
+    calculation it implies, set it up correctly, run it on the HPC cluster, recover from the errors that always happen, and
+    pass the results down to the next scale.</p>
+
+  <h2 class="reveal">The architecture</h2>
+  <p class="reveal">A master supervisor reads your request and routes it to one of three specialist agents &mdash; one each for
+    VASP, LAMMPS and DAMASK, the three codes from Chapter 4. Between them sit scale-bridge modules that do the unglamorous,
+    error-prone work of handing parameters from one scale to the next with the units converted and the provenance recorded.</p>
+
+  <div class="diagram reveal">
+    <svg viewBox="0 0 840 340" role="img" aria-label="Multi-agent ICME framework architecture">
+      <defs><marker id="a5" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#38bdf8"/></marker></defs>
+
+      <!-- user -->
+      <rect x="290" y="14" width="260" height="44" rx="22" fill="#0e1422" stroke="#38bdf8"/>
+      <text x="420" y="42" text-anchor="middle" fill="#fff" font-size="14" font-family="JetBrains Mono">&ldquo;compute Ti HCP yield stress&rdquo;</text>
+      <path d="M420,58 L420,82" stroke="#38bdf8" stroke-width="2" marker-end="url(#a5)"/>
+
+      <!-- master -->
+      <rect x="270" y="84" width="300" height="52" rx="12" fill="#172238" stroke="#38bdf8" stroke-width="2"/>
+      <text x="420" y="108" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" font-family="Inter">Master Supervisor</text>
+      <text x="420" y="126" text-anchor="middle" fill="#93a0b8" font-size="11" font-family="JetBrains Mono">Qwen2.5 LLM + regex fallback · routing</text>
+
+      <!-- three agents -->
+      <g font-family="Inter">
+        <path d="M340,136 L210,180" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#a5)"/>
+        <path d="M420,136 L420,180" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#a5)"/>
+        <path d="M500,136 L630,180" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#a5)"/>
+
+        <rect x="80" y="182" width="220" height="70" rx="12" fill="#172238" stroke="#34d399"/>
+        <text x="100" y="208" fill="#34d399" font-size="14" font-weight="700">VASP agent</text>
+        <text x="100" y="230" fill="#93a0b8" font-size="11" font-family="JetBrains Mono">24 workflows · ~60% done</text>
+        <text x="100" y="246" fill="#6b7892" font-size="11" font-family="JetBrains Mono">elastic, GSFE, phonons</text>
+
+        <rect x="310" y="182" width="220" height="70" rx="12" fill="#172238" stroke="#fbbf24"/>
+        <text x="330" y="208" fill="#fbbf24" font-size="14" font-weight="700">LAMMPS agent</text>
+        <text x="330" y="230" fill="#93a0b8" font-size="11" font-family="JetBrains Mono">30 workflows · in progress</text>
+        <text x="330" y="246" fill="#6b7892" font-size="11" font-family="JetBrains Mono">C&#7522;&#11388;(T), dislocations</text>
+
+        <rect x="540" y="182" width="220" height="70" rx="12" fill="#172238" stroke="#fbbf24"/>
+        <text x="560" y="208" fill="#fbbf24" font-size="14" font-weight="700">DAMASK agent</text>
+        <text x="560" y="230" fill="#93a0b8" font-size="11" font-family="JetBrains Mono">31 workflows · in progress</text>
+        <text x="560" y="246" fill="#6b7892" font-size="11" font-family="JetBrains Mono">&sigma;(&epsilon;), texture, FLD</text>
+      </g>
+
+      <!-- bridges -->
+      <path d="M300,217 L310,217" stroke="#6b7892" stroke-width="2"/>
+      <path d="M530,217 L540,217" stroke="#6b7892" stroke-width="2"/>
+      <rect x="160" y="280" width="520" height="44" rx="10" fill="#0e1422" stroke="#22304b"/>
+      <text x="420" y="307" text-anchor="middle" fill="#93a0b8" font-size="12.5" font-family="JetBrains Mono">scale-bridge modules &mdash; 18+ parameters passed with unit conversion + provenance</text>
+    </svg>
+  </div>
+
+  <h2 class="reveal">What it feels like to use</h2>
+  <p class="reveal">The whole point is to collapse days of expert setup into a sentence. The honest version of the demo looks
+    like this &mdash; one request, and the agents fan out, run on the cluster, and report back:</p>
+
+  <div class="term reveal">
+    <div class="bar"><i style="background:#fb7185"></i><i style="background:#fbbf24"></i><i style="background:#34d399"></i></div>
+    <div class="body">
+<span class="pr">icme&gt;</span> <span class="u">compute the elastic constants of FCC aluminium and validate</span><br>
+<span class="dim">[master]  intent = elastic_constants · material = Al(fcc) · route &rarr; VASP agent</span><br>
+<span class="dim">[vasp]    auto-converging ENCUT + k-points … done (520 eV, 15×15×15)</span><br>
+<span class="dim">[vasp]    self-healing: recovered 1 ZBRENT error automatically</span><br>
+<span class="dim">[vasp]    submitting to cluster (PBS) … 6 strained cells … collecting</span><br>
+<span class="ok">[result]  C11 = 107.3  C12 = 60.9  C44 = 28.8 GPa</span><br>
+<span class="ok">[check]   vs Materials Project reference … &lt; 1% on all constants  &#10003;</span><br>
+<span class="pr">icme&gt;</span> <span class="dim">_</span>
+    </div>
+  </div>
+
+  <p class="pull reveal">You spend four years learning to do this by hand. Then it runs in one sentence &mdash; at least, for
+    the parts that already work.</p>
+
+  <h2 class="reveal">What actually works today &mdash; and what doesn&rsquo;t</h2>
+  <p class="reveal">I want to be precise here, because the temptation to oversell an AI project is enormous and I would rather
+    you trusted the small true claim than doubted a big one. The <strong>VASP agent is real and validated</strong>. The
+    LAMMPS and DAMASK agents exist as architecture and partial workflows, and the full three-code chain is not yet validated
+    end to end on titanium. This is a proof of concept with momentum, not a finished product.</p>
+
+  <div class="kpis reveal">
+    <div class="kpi"><div class="n">&lt;1%</div><div class="l">VASP agent error vs reference on Al elastic constants &amp; phonons</div></div>
+    <div class="kpi"><div class="n">~8%</div><div class="l">DAMASK Ti yield stress vs experiment, from DFT+MD params</div></div>
+    <div class="kpi"><div class="n">85</div><div class="l">pre-built workflows across the three codes (24 / 30 / 31)</div></div>
+    <div class="kpi"><div class="n">~60&times;</div><div class="l">claimed setup-time reduction vs manual, for working paths</div></div>
+  </div>
+
+  <p class="reveal">The 85 workflows are not evenly spread &mdash; they mirror how much hand-work each scale used to cost me.
+    DAMASK and LAMMPS, the two I automated later, carry the most:</p>
+
+  <div class="barviz reveal">
+    <div class="row"><div class="lab">VASP &middot; DFT</div><div class="track"><div class="fill" style="width:77%">24 workflows</div></div></div>
+    <div class="row"><div class="lab">LAMMPS &middot; MD</div><div class="track"><div class="fill" style="width:97%">30 workflows</div></div></div>
+    <div class="row"><div class="lab">DAMASK &middot; CP</div><div class="track"><div class="fill" style="width:100%">31 workflows</div></div></div>
+  </div>
+  <p class="reveal" style="font-size:.86rem;color:var(--muted);margin-top:-12px">Electronic structure, elastic constants, GSFE,
+    phonons (VASP) &middot; temperature-dependent elasticity, dislocation dynamics, potential fitting (LAMMPS) &middot;
+    stress&ndash;strain, texture, fatigue, forming-limit diagrams (DAMASK).</p>
+
+  <p class="reveal">Underneath, the parts I am proudest of are the unglamorous ones: <strong>self-healing error recovery</strong>
+    that recognises 13 VASP and 8 LAMMPS failure signatures and fixes them, automatic convergence testing, a structure-memory
+    cache so the system never re-runs a calculation it has already done, and a provenance table that tags every number with
+    where it came from &mdash; computed or literature. Those are the things that separate an agent from a fragile script.</p>
+
+  <div class="note reveal"><b>The roadmap:</b> finish the LAMMPS dislocation-mobility and potential-fitting workflows; complete
+    DAMASK texture and forming-limit workflows; validate the full VASP&rarr;LAMMPS&rarr;DAMASK chain on titanium at the
+    cryogenic temperatures of Chapter 4; then extend beyond pure metals to the Ti&ndash;Al and Ti&ndash;V alloys of Chapter 1.
+    That last step would close the loop &mdash; the agent re-deriving, automatically, the very results this thesis was built on.</div>
+
+  <!-- CLOSING -->
+  <h2 class="reveal" style="margin-top:2.4em">Looking back along the thread</h2>
+  <p class="reveal">Five chapters, one idea. I started by asking how strong a single bond is, and built a parameter-free
+    strength predictor. I asked which way a bond points, and predicted slip across the whole HCP family. I asked whether two
+    elements will mix, and turned eighty-year-old intuition into twelve interpretable numbers. I asked whether any of it holds
+    in a real, cold piece of titanium &mdash; and built the pipeline, and the experiment, to check. And finally I asked whether a
+    machine could do all of it, and started teaching one to.</p>
+
+  <div class="thread reveal" style="margin:34px 0">
+    <div class="node"><div class="k">CH 1</div><div class="v">&Phi;<sub>eff</sub></div><div class="d">bond strength &rarr; yield</div></div>
+    <div class="node"><div class="k">CH 2</div><div class="v">R* · &Gamma;</div><div class="d">bond direction &rarr; slip</div></div>
+    <div class="node"><div class="k">CH 3</div><div class="v">COMPASS</div><div class="d">orbitals &rarr; phase</div></div>
+    <div class="node"><div class="k">CH 4</div><div class="v">ICME</div><div class="d">electrons &rarr; real metal</div></div>
+    <div class="node"><div class="k">CH 5</div><div class="v">Agents</div><div class="d">human &rarr; automated</div></div>
+  </div>
+
+  <p class="reveal">It is not finished &mdash; two papers are under review, one chapter is waiting on its EBSD maps, and the
+    agents have a long way to go. But I think the thread holds, and that is the thing I most wanted to show. Thank you for
+    walking it with me.</p>
+
+  <div class="note reveal" style="border-color:var(--c5)"><b>Acknowledgements.</b> To my advisors <b>Prof. Somnath Bhowmick</b>
+    and <b>Prof. N. P. Gurao</b> for the freedom to chase this; to the Prime Minister&rsquo;s Research Fellowship for the support;
+    to the HPC teams at IIT Kanpur and ParamSanganak; and to everyone in the lab who debugged a job with me at an unreasonable hour.</div>
+
+  <div class="pager">
+    <a href="chapter4.html"><div class="dir">&larr; PREVIOUS</div><div class="ttl">4 · Does it hold up in a real metal?</div></a>
+    <a class="next" href="index.html"><div class="dir">BACK TO START &rarr;</div><div class="ttl">The journey overview</div></a>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div><div class="brand" style="margin-bottom:8px"><span class="dot"></span><span>From Atoms to Agents</span></div>
+      <div style="font-size:.85rem">&copy; 2026 Md Faiz Akhtar · MSE, IIT Kanpur</div></div>
+    <div class="foot-links">
+      <a href="about.html">About &amp; CV</a>
+      <a href="mailto:faiza21@iitk.ac.in">Email</a>
+      <a href="https://www.linkedin.com/in/md-faiz-akhtar-a51960246/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/akhtar07" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://pubs.aip.org/aip/jap/article/138/17/175111/3371105/A-novel-electronic-structure-based-prediction-of" target="_blank" rel="noopener">J. Appl. Phys. 2025</a>
+      <a href="https://www.sciencedirect.com/science/article/pii/S0167577X25010481" target="_blank" rel="noopener">Materials Letters 2025</a>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From Atoms to Agents — Md Faiz Akhtar | PhD Journey</title>
+<meta name="description" content="A PhD journey through the chemical bond — from the electronic structure of titanium to an AI agent that runs multiscale materials simulations. Md Faiz Akhtar, MSE, IIT Kanpur.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%232dd4bf' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%23818cf8'/></svg>">
+</head>
+<body>
+<div id="progress"></div>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="dot"></span>
+      <span>From Atoms to Agents<small>Md Faiz Akhtar · PhD journey</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="#thesis">The thread</a>
+      <a href="#journey">The journey</a>
+      <a href="chapter1.html">1 · Strength</a>
+      <a href="chapter2.html">2 · Direction</a>
+      <a href="chapter3.html">3 · Chemistry</a>
+      <a href="chapter4.html">4 · Real metal</a>
+      <a href="chapter5.html">5 · Automation</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="atoms"></div>
+  <div class="wrap">
+    <span class="eyebrow">Computational Materials Science</span>
+    <h1>From Atoms<br>to Agents</h1>
+    <p class="lede">A four-year journey through one idea: that the <strong style="color:var(--text)">chemical bond</strong>
+      is a single thread connecting the quantum world of titanium to an AI agent that can run multiscale
+      simulations on its own.</p>
+    <p class="by">by <b>Md Faiz Akhtar</b> · Materials Science &amp; Engineering, IIT Kanpur<br>
+      <span style="font-size:.85rem">Advisors: Prof. Somnath Bhowmick &amp; Prof. N. P. Gurao · Prime Minister&rsquo;s Research Fellow</span></p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#journey">Walk the journey &rarr;</a>
+      <a class="btn btn-ghost" href="chapter1.html">Start at Chapter 1</a>
+    </div>
+  </div>
+</header>
+
+<!-- THESIS IN ONE LINE -->
+<section class="section" id="thesis">
+  <div class="wrap reveal">
+    <div class="section-tag">The whole thesis in one line</div>
+    <h2>One thread: the chemical bond</h2>
+    <p class="sub">Most of materials science treats strength, slip, and phase stability as separate problems.
+      I kept finding that if you look closely enough at the bonds between atoms, they are the same problem
+      seen from different distances. Each chapter zooms out one scale.</p>
+    <div class="thread" style="margin-top:34px">
+      <div class="node"><div class="k">CH 1</div><div class="v">Strength</div><div class="d">how strong a bond is</div></div>
+      <div class="node"><div class="k">CH 2</div><div class="v">Direction</div><div class="d">which way it points</div></div>
+      <div class="node"><div class="k">CH 3</div><div class="v">Chemistry</div><div class="d">bonds at scale</div></div>
+      <div class="node"><div class="k">CH 4</div><div class="v">Real metal</div><div class="d">bonds in a polycrystal</div></div>
+      <div class="node"><div class="k">CH 5</div><div class="v">Automation</div><div class="d">letting an agent read them</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE JOURNEY TIMELINE -->
+<section class="section" id="journey">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="section-tag">The journey · five chapters</div>
+      <h2>Climbing the length scales</h2>
+      <p class="sub">I started where everything begins &mdash; a single atom slotting into a titanium lattice &mdash;
+        and ended four years later with an agent that automates the whole pipeline. Here is the climb,
+        scale by scale. Click any stop to read that part of the story.</p>
+    </div>
+
+    <div class="timeline" style="margin-top:48px">
+
+      <div class="tl-item reveal" style="--ac:var(--c1)">
+        <div class="marker">01</div>
+        <a class="tl-card" href="chapter1.html">
+          <div class="scale">Electronic structure · DFT</div>
+          <h3>How strong is a bond?<span class="status pub">published</span></h3>
+          <p>A few parts-per-million of carbon, nitrogen or oxygen can transform titanium. I built
+            <b style="color:var(--c1)">&Phi;<sub>eff</sub></b>, a parameter-free descriptor from the
+            electronic structure that predicts how much each interstitial strengthens the metal &mdash;
+            no fitting to experiment.</p>
+          <span class="go">Read chapter 1 &rarr;</span>
+        </a>
+      </div>
+
+      <div class="tl-item reveal" style="--ac:var(--c2)">
+        <div class="marker">02</div>
+        <a class="tl-card" href="chapter2.html">
+          <div class="scale">Bond anisotropy · DFT + LOBSTER</div>
+          <h3>Which way does a metal slip?<span class="status pub">published + draft</span></h3>
+          <p>Strength is a number; slip is a direction. The <b style="color:var(--c2)">R*</b> and
+            <b style="color:var(--c2)">&Gamma;</b> descriptors read bond anisotropy to predict whether an
+            HCP metal &mdash; or alloy &mdash; slips on its basal or prismatic planes.</p>
+          <span class="go">Read chapter 2 &rarr;</span>
+        </a>
+      </div>
+
+      <div class="tl-item reveal" style="--ac:var(--c3)">
+        <div class="marker">03</div>
+        <a class="tl-card" href="chapter3.html">
+          <div class="scale">Chemistry at scale · COMPASS</div>
+          <h3>Will two elements even mix?<span class="status prep">under review</span></h3>
+          <p><b style="color:var(--c3)">COMPASS</b> turns the chemical bond into a handful of orbital descriptors
+            and classifies how any two of 48 elements behave &mdash; isomorphous, intermetallic or immiscible &mdash;
+            recovering ~89% of a 132-feature model at one-tenth the size, fully interpretable.</p>
+          <span class="go">Read chapter 3 &rarr;</span>
+        </a>
+      </div>
+
+      <div class="tl-item reveal" style="--ac:var(--c4)">
+        <div class="marker">04</div>
+        <a class="tl-card" href="chapter4.html">
+          <div class="scale">Real polycrystal · DFT &rarr; MD &rarr; DAMASK + experiment</div>
+          <h3>Does it hold up in a real metal?<span class="status prep">in progress</span></h3>
+          <p>Here the bonds meet the real world. A hierarchical ICME pipeline carries titanium from electrons
+            (VASP) through atoms (LAMMPS) to a deforming polycrystal (DAMASK), checked against my own
+            <b style="color:var(--c4)">cryogenic tension tests and EBSD</b> down to 143&nbsp;K.</p>
+          <span class="go">Read chapter 4 &rarr;</span>
+        </a>
+      </div>
+
+      <div class="tl-item reveal" style="--ac:var(--c5)">
+        <div class="marker">05</div>
+        <a class="tl-card" href="chapter5.html">
+          <div class="scale">Automation · multi-agent ICME</div>
+          <h3>Can an agent do what took me four years?<span class="status wip">work in progress</span></h3>
+          <p>The culmination: a multi-agent framework where you describe a calculation in plain English and
+            <b style="color:var(--c5)">VASP, LAMMPS and DAMASK agents</b> set it up, run it on the cluster, and
+            pass results down the chain. The VASP agent already reproduces reference data to within 1%.</p>
+          <span class="go">Read chapter 5 &rarr;</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING NOTE -->
+<section class="section" id="about">
+  <div class="wrap reveal">
+    <div class="section-tag">Why a website?</div>
+    <h2>The same story, told slowly</h2>
+    <p class="sub">This is the unhurried version of four years of work. I wrote each chapter the way I would
+      explain it to a friend over coffee &mdash; what I was trying to find out, what surprised me, and where the
+      work still isn&rsquo;t finished. The figures are the real ones from the papers and drafts. If you want the
+      formal account, the publications and my full CV are linked below.</p>
+    <div class="cta" style="justify-content:flex-start">
+      <a class="btn btn-primary" href="chapter1.html">Begin the journey &rarr;</a>
+      <a class="btn btn-ghost" href="about.html">About me &amp; full CV</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand" style="margin-bottom:8px"><span class="dot"></span><span>From Atoms to Agents</span></div>
+      <div style="font-size:.85rem">&copy; 2026 Md Faiz Akhtar · MSE, IIT Kanpur</div>
+    </div>
+    <div class="foot-links">
+      <a href="about.html">About &amp; CV</a>
+      <a href="mailto:faiza21@iitk.ac.in">Email</a>
+      <a href="https://www.linkedin.com/in/md-faiz-akhtar-a51960246/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/akhtar07" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.sciencedirect.com/science/article/pii/S0167577X25010481" target="_blank" rel="noopener">Materials Letters 2025</a>
+      <a href="https://pubs.aip.org/aip/jap/article/138/17/175111/3371105/A-novel-electronic-structure-based-prediction-of" target="_blank" rel="noopener">J. Appl. Phys. 2025</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

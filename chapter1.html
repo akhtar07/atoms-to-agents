@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 1 · How strong is a bond? — From Atoms to Agents</title>
+<meta name="description" content="Predicting interstitial strengthening in titanium from electronic structure alone — the story behind the Phi-eff descriptor. Md Faiz Akhtar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%23f5a524' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%23f5a524'/></svg>">
+<style>:root{--ac:var(--c1)}</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="dot"></span><span>From Atoms to Agents<small>Chapter 1 · Strength</small></span></a>
+    <button class="nav-toggle" aria-label="menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="chapter1.html">1 · Strength</a>
+      <a href="chapter2.html">2 · Direction</a>
+      <a href="chapter3.html">3 · Chemistry</a>
+      <a href="chapter4.html">4 · Real metal</a>
+      <a href="chapter5.html">5 · Automation</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<header class="ch-hero">
+  <div class="wrap">
+    <div class="ch-kicker">Chapter 1 · Electronic structure</div>
+    <h1>How strong is a bond?</h1>
+    <p class="scaleline">The smallest scale in the whole thesis &mdash; a single light atom dropped into titanium &mdash;
+      and the question that started everything: can I predict strengthening from electrons alone?</p>
+    <div class="ch-meta">
+      <span class="chip"><b>Method</b> &nbsp;DFT (VASP) + LOBSTER</span>
+      <span class="chip"><b>System</b> &nbsp;&alpha;-Ti + H, C, N, O</span>
+      <span class="chip"><b>Status</b> &nbsp;Published · J. Appl. Phys. 138, 175111 (2025)</span>
+      <span class="chip"><b>+ Part II</b> &nbsp;alloys &amp; short-range order (under review)</span>
+    </div>
+  </div>
+</header>
+
+<article class="prose section">
+
+  <p class="first reveal">Titanium has a strange sensitivity. You can take a perfectly good ingot and ruin it &mdash;
+    or transform it &mdash; with a few hundred parts per million of oxygen or carbon. Aerospace suppliers grade
+    titanium almost entirely by these invisible interstitial atoms. So the very first question I asked in my PhD
+    was disarmingly simple: <strong>if a carbon atom strengthens titanium more than a hydrogen atom does, why?</strong>
+    And could I see that answer in the electrons, before ever lifting a hammer?</p>
+
+  <p class="reveal">The honest motivation was frustration. The textbook way to predict interstitial strengthening is to fit
+    constants to experiments &mdash; useful, but circular. It tells you <em>that</em> carbon is potent, not <em>why</em>,
+    and it can&rsquo;t predict a system nobody has measured yet. I wanted a number that came straight out of quantum
+    mechanics and still landed on the experimental yield strength.</p>
+
+  <h2 class="reveal">Where does an interstitial sit?</h2>
+  <p class="reveal">Before strength, geometry. A light atom in HCP titanium has a choice of holes to occupy &mdash; octahedral,
+    tetrahedral, hexahedral, crowdion. I computed the enthalpy of mixing for every interstitial in every site. Oxygen,
+    nitrogen and carbon all settle into the octahedral site; hydrogen, the odd one out, prefers the tetrahedral pocket.
+    That single fact &mdash; <em>where</em> the atom lives &mdash; turns out to set everything that follows.</p>
+
+  <figure class="reveal">
+    <img src="assets/img/ch1_interstitial_sites.png" alt="Interstitial site geometry and relative stabilities in alpha-Ti">
+    <figcaption><b>FIG 1</b> &nbsp;The candidate interstitial sites in &alpha;-Ti, and the energy cost of leaving the
+      preferred octahedral site. O, N and C lock into the octahedral hole; only H favours tetrahedral coordination.
+      <span class="fig-pub">· from the published paper</span></figcaption>
+  </figure>
+
+  <h2 class="reveal">Reading the bond directly: ICOHP</h2>
+  <p class="reveal">Here is the move the whole thesis rests on. Using LOBSTER, I projected the DFT wavefunctions back onto
+    pairs of atoms and integrated the crystal-orbital Hamilton population &mdash; <strong>ICOHP</strong> &mdash; which is,
+    quite literally, the strength of a single bond in energy units. A Ti&ndash;Ti bond sits at &minus;0.76&nbsp;eV. Add the
+    interstitials and the contrast is dramatic.</p>
+
+  <div class="kpis reveal">
+    <div class="kpi"><div class="n">&minus;0.71<small> eV</small></div><div class="l">Ti&ndash;H bond &mdash; <em>weaker</em> than Ti&ndash;Ti &rarr; softening</div></div>
+    <div class="kpi"><div class="n">&minus;2.59<small> eV</small></div><div class="l">Ti&ndash;C bond &mdash; 3.4&times; stronger &rarr; potent strengthener</div></div>
+    <div class="kpi"><div class="n">&minus;2.56<small> eV</small></div><div class="l">Ti&ndash;N bond &mdash; nearly as strong as C</div></div>
+    <div class="kpi"><div class="n">&minus;2.04<small> eV</small></div><div class="l">Ti&ndash;O bond &mdash; strong, but below C and N</div></div>
+  </div>
+
+  <p class="reveal">The bonding picture from the projected density of states and pCOHP makes the mechanism visual: carbon,
+    nitrogen and oxygen pour states into deep <em>bonding</em> levels well below the Fermi energy, while hydrogen barely
+    perturbs the lattice. You can see exactly which orbitals are doing the gluing.</p>
+
+  <figure class="reveal">
+    <img src="assets/img/ch1_pdos_pcohp.png" alt="Projected DOS and pCOHP for Ti-H, Ti-C, Ti-N, Ti-O">
+    <figcaption><b>FIG 2</b> &nbsp;Projected DOS (left) and pCOHP bonding/antibonding curves (right) for each interstitial.
+      The large bonding lobes of C and N below E<sub>F</sub> are the strengthening, made visible.
+      <span class="fig-pub">· from the published paper</span></figcaption>
+  </figure>
+
+  <figure class="reveal">
+    <img src="assets/img/ch1_charge_elf.png" alt="Charge redistribution and electron localization function maps">
+    <figcaption><b>FIG 3</b> &nbsp;Charge redistribution (top) and the electron localization function on basal and prismatic
+      planes. C, N and O draw a dense, directional electron cloud around themselves; H leaves the metal almost untouched.
+      <span class="fig-pub">· from the published paper</span></figcaption>
+  </figure>
+
+  <h2 class="reveal">From bonds to slip resistance</h2>
+  <p class="reveal">A bond strength is only interesting if it changes how the metal deforms. So I pushed the lattice &mdash;
+    computing ideal shear strength and the generalized stacking-fault energy (GSFE), the energy barrier a dislocation has
+    to climb to glide. The interstitials raise that barrier most when they sit right on the fault plane, and the effect
+    fades as you move them away. The strengthening is local, and it tracks the bonding hierarchy exactly.</p>
+
+  <figure class="reveal">
+    <img src="assets/img/ch1_iss_curves.png" alt="Shear stress-strain curves for ideal shear strength">
+    <figcaption><b>FIG 4</b> &nbsp;Shear stress&ndash;strain response for basal (a) and prismatic (b) slip. Carbon lifts the
+      ideal shear strength of the basal system by nearly 80%. <span class="fig-pub">· from the published paper</span></figcaption>
+  </figure>
+
+  <figure class="reveal">
+    <img src="assets/img/ch1_gsfe.png" alt="GSFE curves at fault-plane positions">
+    <figcaption><b>FIG 5</b> &nbsp;GSFE curves as the interstitial is stepped away from the fault plane (FP &rarr; FP1 &rarr; FP2).
+      The barrier is highest when the solute sits on the slip plane itself.<span class="fig-pub">· from the published paper</span></figcaption>
+  </figure>
+
+  <h2 class="reveal">The descriptor: &Phi;<sub>eff</sub></h2>
+  <p class="reveal">All of this &mdash; site preference, bond strength, fault barriers &mdash; I folded into one quantity.
+    <strong>&Phi;<sub>eff</sub></strong> is built from the ICOHP of the Ti&ndash;interstitial bond relative to Ti&ndash;Ti,
+    weighted by how the solute sits on the slip plane. It has no fitting parameters. It is the closest thing in this thesis
+    to a punchline.</p>
+
+  <div class="eq reveal">
+    &Delta;&sigma;<sub>yield</sub> &nbsp;=&nbsp; A &middot; &Phi;<sub>eff</sub> &nbsp;+&nbsp; B
+    <small>A parameter-free, first-principles predictor of interstitial strengthening &mdash; R&sup2; &gt; 0.97 against experiment.</small>
+  </div>
+
+  <p class="pull reveal">When I plotted &Phi;<sub>eff</sub> against the measured yield strength, the points fell on a line.
+    No fitting. Electrons in, strength out.</p>
+
+  <figure class="reveal">
+    <img src="assets/img/ch1_phieff_yield.png" alt="Phi-eff versus experimental yield strength for H, C, N, O">
+    <figcaption><b>FIG 6 &middot; the one to remember</b> &nbsp;&Phi;<sub>eff</sub> (circles, computed) tracks experimental
+      yield strength (squares) across H, C, N and O as a function of solute content &mdash; with no empirical calibration.
+      <span class="fig-pub">· from the published paper</span></figcaption>
+  </figure>
+
+  <h2 class="reveal">Part II &mdash; when atoms have company: short-range order</h2>
+  <p class="reveal">A real titanium alloy is never just titanium plus one interstitial. There are substitutional elements too
+    &mdash; aluminium, vanadium, molybdenum &mdash; and they are not randomly scattered. They prefer certain neighbour
+    distances, an effect called <strong>short-range order (SRO)</strong>. In the second part of this chapter (now under
+    review) I asked whether the same bonding language still works once the lattice gets crowded.</p>
+
+  <figure class="reveal">
+    <img src="assets/img/ch1_binding_energy.png" alt="Binding energy versus neighbour distance for Ti-Al, Ti-V, Ti-Mo">
+    <figcaption><b>FIG 7</b> &nbsp;Binding energy versus solute&ndash;solute separation. All three substitutionals prefer to
+      cluster at the second-nearest-neighbour shell &mdash; molybdenum most strongly (+229&nbsp;meV). SRO is real and it is directional.</figcaption>
+  </figure>
+
+  <p class="reveal">And the bonding hierarchy held. The same ICOHP that ranked the interstitials now ranks the substitutionals
+    (Ti&ndash;Mo &gt; Ti&ndash;Al &gt; Ti&ndash;V), and it maps cleanly onto how each one raises the stacking-fault barrier.
+    When I combined substitutionals and interstitials into ternary systems, the interstitial bonds actually got
+    <em>stronger</em> &mdash; the alloy chemistry and the interstitial strengthening reinforce one another.</p>
+
+  <figure class="reveal">
+    <img src="assets/img/ch1_pdos_substitutional.png" alt="DOS, pCOHP and bonding orbitals for Ti-Al, Ti-V, Ti-Mo">
+    <figcaption><b>FIG 8</b> &nbsp;DOS, pCOHP and the bonding / non-bonding / anti-bonding orbitals for the substitutionals.
+      Molybdenum forms the most covalent, directional bond &mdash; and the largest strengthening.</figcaption>
+  </figure>
+
+  <figure class="reveal">
+    <img src="assets/img/ch1_gsfe_sro.png" alt="GSFE with short-range-order configurations">
+    <figcaption><b>FIG 9</b> &nbsp;Prismatic GSFE with SRO configurations. Substitutionals (left) and interstitials (right)
+      both raise the glide barrier, and the size of the rise follows the bond strength.</figcaption>
+  </figure>
+
+  <figure class="reveal">
+    <img src="assets/img/ch1_tensile_strength.png" alt="Predicted tensile strength versus alloy content">
+    <figcaption><b>FIG 10</b> &nbsp;Putting it together: predicted tensile strength versus alloying content for the Ti&ndash;Al,
+      Ti&ndash;V and Ti&ndash;Mo families, each interstitial layered on top. Open circles are experiments.</figcaption>
+  </figure>
+
+  <div class="note reveal"><b>Where this stands:</b> Part I is published in the <em>Journal of Applied Physics</em> (2025).
+    Part II &mdash; the substitutional + short-range-order story &mdash; is written up and under review. The figures above are
+    the real ones from both manuscripts.</div>
+
+  <h2 class="reveal">Why it matters for the rest of the journey</h2>
+  <p class="reveal">Chapter 1 established the grammar I use for everything afterwards: <strong>the integrated bond strength,
+    ICOHP, is a currency I can spend at any scale.</strong> Here it bought me a strength predictor. In the next chapter it
+    buys something different &mdash; not how strong a bond is, but which <em>direction</em> it points, and therefore which way
+    the whole crystal chooses to slip.</p>
+
+  <div class="pager">
+    <a href="index.html"><div class="dir">&larr; BACK</div><div class="ttl">The journey overview</div></a>
+    <a class="next" href="chapter2.html"><div class="dir">NEXT &rarr;</div><div class="ttl">2 · Which way does a metal slip?</div></a>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div><div class="brand" style="margin-bottom:8px"><span class="dot"></span><span>From Atoms to Agents</span></div>
+      <div style="font-size:.85rem">&copy; 2026 Md Faiz Akhtar · MSE, IIT Kanpur</div></div>
+    <div class="foot-links">
+      <a href="about.html">About &amp; CV</a>
+      <a href="mailto:faiza21@iitk.ac.in">Email</a>
+      <a href="https://www.linkedin.com/in/md-faiz-akhtar-a51960246/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/akhtar07" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://pubs.aip.org/aip/jap/article/138/17/175111/3371105/A-novel-electronic-structure-based-prediction-of" target="_blank" rel="noopener">J. Appl. Phys. 2025</a>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
