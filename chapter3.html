@@ -40,7 +40,7 @@
       from orbitals.</p>
     <div class="ch-meta">
       <span class="chip"><b>Method</b> &nbsp;Tight-binding orbital descriptors + DFT/LOBSTER</span>
-      <span class="chip"><b>Benchmark</b> &nbsp;610 binary pairs &middot; 48 elements</span>
+      <span class="chip"><b>Resource</b> &nbsp;970 hand-verified pairs &middot; 69 elements &middot; 127k-entry DFT database</span>
       <span class="chip"><b>Status</b> &nbsp;Manuscript under review (2026)</span>
     </div>
   </div>
@@ -57,18 +57,19 @@
     understand the answer &mdash; while making it quantitative and honest. That is <strong>COMPASS</strong>: a small set of
     orbital descriptors that predict how any binary pair behaves, and tell you <em>why</em>.</p>
 
-  <a class="linkout reveal" href="https://compass-explorer.netlify.app/" target="_blank" rel="noopener">
+  <a class="linkout reveal" href="https://akhtar07.github.io/compass-explorer/" target="_blank" rel="noopener">
     <span class="ic">&#129517;</span>
     <span class="tx"><b>Try the COMPASS Explorer &mdash; live tool</b>
-      <span>Pick any two of the 48 elements and watch the descriptors and predicted phase behaviour update in real time &mdash; the interactive app I built on top of this work.</span></span>
+      <span>Pick any two of the 69 elements and watch the descriptors and predicted phase behaviour update in real time &mdash; the interactive app I built on top of this work.</span></span>
     <span class="arr">&rarr;</span>
   </a>
 
-  <h2 class="reveal">Twelve descriptors, built from the atom up</h2>
-  <p class="reveal">Eight of the descriptors (D1&ndash;D8, &ldquo;COMPASS-8&rdquo;) come straight from Harrison tight-binding
-    theory and free-atom data &mdash; orbital energies, radii, bond-energy estimates. Four more (D9&ndash;D12,
-    &ldquo;COMPASS-12&rdquo;) come from first-principles DFT bonding analysis &mdash; the same ICOHP and ICOBI bond measures that
-    run through this whole thesis. Every descriptor is a physical quantity you can name.</p>
+  <h2 class="reveal">Thirteen descriptors, built from the atom up</h2>
+  <p class="reveal">Eight of the descriptors (D1&ndash;D8) come straight from Harrison tight-binding
+    theory and free-atom data &mdash; orbital energies, radii, bond-energy estimates. Four more (D9&ndash;D12)
+    come from first-principles DFT bonding analysis &mdash; the same ICOHP and ICOBI bond measures that
+    run through this whole thesis (available for the original 610-pair subset). A thirteenth, D13, is simply the
+    periodic-table group distance between the two elements. Every descriptor is a physical quantity you can name.</p>
 
   <div class="diagram reveal">
     <svg viewBox="0 0 820 300" role="img" aria-label="COMPASS descriptor pipeline diagram">
@@ -88,12 +89,12 @@
 
       <!-- descriptor stack -->
       <rect x="220" y="60" width="210" height="180" rx="12" fill="#172238" stroke="#22304b"/>
-      <text x="325" y="86" fill="#a78bfa" font-size="13" text-anchor="middle" font-family="JetBrains Mono">12 ORBITAL DESCRIPTORS</text>
+      <text x="325" y="86" fill="#a78bfa" font-size="13" text-anchor="middle" font-family="JetBrains Mono">13 INTERPRETABLE DESCRIPTORS</text>
       <text x="240" y="116" fill="#e8ecf4" font-size="13" font-family="JetBrains Mono">D2 · orbital-energy mismatch</text>
       <text x="240" y="142" fill="#e8ecf4" font-size="13" font-family="JetBrains Mono">D7 · size mismatch</text>
       <text x="240" y="168" fill="#93a0b8" font-size="13" font-family="JetBrains Mono">D1,D3–D6 · bonding</text>
       <text x="240" y="194" fill="#93a0b8" font-size="13" font-family="JetBrains Mono">D8 · valence</text>
-      <text x="240" y="220" fill="#6b7892" font-size="12" font-family="JetBrains Mono">D9–D12 · ICOHP / ICOBI (DFT)</text>
+      <text x="240" y="220" fill="#6b7892" font-size="12" font-family="JetBrains Mono">D9–D12 · ICOHP/ICOBI · D13 · group dist.</text>
       <path d="M440,150 L500,150" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr)"/>
 
       <!-- four classes -->
@@ -109,52 +110,61 @@
       </g>
     </svg>
     <figcaption style="margin-top:14px;font-size:.86rem;color:var(--muted)">How COMPASS reads a binary pair: free-atom orbital
-      properties &rarr; twelve interpretable descriptors &rarr; one of four phase-behaviour classes, the four outcomes a
+      properties &rarr; thirteen interpretable descriptors &rarr; one of four phase-behaviour classes, the four outcomes a
       metallurgist actually cares about.</figcaption>
   </div>
 
-  <h2 class="reveal">The honest benchmark</h2>
+  <h2 class="reveal">The honest benchmark &mdash; and an open resource</h2>
   <p class="reveal">A model is only as trustworthy as the data it is judged on, so I built the benchmark by hand:
-    <strong>610 binary pairs across 48 elements</strong>, each one labelled by reading the actual CALPHAD phase diagram and
-    sorting it into isomorphous, partial, intermetallic or immiscible. No scraped labels, no shortcuts. Then I tested COMPASS
-    against it &mdash; and against the classic two-rule Hume&ndash;Rothery baseline and a 132-feature machine-learning model.</p>
+    <strong>970 binary pairs across 69 elements</strong> (including the lanthanides and actinides), each one labelled by reading
+    the actual CALPHAD phase diagram and sorting it into isomorphous, partial, intermetallic or immiscible. No scraped labels,
+    no shortcuts. Alongside it I assembled a <strong>127,487-entry, three-source DFT database</strong> (Materials Project, OQMD,
+    JARVIS) over 2,628 metal&ndash;metal systems &mdash; with the first cross-source agreement check for this chemistry. Then I
+    tested COMPASS against the classic two-rule Hume&ndash;Rothery baseline and a 132-feature machine-learning model (MAGPIE).</p>
 
   <div class="kpis reveal">
-    <div class="kpi"><div class="n">0.673</div><div class="l">macro-F1 (COMPASS-12), up from 0.629 with 8 descriptors</div></div>
-    <div class="kpi"><div class="n">+0.16</div><div class="l">balanced-accuracy gain over Hume&ndash;Rothery (P &lt; 0.001)</div></div>
-    <div class="kpi"><div class="n">~89%</div><div class="l">of a 132-feature MAGPIE model&rsquo;s score &mdash; at 1/10 the size</div></div>
-    <div class="kpi"><div class="n">12</div><div class="l">descriptors, every one physically interpretable</div></div>
+    <div class="kpi"><div class="n">0.709</div><div class="l">LOEO macro-F1 (COMPASS-13) &mdash; within ~0.07 of MAGPIE&rsquo;s 0.777</div></div>
+    <div class="kpi"><div class="n">+0.27</div><div class="l">balanced-accuracy gain over Hume&ndash;Rothery (P &lt; 0.001)</div></div>
+    <div class="kpi"><div class="n">970</div><div class="l">binary pairs hand-verified across 69 elements</div></div>
+    <div class="kpi"><div class="n">127k</div><div class="l">tri-source DFT entries (MP&middot;OQMD&middot;JARVIS), 2,628 systems</div></div>
   </div>
 
+  <p class="reveal">The framing matters, and I want to be honest about it: the 132-feature MAGPIE black box is the
+    <em>most</em> accurate single representation. COMPASS comes within about 0.07 in macro-F1 &mdash; but, unlike the black box,
+    it tells you <em>why</em>, through explicit per-class rules and SHAP. Transparency, not raw accuracy, is the contribution.</p>
+
   <figure class="reveal">
-    <img src="assets/img/ch3_classmap.png" alt="COMPASS classification map: the four phase classes separated in descriptor space">
-    <figcaption><b>FIG 1 &middot; the one to remember</b> &nbsp;The 610 hand-verified binary pairs, plotted in the
-      D<sub>2</sub>&ndash;D<sub>7</sub> descriptor plane and coloured by class (a&ndash;d). Each phase behaviour occupies its own
-      region; panel (e) is the PLS-DA projection and (f) the class co-occurrence matrix. The classes genuinely separate &mdash;
-      that is the whole result, in one picture.<span class="fig-pub">&middot; from the COMPASS manuscript</span></figcaption>
+    <img src="assets/img/ch3_maps_v2.png" alt="COMPASS classification map: the four phase classes separated in the D2-D7 descriptor plane" style="background:#fff;padding:16px;border-radius:12px">
+    <figcaption><b>FIG 1 &middot; the one to remember</b> &nbsp;All 970 hand-verified binary pairs, plotted in the
+      D<sub>2</sub>&ndash;D<sub>7</sub> descriptor plane (orbital-energy mismatch vs size mismatch) and coloured by class. Each
+      phase behaviour occupies its own region: isomorphous collapses to small D<sub>2</sub>, near-zero D<sub>7</sub>; immiscible
+      flies out to large size mismatch (the 15% rule, recovered); partial sits in the transition zone. Two physically meaningful
+      numbers organise the periodic table of binaries.<span class="fig-pub">&middot; from the COMPASS study</span></figcaption>
   </figure>
 
   <p class="pull reveal">Two master variables carry most of the signal: D2, the bond-weighted orbital-energy mismatch, and
     D7, the Hume&ndash;Rothery size mismatch. Eighty years on, size and energy still rule &mdash; but now with numbers.</p>
 
   <figure class="reveal">
-    <img src="assets/img/ch3_drivers.png" alt="PLS-DA first-component descriptor loadings for each of the four phase classes">
-    <figcaption><b>FIG 2</b> &nbsp;Which descriptors drive each class. The PLS-DA loadings show, for example, that immiscibility is
-      pushed by a large negative D<sub>7</sub> (size mismatch) while the intermetallic class leans on D<sub>2</sub> and the bonding
-      descriptors D<sub>10</sub>&ndash;D<sub>12</sub>. Nothing here is a black box.<span class="fig-pub">&middot; from the COMPASS manuscript</span></figcaption>
+    <img src="assets/img/ch3_shap_v2.png" alt="TreeSHAP global descriptor importance, stacked across the four phase classes" style="background:#fff;padding:16px;border-radius:12px">
+    <figcaption><b>FIG 2</b> &nbsp;Which descriptors drive each class. TreeSHAP attribution ranks the descriptors
+      D<sub>2</sub>&nbsp;&gt;&nbsp;D<sub>7</sub>&nbsp;&gt;&nbsp;D<sub>4</sub>&nbsp;&hellip;: D<sub>2</sub> (orbital-energy mismatch)
+      rules the isomorphous and intermetallic classes, while D<sub>7</sub> (size mismatch) rules the partial and immiscible ones.
+      The model rediscovers the textbook physics on its own &mdash; nothing here is a black box.<span class="fig-pub">&middot; from the COMPASS study</span></figcaption>
   </figure>
 
   <div class="tbl-scroll reveal">
     <table class="dtable">
-      <caption>Macro-F1 across feature sets (five-fold CV) &mdash; smaller and interpretable beats big and opaque</caption>
-      <thead><tr><th>Feature set</th><th># features</th><th>Macro-F1</th><th>Note</th></tr></thead>
+      <caption>LOEO macro-F1 across feature sets &mdash; MAGPIE is most accurate; COMPASS-13 is within ~0.07 and fully interpretable</caption>
+      <thead><tr><th>Feature set</th><th># features</th><th>LOEO macro-F1</th><th>Note</th></tr></thead>
       <tbody>
-        <tr><td>Hume&ndash;Rothery (2 rules)</td><td class="num">2</td><td class="num">0.510</td><td>classic baseline</td></tr>
-        <tr><td>COMPASS-8</td><td class="num">8</td><td class="num">0.629</td><td>tight-binding orbital descriptors</td></tr>
-        <tr><td>COMPASS-12</td><td class="num">12</td><td class="num hl">0.673</td><td>+ DFT bonding (ICOHP / ICOBI)</td></tr>
-        <tr><td>MAGPIE (full)</td><td class="num">132</td><td class="num">0.760</td><td>COMPASS-12 recovers ~89% of this</td></tr>
+        <tr><td>e/a baseline</td><td class="num">2</td><td class="num">0.400</td><td>valence-electron lower bound</td></tr>
+        <tr><td>COMPASS-13</td><td class="num">13</td><td class="num hl">0.709</td><td>interpretable &mdash; rules + SHAP</td></tr>
+        <tr><td>JARVIS-CFID</td><td class="num">2190</td><td class="num">0.741</td><td>large composition featurization</td></tr>
+        <tr><td>MAGPIE (full)</td><td class="num">132</td><td class="num">0.777</td><td>most accurate single feature set</td></tr>
       </tbody>
     </table>
+    <p style="font-size:.84rem;color:var(--muted);margin-top:8px">Adding per-system convex-hull stability to MAGPIE lifts this to <b>0.817</b> (+0.040) &mdash; the one DFT quantity worth computing. Per-element DFT bonding descriptors, by contrast, are redundant with composition.</p>
   </div>
 
   <p class="reveal">And because the bonding descriptors come from the same first-principles machinery as the rest of this thesis,
@@ -163,7 +173,7 @@
     with the full quantum calculation.</p>
 
   <div class="note reveal"><b>Where this stands:</b> COMPASS is a recent manuscript (2026), under review. The interactive
-    <a href="https://compass-explorer.netlify.app/" target="_blank" rel="noopener" style="color:var(--ac)">COMPASS Explorer</a>
+    <a href="https://akhtar07.github.io/compass-explorer/" target="_blank" rel="noopener" style="color:var(--ac)">COMPASS Explorer</a>
     is already live if you want to try the descriptors on any element pair yourself.</div>
 
   <h2 class="reveal">Why it matters for the rest of the journey</h2>
@@ -187,7 +197,7 @@
       <a href="mailto:faiza21@iitk.ac.in">Email</a>
       <a href="https://www.linkedin.com/in/md-faiz-akhtar-a51960246/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/akhtar07" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://compass-explorer.netlify.app/" target="_blank" rel="noopener">COMPASS Explorer</a>
+      <a href="https://akhtar07.github.io/compass-explorer/" target="_blank" rel="noopener">COMPASS Explorer</a>
     </div>
   </div>
 </footer>
