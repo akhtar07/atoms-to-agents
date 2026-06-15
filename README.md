@@ -18,7 +18,7 @@ website/
 ├── css/style.css       # the whole design system
 ├── js/main.js          # scroll reveal, progress bar, mobile nav
 ├── assets/img/         # the figures (compressed for web)
-├── netlify.toml        # deploy config
+├── .github/workflows/  # GitHub Pages deploy workflow
 └── README.md
 ```
 
@@ -32,29 +32,23 @@ python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
-## Deploy to Netlify via GitHub
+## Deploy via GitHub Pages
 
-1. **Create the repo and push** (run from inside `website/`):
-   ```bash
-   cd website
-   git init
-   git add .
-   git commit -m "From Atoms to Agents — PhD journey site"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/atoms-to-agents.git
-   git push -u origin main
-   ```
+The site is deployed with GitHub Pages (Source = **GitHub Actions**); the workflow
+is at `.github/workflows/deploy-pages.yml`. Every push to `main` rebuilds and
+publishes automatically.
 
-2. **Connect to Netlify**
-   - Go to https://app.netlify.com → **Add new site → Import an existing project**
-   - Pick GitHub and select the repo.
-   - **Build command:** leave empty. **Publish directory:** `.` (already set in `netlify.toml`).
-   - Click **Deploy**. You get a `*.netlify.app` URL in under a minute.
+```bash
+cd website
+git add .
+git commit -m "update site"
+git push origin main      # → auto-deploys
+```
 
-3. **Custom domain (optional):** Site settings → Domain management → add your own domain.
+Live at **https://akhtar07.github.io/atoms-to-agents/**.
 
-> Tip: if you'd rather not push the whole repo first, you can drag-and-drop the
-> `website/` folder straight onto the Netlify dashboard for an instant deploy.
+One-time setup (already done): repo **Settings → Pages → Source → GitHub Actions**,
+and **Settings → Actions → General → Workflow permissions → Read and write**.
 
 ## Editing
 
