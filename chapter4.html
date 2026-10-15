@@ -7,7 +7,7 @@
 <meta name="description" content="A hierarchical ICME pipeline carrying titanium from DFT through MD to DAMASK crystal plasticity, validated with cryogenic tension and EBSD. Md Faiz Akhtar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%23fb7185' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%23fb7185'/></svg>">
 <style>:root{--ac:var(--c4)}</style>
@@ -17,16 +17,25 @@
 
 <nav class="nav">
   <div class="wrap">
-    <a class="brand" href="index.html"><span class="dot"></span><span>From Atoms to Agents<small>Chapter 4 · Real metal</small></span></a>
+    <a class="brand" href="index.html"><span class="dot"></span><span>Md Faiz Akhtar<small>Thesis · Chapter 4 · Real metal</small></span></a>
     <button class="nav-toggle" aria-label="menu">&#9776;</button>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="chapter1.html">1 · Strength</a>
-      <a href="chapter2.html">2 · Direction</a>
-      <a href="chapter3.html">3 · Chemistry</a>
-      <a href="chapter4.html">4 · Real metal</a>
-      <a href="chapter5.html">5 · Automation</a>
+      <div class="dd">
+        <a href="index.html#thesis" data-group="thesis">Thesis</a>
+        <div class="dd-menu">
+          <a href="chapter1.html" style="color:var(--c1)"><i>1</i><span style="color:var(--text)">How strong is a bond?</span></a>
+          <a href="chapter2.html" style="color:var(--c2)"><i>2</i><span style="color:var(--text)">Which way does a metal slip?</span></a>
+          <a href="chapter3.html" style="color:var(--c3)"><i>3</i><span style="color:var(--text)">Will two elements even mix? (COMPASS)</span></a>
+          <a href="chapter4.html" style="color:var(--c4)"><i>4</i><span style="color:var(--text)">Does it hold up in a real metal?</span></a>
+          <a href="chapter5.html" style="color:var(--c5)"><i>5</i><span style="color:var(--text)">Can an agent do this for me?</span></a>
+        </div>
+      </div>
+      <a href="agents.html">AI Agents</a>
+      <a href="research.html">Research</a>
+      <a href="about.html#publications">Publications</a>
       <a href="about.html">About</a>
+      <a class="nav-cv" href="assets/Md_Faiz_Akhtar_CV.pdf" target="_blank" rel="noopener">CV &darr;</a>
     </div>
   </div>
 </nav>
@@ -39,9 +48,9 @@
       pulled apart in the lab, cooled to 143&nbsp;K, and predicted from first principles all the way up.</p>
     <div class="ch-meta">
       <span class="chip"><b>Scales</b> &nbsp;DFT &rarr; MD &rarr; crystal plasticity</span>
-      <span class="chip"><b>Codes</b> &nbsp;VASP &middot; LAMMPS &middot; DAMASK</span>
+      <span class="chip"><b>Codes</b> &nbsp;VASP &middot; LAMMPS &middot; DAMASK &middot; VPSC</span>
       <span class="chip"><b>Experiment</b> &nbsp;cryogenic tension + EBSD</span>
-      <span class="chip"><b>Status</b> &nbsp;~75% computational · EBSD in progress</span>
+      <span class="chip"><b>Status</b> &nbsp;Complete &middot; in the final thesis &middot; manuscript in preparation</span>
     </div>
   </div>
 </header>
@@ -134,15 +143,13 @@
     thing to get right, because it sets the texture and the anisotropy. From the DFT stacking-fault hierarchy it comes out clean:</p>
 
   <div class="barviz reveal">
-    <div class="row"><div class="lab">prismatic &langle;a&rangle;</div><div class="track"><div class="fill" style="width:44%">easiest</div></div></div>
-    <div class="row"><div class="lab">basal &langle;a&rangle;</div><div class="track"><div class="fill" style="width:58%">&nbsp;</div></div></div>
-    <div class="row"><div class="lab">pyr-I &langle;a&rangle;</div><div class="track"><div class="fill" style="width:71%">&nbsp;</div></div></div>
-    <div class="row"><div class="lab">pyr-I &langle;c+a&rangle;</div><div class="track"><div class="fill" style="width:88%">&nbsp;</div></div></div>
-    <div class="row"><div class="lab">pyr-II &langle;c+a&rangle;</div><div class="track"><div class="fill" style="width:100%">hardest</div></div></div>
+    <div class="row"><div class="lab">prismatic &langle;a&rangle;</div><div class="track"><div class="fill" style="width:29.6%">1.00</div></div></div>
+    <div class="row"><div class="lab">basal &langle;a&rangle;</div><div class="track"><div class="fill" style="width:50%">1.69</div></div></div>
+    <div class="row"><div class="lab">pyr &langle;c+a&rangle;</div><div class="track"><div class="fill" style="width:100%">3.38</div></div></div>
   </div>
-  <p class="reveal" style="font-size:.86rem;color:var(--muted);margin-top:-12px">Relative unstable stacking-fault energy
-    &gamma;<sub>usf</sub> (DFT) &mdash; prismatic lowest, &langle;c+a&rangle; pyramidal highest. Absolute values are being finalized
-    against the experiments; the <em>ordering</em> is what fixes the crystal-plasticity CRSS ratios.</p>
+  <p class="reveal" style="font-size:.86rem;color:var(--muted);margin-top:-12px">Slip-resistance ratios fixed by the DFT stacking-fault
+    energies: prismatic : basal : pyramidal &langle;c+a&rangle; = <strong>1 : 1.69 : 3.38</strong>. Only one number &mdash; the prismatic
+    resistance &mdash; is calibrated at each temperature; everything else follows from the ratios.</p>
 
   <h2 class="reveal">Where the experiment comes in &mdash; EBSD</h2>
   <p class="reveal">A crystal-plasticity simulation is only as honest as the microstructure you feed it. Most studies assume a
@@ -150,11 +157,62 @@
     orientations, sizes and morphology of my specimens, which become the representative volume DAMASK deforms &mdash; real
     texture in, real anisotropy out.</p>
 
-  <div class="note reveal"><b>Honestly where this stands:</b> the computational backbone &mdash; the DFT dataset for all five slip
-    families and the MD potential benchmarking &mdash; is about three-quarters done. The cryogenic tension data and the EBSD
-    orientation maps are being acquired now, and the EBSD-informed DAMASK runs depend on them. So this chapter is the most
-    actively moving part of the thesis: a finished skeleton waiting on its experimental flesh. The figures here are
-    deliberately schematic for that reason &mdash; the measured stress&ndash;strain curves and pole figures go in as they arrive.</div>
+  <h2 class="reveal" id="results">The result: four flow curves, one calibrated number each</h2>
+  <p class="reveal">Commercially pure titanium (Grade&nbsp;2) was pulled in tension at 298, 223, 173 and 143&nbsp;K and mapped by EBSD
+    before and after. Cooling did what titanium is famous for: it made the metal <em>both</em> stronger and more ductile.</p>
+
+  <div class="kpis reveal">
+    <div class="kpi"><div class="n"><span data-count="357">357</span>&rarr;<span data-count="565">565</span><small> MPa</small></div><div class="l">yield strength, 298&nbsp;K &rarr; 143&nbsp;K (357&nbsp;&plusmn;&nbsp;26 &rarr; 565&nbsp;&plusmn;&nbsp;13; mean &plusmn; s.d. of two tests)</div></div>
+    <div class="kpi"><div class="n">28&rarr;36<small>%</small></div><div class="l">elongation to fracture over the same cooling (one specimen per temperature)</div></div>
+    <div class="kpi"><div class="n">15.5<small> MPa</small></div><div class="l">RMS error of DAMASK (spectral / FFT solver) over all four flow curves</div></div>
+    <div class="kpi"><div class="n">6.8<small> MPa</small></div><div class="l">RMS error of VPSC over the same curves</div></div>
+    <div class="kpi"><div class="n">&le;0.6<small> pp</small></div><div class="l">error in the <em>uncalibrated</em> rise of extension-twin fraction at 143&nbsp;K</div></div>
+  </div>
+
+  <div class="diagram reveal">
+    <svg viewBox="0 0 820 300" role="img" aria-label="Yield strength at 298 K and 143 K, and the model errors">
+      <defs><linearGradient id="yb" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fb7185" stop-opacity=".35"/><stop offset="1" stop-color="#fb7185"/></linearGradient></defs>
+      <line x1="90" y1="250" x2="420" y2="250" stroke="#2a3a5c"/>
+      <line x1="90" y1="40" x2="90" y2="250" stroke="#2a3a5c"/>
+      <g font-family="JetBrains Mono" font-size="11" fill="#6c7894">
+        <text x="80" y="254" text-anchor="end">0</text><text x="80" y="160" text-anchor="end">300</text><text x="80" y="66" text-anchor="end">600</text>
+        <text x="20" y="150" transform="rotate(-90 20 150)" text-anchor="middle">yield (MPa)</text>
+      </g>
+      <line x1="90" y1="156" x2="420" y2="156" stroke="#1e2a44" stroke-dasharray="3 5"/>
+      <line x1="90" y1="62" x2="420" y2="62" stroke="#1e2a44" stroke-dasharray="3 5"/>
+      <!-- 357 MPa -> height 357/600*188 = 112 ; 565 -> 177 -->
+      <rect x="140" y="138" width="90" height="112" rx="6" fill="url(#yb)"/>
+      <rect x="290" y="73" width="90" height="177" rx="6" fill="url(#yb)"/>
+      <line x1="185" y1="130" x2="185" y2="146" stroke="#fff" stroke-width="1.5"/><line x1="335" y1="69" x2="335" y2="77" stroke="#fff" stroke-width="1.5"/>
+      <g font-family="Space Grotesk, Inter" font-weight="700" fill="#fff" text-anchor="middle">
+        <text x="185" y="122" font-size="18">357</text><text x="335" y="60" font-size="18">565</text></g>
+      <g font-family="JetBrains Mono" font-size="12" fill="#9aa6bf" text-anchor="middle">
+        <text x="185" y="272">298 K</text><text x="335" y="272">143 K</text></g>
+      <g font-family="Inter" font-size="13">
+        <text x="470" y="70" fill="#e9edf6" font-weight="600">One prismatic CRSS per temperature</text>
+        <text x="470" y="92" fill="#9aa6bf">is the only fitted quantity.</text>
+        <text x="470" y="132" fill="#fb7185" font-family="JetBrains Mono" font-size="12">DFT ratios  1 : 1.69 : 3.38</text>
+        <text x="470" y="170" fill="#e9edf6" font-weight="600">Flow-curve RMS error</text>
+        <rect x="470" y="182" width="232" height="14" rx="4" fill="#fb7185" opacity=".85"/><text x="710" y="194" fill="#e9edf6" font-family="JetBrains Mono" font-size="12">15.5 DAMASK</text>
+        <rect x="470" y="204" width="102" height="14" rx="4" fill="#38bdf8" opacity=".85"/><text x="580" y="216" fill="#e9edf6" font-family="JetBrains Mono" font-size="12">6.8 VPSC</text>
+        <text x="470" y="250" fill="#9aa6bf">Twin fraction at 143 K predicted without</text>
+        <text x="470" y="268" fill="#9aa6bf">calibration, within 0.6 percentage points.</text>
+      </g>
+    </svg>
+    <figcaption style="margin-top:14px;font-size:.86rem;color:var(--muted)">Drawn from the numbers reported in the thesis: measured yield strength
+      at the two ends of the temperature range, and the error of the two crystal-plasticity models across all four temperatures.</figcaption>
+  </div>
+
+  <p class="pull reveal">DFT is reliable for the <em>ratios</em> of slip resistances. The experiment sets their <em>magnitude</em>.
+    Together they reproduce four flow curves and predict twinning they were never fitted to.</p>
+
+  <p class="reveal">The other lesson was about absolute numbers. A Peierls&ndash;Nabarro estimate of the CRSS straight from DFT is only
+    trustworthy when the dislocation core is wide (&zeta;/b&nbsp;&gt;&nbsp;1). That criterion turns up again in Chapter&nbsp;5, when the
+    agents run this chain on their own.</p>
+
+  <div class="note update reveal"><b>Updated Oct 2026:</b> an earlier version of this page said the computation was ~75% done and the EBSD
+    and tension data were still being acquired. Both are now finished and in the thesis: tension at four temperatures, EBSD, and
+    EBSD-informed DAMASK and VPSC simulations. The figures here remain schematic because the manuscript is not yet published.</div>
 
   <h2 class="reveal">Why it matters for the rest of the journey</h2>
   <p class="reveal">Chapter 4 is the proof that the bond-level story scales all the way to a load frame. But it also taught me
@@ -170,17 +228,26 @@
 
 <footer>
   <div class="wrap">
-    <div><div class="brand" style="margin-bottom:8px"><span class="dot"></span><span>From Atoms to Agents</span></div>
-      <div style="font-size:.85rem">&copy; 2026 Md Faiz Akhtar · MSE, IIT Kanpur</div></div>
-    <div class="foot-links">
-      <a href="about.html">About &amp; CV</a>
-      <a href="mailto:faiza21@iitk.ac.in">Email</a>
-      <a href="https://www.linkedin.com/in/md-faiz-akhtar-a51960246/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/akhtar07" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://pubs.aip.org/aip/jap/article/138/17/175111/3371105/A-novel-electronic-structure-based-prediction-of" target="_blank" rel="noopener">J. Appl. Phys. 2025</a>
+    <div style="max-width:380px">
+      <div class="brand" style="margin-bottom:12px"><span class="dot"></span><span>From Atoms to Agents</span></div>
+      <div style="font-size:.9rem;line-height:1.6">Md Faiz Akhtar &middot; PhD candidate, Materials Science &amp; Engineering, IIT Kanpur. Electronic structure, multiscale plasticity, machine-learned potentials and AI agents for materials.</div>
+      <div style="font-size:.8rem;color:var(--muted-2);margin-top:14px">&copy; 2026 Md Faiz Akhtar &middot; MSE, IIT Kanpur</div>
+    </div>
+    <div class="foot-cols">
+      <div class="col"><span class="h">Thesis</span>
+        <a href="chapter1.html">1 &middot; Strength</a><a href="chapter2.html">2 &middot; Direction</a><a href="chapter3.html">3 &middot; Chemistry</a><a href="chapter4.html">4 &middot; Real metal</a><a href="chapter5.html">5 &middot; Automation</a></div>
+      <div class="col"><span class="h">Work</span>
+        <a href="agents.html">AI agents</a><a href="research.html">Research</a><a href="about.html#publications">Publications</a><a href="https://akhtar07.github.io/tisci-explorer/" target="_blank" rel="noopener">TiSci explorer</a><a href="https://akhtar07.github.io/compass-explorer/" target="_blank" rel="noopener">COMPASS explorer</a></div>
+      <div class="col"><span class="h">Contact</span>
+        <a href="about.html">About &amp; CV</a>
+        <a href="mailto:faiza21@iitk.ac.in">faiza21@iitk.ac.in</a>
+        <a href="https://www.linkedin.com/in/md-faiz-akhtar-a51960246/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/akhtar07" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://pubs.aip.org/aip/jap/article/138/17/175111/3371105/A-novel-electronic-structure-based-prediction-of" target="_blank" rel="noopener">JAP 2025</a></div>
     </div>
   </div>
 </footer>
+<button class="totop" aria-label="Back to top">&uarr;</button>
 <script src="js/main.js"></script>
 </body>
 </html>

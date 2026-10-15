@@ -3,65 +3,62 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About · Md Faiz Akhtar — From Atoms to Agents</title>
-<meta name="description" content="Md Faiz Akhtar — computational materials scientist, IIT Kanpur. Education, skills, publications, conferences and CV.">
+<title>About & CV — Md Faiz Akhtar</title>
+<meta name="description" content="Md Faiz Akhtar — computational materials physicist, IIT Kanpur. Education, experience, publications, talks, skills and CV.">
+<meta property="og:title" content="About & CV — Md Faiz Akhtar">
+<meta property="og:description" content="Md Faiz Akhtar — computational materials physicist, IIT Kanpur. Education, experience, publications, talks, skills and CV.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#06080f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%23818cf8' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%232dd4bf'/></svg>">
-<style>
-:root{--ac:var(--violet)}
-.skillgroup{margin:18px 0}
-.skillgroup .gl{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);margin-bottom:10px}
-.tags{display:flex;flex-wrap:wrap;gap:9px}
-.tag{font-size:.82rem;padding:7px 13px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--text)}
-.pub{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--ac);border-radius:10px;
-  padding:15px 18px;margin:12px 0;transition:.2s}
-.pub:hover{border-color:var(--ac);transform:translateX(4px)}
-.pub .t{font-weight:600;color:#fff;font-size:.98rem}
-.pub .m{color:var(--muted);font-size:.85rem;margin-top:4px}
-.pub .venue{color:var(--ac);font-weight:600}
-.pub .badge{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;padding:2px 8px;
-  border-radius:999px;border:1px solid var(--line);color:var(--muted-2);margin-left:6px;vertical-align:middle}
-.pub .badge.pub{color:#34d399;border-color:rgba(52,211,153,.4)}
-.pub .badge.prep{color:#fbbf24;border-color:rgba(251,191,36,.4)}
-.cv-list{list-style:none;padding:0;margin:18px 0}
-.cv-list li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:10px 0}
-.cv-list li b{color:#fff}
-.cv-list li .w{color:var(--muted);font-size:.86rem;display:block;margin-top:3px}
-.cv-list li .when{font-family:var(--mono);font-size:.74rem;color:var(--ac);float:right}
-</style>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%232dd4bf' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%232dd4bf'/></svg>">
+<style>:root{--ac:var(--teal)}</style>
 </head>
 <body>
 <div id="progress"></div>
-
 <nav class="nav">
   <div class="wrap">
-    <a class="brand" href="index.html"><span class="dot"></span><span>From Atoms to Agents<small>About &amp; CV</small></span></a>
+    <a class="brand" href="index.html"><span class="dot"></span><span>Md Faiz Akhtar<small>About &amp; CV</small></span></a>
     <button class="nav-toggle" aria-label="menu">&#9776;</button>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="chapter1.html">1 · Strength</a>
-      <a href="chapter2.html">2 · Direction</a>
-      <a href="chapter3.html">3 · Chemistry</a>
-      <a href="chapter4.html">4 · Real metal</a>
-      <a href="chapter5.html">5 · Automation</a>
+      <div class="dd">
+        <a href="index.html#thesis" data-group="thesis">Thesis</a>
+        <div class="dd-menu">
+          <a href="chapter1.html" style="color:var(--c1)"><i>1</i><span style="color:var(--text)">How strong is a bond?</span></a>
+          <a href="chapter2.html" style="color:var(--c2)"><i>2</i><span style="color:var(--text)">Which way does a metal slip?</span></a>
+          <a href="chapter3.html" style="color:var(--c3)"><i>3</i><span style="color:var(--text)">Will two elements even mix? (COMPASS)</span></a>
+          <a href="chapter4.html" style="color:var(--c4)"><i>4</i><span style="color:var(--text)">Does it hold up in a real metal?</span></a>
+          <a href="chapter5.html" style="color:var(--c5)"><i>5</i><span style="color:var(--text)">Can an agent do this for me?</span></a>
+        </div>
+      </div>
+      <a href="agents.html">AI Agents</a>
+      <a href="research.html">Research</a>
+      <a href="about.html#publications">Publications</a>
       <a href="about.html">About</a>
+      <a class="nav-cv" href="assets/Md_Faiz_Akhtar_CV.pdf" target="_blank" rel="noopener">CV &darr;</a>
     </div>
   </div>
 </nav>
-
-<header class="ch-hero">
+<header class="ch-hero" style="--ac:var(--teal)">
   <div class="wrap">
-    <div class="ch-kicker">About</div>
-    <h1>Md Faiz Akhtar</h1>
-    <p class="scaleline">Computational materials scientist finishing a PhD on titanium and the HCP metals &mdash; electronic
-      structure, multiscale modelling, and the AI agents that automate it. I also like building tools other people can use.</p>
+    <div class="profile">
+      <div class="avatar">FA</div>
+      <div>
+        <div class="ch-kicker">About &middot; CV</div>
+        <h1>Md Faiz Akhtar</h1>
+        <p class="scaleline">Computational materials physicist finishing a PhD on titanium and the HCP metals: first-principles
+          electronic structure and bonding, multiscale modelling up to crystal plasticity, machine-learned potentials, and the AI
+          agents that automate and audit it. I like building tools other people can use.</p>
+      </div>
+    </div>
     <div class="ch-meta">
       <span class="chip"><b>PhD candidate</b> &nbsp;Materials Science &amp; Engineering, IIT Kanpur</span>
       <span class="chip"><b>Advisors</b> &nbsp;Prof. Somnath Bhowmick &amp; Prof. N. P. Gurao</span>
       <span class="chip"><b>Fellowship</b> &nbsp;Prime Minister&rsquo;s Research Fellow (PMRF)</span>
+      <span class="chip"><b>Status</b> &nbsp;thesis submission Oct 2026 &middot; available to start immediately</span>
     </div>
     <div class="cta" style="justify-content:flex-start;margin-top:26px">
       <a class="btn btn-primary" href="assets/Md_Faiz_Akhtar_CV.pdf" target="_blank" rel="noopener">&#8595;&nbsp; Download full CV (PDF)</a>
@@ -72,148 +69,149 @@
   </div>
 </header>
 
+<nav class="toc" aria-label="On this page" style="--ac:var(--teal)">
+  <div class="t">On this page</div>
+  <a href="#summary">Summary</a><a href="#education">Education</a><a href="#honours">Honours</a><a href="#experience">Experience</a><a href="#publications">Publications</a><a href="#projects">Projects</a><a href="#talks">Talks</a><a href="#schools">Schools</a><a href="#skills">Skills</a><a href="#leadership">Leadership</a>
+</nav>
+
 <article class="prose section">
 
+  <h2 class="reveal" id="summary">Research summary</h2>
+  <p class="reveal">I use DFT electronic-structure and bonding descriptors to predict macroscopic behaviour &mdash; slip-system
+    selection and interstitial strengthening &mdash; in titanium and the HCP metals, and carry them up through molecular dynamics
+    and crystal-plasticity simulation to experiment. I fine-tune machine-learned interatomic potentials (MACE, with GPU committee
+    active learning on a 1,600+ VASP database), and I build multi-agent systems &mdash; the ICME Agent, ICME-lite and TiSci &mdash;
+    that run, validate and interpret VASP, LAMMPS and DAMASK workflows with deterministic, regression-tested physics. I also write
+    condensed-matter and semiconductor-transport problems for frontier-AI scientific benchmarks (SciCode&nbsp;v2, Agentic SciCode).</p>
+  <div class="kpis reveal">
+    <div class="kpi"><div class="n">7</div><div class="l">published papers &amp; book chapter</div></div>
+    <div class="kpi"><div class="n">9</div><div class="l">manuscripts in preparation</div></div>
+    <div class="kpi"><div class="n">6</div><div class="l">conference talks</div></div>
+    <div class="kpi"><div class="n">4</div><div class="l">frontier-AI evaluation roles</div></div>
+  </div>
+
   <!-- EDUCATION -->
-  <h2 class="reveal">Education</h2>
+  <h2 class="reveal" id="education">Education</h2>
   <div class="tbl-scroll reveal">
     <table class="dtable">
       <thead><tr><th>Degree</th><th>Institute</th><th>Year</th><th>Score</th></tr></thead>
       <tbody>
-        <tr><td>PhD &middot; Materials Science &amp; Engineering</td><td>IIT Kanpur</td><td class="num">2021&ndash;present</td><td class="num">8.5/10</td></tr>
-        <tr><td>M.Tech &middot; Materials Science &amp; Engineering</td><td>IIT Jodhpur</td><td class="num">2021</td><td class="num">9.03/10</td></tr>
-        <tr><td>B.E. &middot; Mechanical Engineering</td><td>Institute of Technology, Korba</td><td class="num">2017</td><td class="num">76.67%</td></tr>
+        <tr><td>PhD &middot; Materials Science &amp; Engineering<br><small style="color:var(--muted)">Thesis: <em>Quantifying the Chemical Bond: From Electronic Structure to Autonomous Multiscale Simulations of alpha Titanium Alloys</em></small></td><td>IIT Kanpur</td><td class="num">2021&ndash;present</td><td class="num">8.5/10</td></tr>
+        <tr><td>M.Tech &middot; Materials Science &amp; Engineering<br><small style="color:var(--muted)">Thesis: <em>First-principles screening of Ti<sub>2</sub>C-based MXenes as electrode materials for Li-ion batteries</em></small></td><td>IIT Jodhpur</td><td class="num">2019&ndash;2021</td><td class="num">9.03/10</td></tr>
+        <tr><td>B.E. &middot; Mechanical Engineering</td><td>Institute of Technology, Korba</td><td class="num">2013&ndash;2017</td><td class="num">76.67%</td></tr>
         <tr><td>Class XII (CGBSE)</td><td>Shiva Public School, Bhilai</td><td class="num">2013</td><td class="num">79%</td></tr>
       </tbody>
     </table>
   </div>
 
-  <!-- SKILLS -->
-  <h2 class="reveal">Technical skills</h2>
-  <div class="reveal">
-    <div class="skillgroup">
-      <div class="gl">Languages</div>
-      <div class="tags"><span class="tag">Python</span><span class="tag">bash scripting</span></div>
-    </div>
-    <div class="skillgroup">
-      <div class="gl">Libraries &amp; APIs</div>
-      <div class="tags">
-        <span class="tag">NumPy</span><span class="tag">scikit-learn</span><span class="tag">Matplotlib</span>
-        <span class="tag">GNUplot</span><span class="tag">Xmgrace</span><span class="tag">Phonopy API</span>
-        <span class="tag">pymatgen</span><span class="tag">OVITO Python API</span><span class="tag">SQLite3</span>
-        <span class="tag">Paramiko (SSH)</span><span class="tag">PyYAML</span>
-      </div>
-    </div>
-    <div class="skillgroup">
-      <div class="gl">Simulation &amp; materials software</div>
-      <div class="tags">
-        <span class="tag">VASP</span><span class="tag">Quantum ESPRESSO</span><span class="tag">QuantumATK</span>
-        <span class="tag">LAMMPS</span><span class="tag">PFDD</span><span class="tag">DAMASK</span>
-        <span class="tag">CALPHAD</span><span class="tag">VESTA</span><span class="tag">OVITO</span>
-        <span class="tag">Ollama (local LLM)</span><span class="tag">atomicrex</span><span class="tag">LOBSTER</span>
-      </div>
-    </div>
-  </div>
-
   <!-- HONOURS -->
-  <h2 class="reveal">Honours</h2>
+  <h2 class="reveal" id="honours">Honours</h2>
   <div class="kpis reveal">
-    <div class="kpi"><div class="n">PMRF</div><div class="l">Prime Minister&rsquo;s Research Fellowship &mdash; top research talent in India (Aug 2022 &ndash; Jul 2025)</div></div>
+    <div class="kpi"><div class="n">PMRF</div><div class="l">Prime Minister&rsquo;s Research Fellowship &mdash; India&rsquo;s most prestigious doctoral fellowship (Aug 2022 &ndash; Jul 2025)</div></div>
     <div class="kpi"><div class="n">GATE</div><div class="l">Qualified Graduate Aptitude Test in Engineering (Mechanical, 2019)</div></div>
   </div>
 
   <!-- EXPERIENCE -->
-  <h2 class="reveal">Experience</h2>
-  <ul class="cv-list reveal">
-    <li><span class="when">May&ndash;Oct 2025</span><b>Scale AI &mdash; Human Frontier Collective (HFC)</b>
-      <span class="w">A part-time collective of PhD/postdoc researchers. Collaborated on generative-AI research with access to
-        advanced proprietary models; contributed testing, critical analysis, and strategic direction for next-generation AI systems.</span></li>
-  </ul>
+  <h2 class="reveal" id="experience">Experience</h2>
+  <div class="cv-list reveal">
+    <div class="cv-row"><div class="w">Jul 2026 &ndash; now</div><div><div class="t">Scientific Task Author &middot; Imperium | Sci-Agent, Mercor (contract)</div>
+      <div class="m">Frontier agentic-evaluation tasks that require LLM agents to plan, execute and verify complete multi-step scientific workflows, from reading the literature to checking results quantitatively.</div></div></div>
+    <div class="cv-row"><div class="w">May 2026 &ndash; now</div><div><div class="t">Scientific Benchmark Author &middot; SciCode v2, Turing (contract)</div>
+      <ul><li>Research papers in condensed-matter physics, semiconductor transport and materials science turned into self-contained coding problems, tested against GPT-5.5, Gemini 3.1 Pro and Claude Opus 4.6.</li>
+      <li>Golden solutions and discriminative tests (3&ndash;4 per sub-problem, tolerances rtol 1e-4 to 1e-9) that separate correct physics from plausible-but-wrong code.</li>
+      <li>Auditing auto-generated notebooks to remove invalid patterns such as post-hoc clamping and hard-coded trends.</li>
+      <li>Difficulty calibrated by 4-run RLHF and 8-run Pass@K cycles into target bands (0&ndash;40% main problems, 10&ndash;75% sub-problems).</li></ul></div></div>
+    <div class="cv-row"><div class="w">Apr &ndash; Jun 2026</div><div><div class="t">AI Benchmark Task Author &middot; Agentic SciCode (Project Imperium), Mercor (contract)</div>
+      <ul><li>Research-grade tasks for a 260-task agentic benchmark (GPT-5, Claude Sonnet 4.6) in materials science and physics simulation, from post-August-2025 arXiv papers, calibrated to Level-3 difficulty (35&ndash;65% pass).</li>
+      <li>Deterministic, seeded Python oracles; grading 30% programmatic verifiers and 70% multimodal LLM judge over 25+ rubric criteria.</li>
+      <li>Dockerized scientific environments (NumPy, SciPy, ASE, pymatgen, RDKit, PyTorch) with a multi-gate CI/QC pipeline on GitHub Actions.</li></ul></div></div>
+    <div class="cv-row"><div class="w">May &ndash; Oct 2025</div><div><div class="t">AI Research Contributor &middot; Scale AI &mdash; Human Frontier Collective (HFC)</div>
+      <div class="m">An invite-based, part-time collective of PhD and postdoctoral researchers. Collaborated on generative-AI research with access to advanced proprietary models; contributed testing, red-teaming, critical analysis and strategic direction for next-generation AI systems.</div></div></div>
+  </div>
 
   <!-- PUBLICATIONS -->
-  <h2 class="reveal">Publications</h2>
-  <p class="reveal" style="color:var(--muted);font-size:.92rem">Lead-author work in bold context below; full list with co-authors in the
-    <a href="assets/Md_Faiz_Akhtar_CV.pdf" target="_blank" rel="noopener" style="color:var(--ac)">CV</a>.</p>
+  <h2 class="reveal" id="publications">Publications</h2>
+  <div class="filters reveal" data-target="#publist">
+    <button class="on" data-f="all">All</button><button data-f="pub">Journal</button><button data-f="book">Book chapter</button><button data-f="prep">In preparation</button><button data-f="thesis">Thesis</button>
+    <input type="search" placeholder="Search titles, authors, journals&hellip;" aria-label="Search publications">
+  </div>
+  <div class="pubs" id="publist">
+    <div class="pubitem" data-cat="pub thesis"><div class="yr">2026</div><div><div class="tt">Linking electronic bonding and short-range order to strength in &alpha;-titanium alloys: a first-principles study <span class="badge pub">published</span></div><div class="au"><b>M. F. Akhtar</b>, N. P. Gurao, S. Bhowmick</div><div class="vn">Materials Chemistry and Physics 368, 133019 &middot; thesis chapter 1</div></div><div class="lk"><a href="https://www.sciencedirect.com/science/article/pii/S0254058426010138" target="_blank" rel="noopener">article</a></div></div>
+    <div class="pubitem" data-cat="pub thesis"><div class="yr">2025</div><div><div class="tt">A novel electronic structure-based prediction of interstitial strengthening in &alpha;-titanium <span class="badge pub">published</span></div><div class="au"><b>M. F. Akhtar</b>, N. P. Gurao, S. Bhowmick</div><div class="vn">Journal of Applied Physics 138, 175111 (2025) &middot; DOI 10.1063/5.0289250 &middot; thesis chapter 1</div></div><div class="lk"><a href="https://pubs.aip.org/aip/jap/article/138/17/175111/3371105/A-novel-electronic-structure-based-prediction-of" target="_blank" rel="noopener">article</a><a href="https://doi.org/10.1063/5.0289250" target="_blank" rel="noopener">doi</a></div></div>
+    <div class="pubitem" data-cat="pub thesis"><div class="yr">2025</div><div><div class="tt">Predicting primary slip systems in HCP metals: a combined geometrical and electronic approach <span class="badge pub">published</span></div><div class="au"><b>M. F. Akhtar</b>, N. P. Gurao, S. Bhowmick</div><div class="vn">Materials Letters 400, 139019 (Dec 2025) &middot; DOI 10.1016/j.matlet.2025.139019 &middot; thesis chapter 2</div></div><div class="lk"><a href="https://www.sciencedirect.com/science/article/pii/S0167577X25010481" target="_blank" rel="noopener">article</a><a href="https://doi.org/10.1016/j.matlet.2025.139019" target="_blank" rel="noopener">doi</a></div></div>
+    <div class="pubitem" data-cat="pub"><div class="yr">2025</div><div><div class="tt">Evolution of atomistic boron clusters on borophene monolayers on Au(111) <span class="badge pub">published</span></div><div class="au">U. Rajput, <b>M. F. Akhtar</b>, Mulani, Vyas, Chaubey, S. Bhowmick, Kumar, Deshpande</div><div class="vn">J. Phys. Chem. C (2025) &middot; DOI 10.1021/acs.jpcc.5c00397</div></div><div class="lk"><a href="https://doi.org/10.1021/acs.jpcc.5c00397" target="_blank" rel="noopener">doi</a></div></div>
+    <div class="pubitem" data-cat="pub"><div class="yr">2024</div><div><div class="tt">Accelerating generalized stacking-fault energy prediction by combining the Friedel model, ab initio calculation and machine learning <span class="badge pub">published</span></div><div class="au">A. Linda, <b>M. F. Akhtar</b>, Pathak, S. Bhowmick</div><div class="vn">Physical Review B 109, 214102 (2024) &middot; DOI 10.1103/PhysRevB.109.214102</div></div><div class="lk"><a href="https://doi.org/10.1103/PhysRevB.109.214102" target="_blank" rel="noopener">doi</a></div></div>
+    <div class="pubitem" data-cat="pub"><div class="yr">2024</div><div><div class="tt">Liquid-phase exfoliated borophene on Au(111) <span class="badge pub">published</span></div><div class="au">U. Rajput, <b>M. F. Akhtar</b>, Mulani, Vyas, Chaubey, S. Bhowmick, Kumar, Deshpande</div><div class="vn">J. Phys. Chem. C (2024) &middot; DOI 10.1021/acs.jpcc.4c00497</div></div><div class="lk"><a href="https://doi.org/10.1021/acs.jpcc.4c00497" target="_blank" rel="noopener">doi</a></div></div>
+    <div class="pubitem" data-cat="book"><div class="yr">2024</div><div><div class="tt">Deformation in metals: insights from ab-initio calculations <span class="badge pub">book chapter</span></div><div class="au">A. Linda, <b>M. F. Akhtar</b>, S. Bhowmick</div><div class="vn">Springer (2024) &middot; DOI 10.1007/978-981-99-6863-3_10</div></div><div class="lk"><a href="https://doi.org/10.1007/978-981-99-6863-3_10" target="_blank" rel="noopener">doi</a></div></div>
+    <div class="pubitem" data-cat="prep thesis"><div class="yr">prep</div><div><div class="tt">Direction-resolved bond anisotropy predicts slip-system selection in HCP metals and alloys <span class="badge prep">in preparation</span></div><div class="au"><b>M. F. Akhtar</b> et al.</div><div class="vn">The &Gamma; descriptor &middot; thesis chapter 2</div></div><div class="lk"><a href="chapter2.html">chapter</a></div></div>
+    <div class="pubitem" data-cat="prep thesis"><div class="yr">prep</div><div><div class="tt">Computational investigation of titanium: bridging length scales from electronic to continuum <span class="badge prep">in preparation</span></div><div class="au"><b>M. F. Akhtar</b>, N. P. Gurao, S. Bhowmick</div><div class="vn">DFT &rarr; MD &rarr; DAMASK / VPSC + cryogenic experiments &middot; thesis chapter 4</div></div><div class="lk"><a href="chapter4.html">chapter</a></div></div>
+    <div class="pubitem" data-cat="prep thesis"><div class="yr">prep</div><div><div class="tt">An auditable agent that chooses multiscale calculations for titanium alloys from the literature <span class="badge prep">in preparation</span></div><div class="au"><b>M. F. Akhtar</b>, N. P. Gurao, S. Bhowmick</div><div class="vn">TiSci + ICME-lite &middot; target npj Computational Materials &middot; thesis chapter 5</div></div><div class="lk"><a href="agents.html#tisci">agent</a></div></div>
+    <div class="pubitem" data-cat="prep thesis"><div class="yr">prep</div><div><div class="tt">An autonomous multi-scale ICME agent framework: seamless integration of ab initio DFT, molecular dynamics and crystal-plasticity FE via automated scale-bridging <span class="badge prep">in preparation</span></div><div class="au"><b>M. F. Akhtar</b>, N. P. Gurao, S. Bhowmick</div><div class="vn">Computational Materials Science &middot; thesis chapter 5</div></div><div class="lk"><a href="agents.html#icme">agent</a></div></div>
+    <div class="pubitem" data-cat="prep"><div class="yr">prep</div><div><div class="tt">COMPASS: a hand-verified, cross-database resource for binary-alloy phase behaviour, and which descriptors (and which DFT) actually matter <span class="badge prep">in preparation</span></div><div class="au"><b>M. F. Akhtar</b> et al.</div><div class="vn">Standalone project</div></div><div class="lk"><a href="chapter3.html">project</a></div></div>
+    <div class="pubitem" data-cat="prep"><div class="yr">prep</div><div><div class="tt">Fine-tuning a multi-head MACE foundation model for mechanical properties of d-block high-entropy alloys: benchmark, DFT anchor database and committee active learning <span class="badge prep">in preparation</span></div><div class="au"><b>M. F. Akhtar</b> et al.</div><div class="vn">ML interatomic potentials</div></div><div class="lk"><a href="research.html#mace">project</a></div></div>
+    <div class="pubitem" data-cat="prep"><div class="yr">prep</div><div><div class="tt">MD-informed anisotropic phase-field modeling of grain growth in polycrystalline copper <span class="badge prep">in preparation</span></div><div class="au"><b>M. F. Akhtar</b> et al.</div><div class="vn">&nbsp;</div></div><div class="lk"></div></div>
+    <div class="pubitem" data-cat="prep"><div class="yr">prep</div><div><div class="tt">Inverse grain size dependence of strain rate sensitivity in a HPT-processed (CrFeNi)<sub>99</sub>Si medium entropy alloy <span class="badge prep">in preparation</span></div><div class="au">S. Mahato, <b>M. F. Akhtar</b> et al.</div><div class="vn">&nbsp;</div></div><div class="lk"></div></div>
+    <div class="pubitem" data-cat="prep"><div class="yr">prep</div><div><div class="tt">Functionalized Ti<sub>2</sub>C-based MXenes for Li-ion battery applications <span class="badge prep">manuscript</span></div><div class="au"><b>M. F. Akhtar</b>, Zhu, Gandi</div><div class="vn">From the M.Tech thesis, IIT Jodhpur</div></div><div class="lk"></div></div>
+  </div>
+  <p class="reveal" style="color:var(--muted);font-size:.88rem;margin-top:14px">Further manuscripts in progress &mdash; grain-boundary sliding,
+    the magnetic-label audit, electron-doped MXenes and the SciAgent study &mdash; are described on the <a href="research.html" style="color:var(--teal)">research</a>
+    and <a href="agents.html" style="color:var(--teal)">agents</a> pages.</p>
 
-  <div class="reveal">
-    <a class="pub" style="display:block" href="https://www.sciencedirect.com/science/article/pii/S0167577X25010481" target="_blank" rel="noopener">
-      <div class="t">Predicting primary slip systems in HCP metals: a combined geometrical and electronic approach <span class="badge pub">published</span></div>
-      <div class="m"><span class="venue">Materials Letters</span> 400, 139019 (Dec 2025) &middot; Akhtar, Gurao, Bhowmick &middot; DOI 10.1016/j.matlet.2025.139019</div>
-    </a>
-    <a class="pub" style="display:block" href="https://pubs.aip.org/aip/jap/article/138/17/175111/3371105/A-novel-electronic-structure-based-prediction-of" target="_blank" rel="noopener">
-      <div class="t">A novel electronic structure-based prediction of interstitial strengthening in &alpha;-titanium <span class="badge pub">published</span></div>
-      <div class="m"><span class="venue">Journal of Applied Physics</span> 138, 175111 (2025) &middot; Akhtar, Gurao, Bhowmick &middot; DOI 10.1063/5.0289250</div>
-    </a>
-    <a class="pub" style="display:block" href="https://doi.org/10.1103/PhysRevB.109.214102" target="_blank" rel="noopener">
-      <div class="t">Accelerating generalized stacking-fault energy prediction by combining the Friedel model, ab initio calculation and machine learning <span class="badge pub">published</span></div>
-      <div class="m"><span class="venue">Physical Review B</span> 109, 214102 &middot; Linda, Akhtar, Pathak, Bhowmick &middot; DOI 10.1103/PhysRevB.109.214102</div>
-    </a>
-    <a class="pub" style="display:block" href="https://doi.org/10.1021/acs.jpcc.4c00497" target="_blank" rel="noopener">
-      <div class="t">Liquid-phase exfoliated borophene on Au(111) <span class="badge pub">published</span></div>
-      <div class="m"><span class="venue">J. Phys. Chem. C</span> &middot; Rajput, Akhtar, Mulani, Vyas, Chaubey, Bhowmick, Kumar, Deshpande &middot; DOI 10.1021/acs.jpcc.4c00497</div>
-    </a>
-    <a class="pub" style="display:block" href="https://doi.org/10.1021/acs.jpcc.5c00397" target="_blank" rel="noopener">
-      <div class="t">Evolution of atomistic boron clusters on borophene monolayers on Au(111) <span class="badge pub">published</span></div>
-      <div class="m"><span class="venue">J. Phys. Chem. C</span> &middot; Rajput, Akhtar, Mulani, Vyas, Chaubey, Bhowmick, Kumar, Deshpande &middot; DOI 10.1021/acs.jpcc.5c00397</div>
-    </a>
-    <a class="pub" style="display:block" href="https://doi.org/10.1007/978-981-99-6863-3_10" target="_blank" rel="noopener">
-      <div class="t">Deformation in metals: insights from ab-initio calculations <span class="badge pub">book chapter</span></div>
-      <div class="m"><span class="venue">Springer</span> &middot; Linda, Akhtar, Bhowmick &middot; DOI 10.1007/978-981-99-6863-3_10</div>
-    </a>
-    <div class="pub">
-      <div class="t">An autonomous multi-scale ICME agent framework: integrating DFT, MD and crystal-plasticity via automated scale-bridging <span class="badge prep">under preparation</span></div>
-      <div class="m"><span class="venue">Computational Materials Science</span> &middot; Akhtar, Gurao, Bhowmick &mdash; Chapter 5 of this thesis</div>
-    </div>
-    <div class="pub">
-      <div class="t">Computational investigation of titanium: bridging length scales from electronic to continuum <span class="badge prep">under preparation</span></div>
-      <div class="m">Akhtar, Gurao, Bhowmick &mdash; Chapter 4 of this thesis</div>
-    </div>
-    <div class="pub">
-      <div class="t">Functionalized Ti&#8322;C-based MXenes for Li-ion battery applications <span class="badge prep">manuscript</span></div>
-      <div class="m">Akhtar, Zhu, Gandi</div>
-    </div>
+  <!-- PROJECTS -->
+  <h2 class="reveal" id="projects">Research projects &amp; software</h2>
+  <div class="grid g2 reveal">
+    <a class="card" href="agents.html#icme" style="--ac:var(--violet)"><div class="kick">2025&ndash;26</div><h3>ICME Agent</h3><p>~55-agent, ~68k-line platform running VASP, LAMMPS and DAMASK on HPC; deterministic core, local Qwen2.5-32B narration, physics library (e.g. W thermal expansion 4.18 vs 4.5 ppm/K), closed-loop discovery, FastAPI + WebSocket GUI, 26 regression suites.</p></a>
+    <a class="card" href="agents.html#tisci" style="--ac:var(--teal)"><div class="kick">2026</div><h3>TiSci</h3><p>An auditable literature-to-calculation agent for titanium alloys: 203,063 works, 1.35M-node graph, 283 cycles over 228 h, verdicts in code, carried through ICME-lite to crystal plasticity.</p></a>
+    <a class="card" href="research.html#mace" style="--ac:var(--c3)"><div class="kick">2025&ndash;26</div><h3>MACE for high-entropy alloys</h3><p>Fine-tuning on 1,600+ VASP calculations with 10-member GPU committees; energy error 40.8 &rarr; 2.4 meV/atom, force 84.9 &rarr; 38.5 meV/&Aring;.</p></a>
+    <a class="card" href="https://akhtar07.github.io/compass-explorer/" target="_blank" rel="noopener" style="--ac:var(--c3)"><div class="kick">Ongoing</div><h3>COMPASS Explorer</h3><p>A hand-verified, cross-database resource for binary-alloy phase behaviour, with an interactive web explorer.</p></a>
+    <div class="card" style="--ac:var(--indigo)"><div class="kick">Course project &middot; 2021</div><h3>Dihedral angles at triple junctions</h3><p>Python image-processing (scikit-image, NumPy) to locate grain boundaries and triple junctions in micrographs, with Prof. Sandeep Sangal.</p></div>
+    <div class="card" style="--ac:var(--indigo)"><div class="kick">Course project &middot; 2021</div><h3>Borophene as a Na-ion anode</h3><p>DFT study of structure, electronic properties and capacity, with Prof. Somnath Bhowmick.</p></div>
   </div>
 
   <!-- CONFERENCES -->
-  <h2 class="reveal">Conferences &amp; symposia</h2>
-  <ul class="cv-list reveal">
-    <li><span class="when">Nov 2024</span><b>Intl. Symposium on Transformational Technologies in Materials Manufacturing</b>
-      <span class="w">&ldquo;Effect of interstitial atoms on the deformation behavior of titanium: an ab-initio study&rdquo; &middot; University of Agricultural Sciences, Bengaluru</span></li>
-    <li><span class="when">Aug 2024</span><b>30th Intl. Conference on Computational &amp; Experimental Engineering and Sciences</b>
-      <span class="w">&ldquo;Computational investigation of titanium: bridging length scales from electronic to continuum&rdquo; &middot; Singapore</span></li>
-    <li><span class="when">Apr 2024</span><b>HPC Symposium 2024</b>
-      <span class="w">&ldquo;Computational investigation of titanium&hellip;&rdquo; &middot; IIT Kanpur</span></li>
-    <li><span class="when">Mar 2024</span><b>PMRF Symposium 2024</b>
-      <span class="w">&ldquo;Accelerating the prediction of stacking-fault energy by combining ab-initio calculations and machine learning&rdquo; &middot; IIT Indore</span></li>
-    <li><span class="when">Nov 2023</span><b>IIM-ATM 2023</b>
-      <span class="w">&ldquo;Predicting primary slip systems in HCP materials&rdquo; &middot; KIIT University, Bhubaneswar</span></li>
-    <li><span class="when">Oct 2023</span><b>METCENT-2023</b>
-      <span class="w">&ldquo;A critical role of oxygen on the deformation behaviour of Ti and Ti&ndash;Al alloys&rdquo; &middot; IIT BHU</span></li>
-  </ul>
+  <h2 class="reveal" id="talks">Conferences &amp; symposia</h2>
+  <div class="cv-list reveal">
+    <div class="cv-row"><div class="w">Jul 2026</div><div><div class="t">iNCAM 2026</div><div class="m">Talk and live demonstration of ICME-lite: one instruction, run end to end.</div></div></div>
+    <div class="cv-row"><div class="w">Nov 2024</div><div><div class="t">Intl. Symposium on Transformational Technologies in Materials &amp; Manufacturing</div><div class="m">&ldquo;Effect of interstitial atoms on the deformation behavior of titanium: an ab-initio study&rdquo; &middot; University of Agricultural Sciences, Bengaluru</div></div></div>
+    <div class="cv-row"><div class="w">Aug 2024</div><div><div class="t">30th Intl. Conference on Computational &amp; Experimental Engineering and Sciences (ICCES)</div><div class="m">&ldquo;Computational investigation of titanium: bridging length scales from electronic to continuum&rdquo; &middot; Singapore</div></div></div>
+    <div class="cv-row"><div class="w">Apr 2024</div><div><div class="t">HPC Symposium 2024</div><div class="m">&ldquo;Computational investigation of titanium: bridging length scales from electronic to continuum&rdquo; &middot; IIT Kanpur</div></div></div>
+    <div class="cv-row"><div class="w">Mar 2024</div><div><div class="t">PMRF Symposium 2024</div><div class="m">&ldquo;Accelerating the prediction of stacking-fault energy by combining ab-initio calculations and machine learning&rdquo; &middot; IIT Indore</div></div></div>
+    <div class="cv-row"><div class="w">Nov 2023</div><div><div class="t">IIM-ATM 2023</div><div class="m">&ldquo;Predicting primary slip systems in HCP materials: a combined geometrical and electronic approach&rdquo; &middot; KIIT University, Bhubaneswar</div></div></div>
+    <div class="cv-row"><div class="w">Oct 2023</div><div><div class="t">METCENT-2023</div><div class="m">&ldquo;A critical role of oxygen on the deformation behaviour of Ti and Ti&ndash;Al alloys&rdquo; &middot; IIT (BHU) Varanasi</div></div></div>
+  </div>
 
   <!-- SCHOOLS -->
-  <h2 class="reveal">Schools &amp; training</h2>
-  <ul class="cv-list reveal">
-    <li><span class="when">Jun 2025</span><b>LOBSTER School on chemical-bonding analysis</b>
-      <span class="w">BAM Akademie, Berlin, Germany &mdash; the bonding-analysis toolkit (ICOHP/ICOBI) that runs through this whole thesis.</span></li>
-    <li><span class="when">Jan 2025</span><b>GIAN: Modelling Defects in Crystalline Solids</b>
-      <span class="w">Instructor Prof. David Rodney &middot; IIT Madras</span></li>
-  </ul>
+  <h2 class="reveal" id="schools">Schools &amp; training</h2>
+  <div class="cv-list reveal">
+    <div class="cv-row"><div class="w">Jun 2025</div><div><div class="t">LOBSTER School on Chemical Bonding Analysis</div><div class="m">BAM Akademie, Berlin, Germany &mdash; the bonding-analysis toolkit (ICOHP/ICOBI) that runs through the whole thesis.</div></div></div>
+    <div class="cv-row"><div class="w">Jan 2025</div><div><div class="t">GIAN: Modelling Defects in Crystalline Solids</div><div class="m">Instructor Prof. David Rodney &middot; IIT Madras</div></div></div>
+  </div>
+
+  <!-- SKILLS -->
+  <h2 class="reveal" id="skills">Technical skills</h2>
+  <div class="reveal">
+    <div class="skillgroup"><div class="gl">Electronic structure &amp; atomistic simulation</div><div class="tags">
+      <span class="tag">VASP</span><span class="tag">Quantum ESPRESSO</span><span class="tag">Phonopy (quasi-harmonic)</span><span class="tag">QuantumATK</span><span class="tag">LOBSTER</span><span class="tag">LAMMPS</span><span class="tag">MACE (fine-tuning, committee AL)</span><span class="tag">atomicrex</span><span class="tag">DAMASK</span><span class="tag">VPSC</span><span class="tag">PFDD</span><span class="tag">CALPHAD</span></div></div>
+    <div class="skillgroup"><div class="gl">AI &amp; LLM engineering</div><div class="tags">
+      <span class="tag">multi-agent architecture</span><span class="tag">closed-loop autonomous agents</span><span class="tag">knowledge graphs &amp; RAG</span><span class="tag">LLM benchmark design</span><span class="tag">LLM-as-judge rubrics</span><span class="tag">pass-rate calibration</span><span class="tag">Anthropic Claude API</span><span class="tag">Ollama / vLLM (Qwen2.5, Qwen3)</span></div></div>
+    <div class="skillgroup"><div class="gl">Programming &amp; HPC</div><div class="tags">
+      <span class="tag">Python (FastAPI, WebSockets, asyncio)</span><span class="tag">bash scripting</span><span class="tag">LaTeX</span><span class="tag">Linux HPC clusters</span><span class="tag">SLURM / PBS</span><span class="tag">multi-GPU training (PyTorch)</span></div></div>
+    <div class="skillgroup"><div class="gl">Scientific Python &amp; APIs</div><div class="tags">
+      <span class="tag">NumPy</span><span class="tag">SciPy</span><span class="tag">scikit-learn</span><span class="tag">PyTorch</span><span class="tag">Matplotlib</span><span class="tag">pymatgen</span><span class="tag">ASE</span><span class="tag">Phonopy API</span><span class="tag">OVITO Python API</span><span class="tag">SQLite3</span><span class="tag">Paramiko (SSH)</span><span class="tag">PyYAML</span></div></div>
+    <div class="skillgroup"><div class="gl">DevOps &amp; visualisation</div><div class="tags">
+      <span class="tag">Docker</span><span class="tag">Git</span><span class="tag">GitHub Actions</span><span class="tag">JSON Schema</span><span class="tag">TOML</span><span class="tag">VESTA</span><span class="tag">OVITO</span><span class="tag">Xmgrace</span><span class="tag">GNUplot</span></div></div>
+  </div>
 
   <!-- LEADERSHIP -->
-  <h2 class="reveal">Leadership &amp; responsibilities</h2>
-  <ul class="cv-list reveal">
-    <li><span class="when">2025&ndash;26</span><b>Overall PhD Placement Coordinator</b> &mdash; Students&rsquo; Placement Office (SPO), IIT Kanpur
-      <span class="w">Leading placement &amp; internship activity for the entire PhD cohort across all departments; liaison between scholars and recruiters.</span></li>
-    <li><b>President</b> &mdash; IIM Kanpur student chapter, IIT Kanpur
-      <span class="w">Quizzes, foundation day, AGM, workshops and lectures promoting materials &amp; metallurgical engineering.</span></li>
-    <li><b>Overall Coordinator</b> &mdash; Materials Science Society (MatSoc), MSE, IIT Kanpur
-      <span class="w">Events, workshops and guest lectures for the materials-science student community.</span></li>
-    <li><b>Senator</b> &mdash; Student Senate, IIT Kanpur
-      <span class="w">Representing PhD students in policy-making and student&ndash;administration communication.</span></li>
-    <li><b>Student Secretary</b> &mdash; National Symposium of Research Scholars (NSRS-2024), IIT Kanpur</li>
-    <li><b>Institute Badminton team</b> &mdash; represented IIT Kanpur at UDGHOSH 2022, 2023, 2024</li>
-  </ul>
+  <h2 class="reveal" id="leadership">Leadership &amp; responsibilities</h2>
+  <div class="cv-list reveal">
+    <div class="cv-row"><div class="w">2025&ndash;26</div><div><div class="t">Overall PhD Placement Coordinator &middot; Students&rsquo; Placement Office, IIT Kanpur</div><div class="m">Leading placement and internship activity for the institute-wide PhD cohort; liaison between scholars and recruiters.</div></div></div>
+    <div class="cv-row"><div class="w">&mdash;</div><div><div class="t">Senator &middot; Students&rsquo; Senate, IIT Kanpur</div><div class="m">Elected representative of PhD students in institute policy-making and student&ndash;administration communication.</div></div></div>
+    <div class="cv-row"><div class="w">&mdash;</div><div><div class="t">President &middot; Indian Institute of Metals (IIM) Kanpur Chapter</div><div class="m">Quizzes, foundation day, AGM, workshops and lectures promoting materials and metallurgical engineering.</div></div></div>
+    <div class="cv-row"><div class="w">&mdash;</div><div><div class="t">Overall Coordinator &middot; Materials Science Society (MatSoc), IIT Kanpur</div><div class="m">Events, workshops and guest lectures for the materials-science student community.</div></div></div>
+    <div class="cv-row"><div class="w">2024</div><div><div class="t">Student Secretary &middot; National Symposium of Research Scholars (NSRS-2024)</div><div class="m">Metallurgy and materials, IIT Kanpur.</div></div></div>
+    <div class="cv-row"><div class="w">2022&ndash;24</div><div><div class="t">Institute Badminton Team</div><div class="m">Represented IIT Kanpur at UDGHOSH 2022, 2023 and 2024.</div></div></div>
+  </div>
 
   <div class="cta reveal" style="justify-content:flex-start;margin-top:36px">
     <a class="btn btn-primary" href="assets/Md_Faiz_Akhtar_CV.pdf" target="_blank" rel="noopener">&#8595;&nbsp; Download full CV (PDF)</a>
@@ -221,25 +219,32 @@
   </div>
 
   <div class="pager">
-    <a href="chapter5.html"><div class="dir">&larr; LAST CHAPTER</div><div class="ttl">5 · Can an agent do this for me?</div></a>
+    <a href="chapter5.html"><div class="dir">&larr; LAST CHAPTER</div><div class="ttl">5 &middot; Can an agent do this for me?</div></a>
     <a class="next" href="index.html"><div class="dir">HOME &rarr;</div><div class="ttl">The journey overview</div></a>
   </div>
 </article>
-
 <footer>
   <div class="wrap">
-    <div><div class="brand" style="margin-bottom:8px"><span class="dot"></span><span>From Atoms to Agents</span></div>
-      <div style="font-size:.85rem">&copy; 2026 Md Faiz Akhtar · MSE, IIT Kanpur</div></div>
-    <div class="foot-links">
-      <a href="assets/Md_Faiz_Akhtar_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
-      <a href="mailto:faiza21@iitk.ac.in">Email</a>
-      <a href="https://www.linkedin.com/in/md-faiz-akhtar-a51960246/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/akhtar07" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.sciencedirect.com/science/article/pii/S0167577X25010481" target="_blank" rel="noopener">Materials Letters 2025</a>
-      <a href="https://pubs.aip.org/aip/jap/article/138/17/175111/3371105/A-novel-electronic-structure-based-prediction-of" target="_blank" rel="noopener">J. Appl. Phys. 2025</a>
+    <div style="max-width:380px">
+      <div class="brand" style="margin-bottom:12px"><span class="dot"></span><span>From Atoms to Agents</span></div>
+      <div style="font-size:.9rem;line-height:1.6">Md Faiz Akhtar &middot; PhD candidate, Materials Science &amp; Engineering, IIT Kanpur. Electronic structure, multiscale plasticity, machine-learned potentials and AI agents for materials.</div>
+      <div style="font-size:.8rem;color:var(--muted-2);margin-top:14px">&copy; 2026 Md Faiz Akhtar &middot; MSE, IIT Kanpur</div>
+    </div>
+    <div class="foot-cols">
+      <div class="col"><span class="h">Thesis</span>
+        <a href="chapter1.html">1 &middot; Strength</a><a href="chapter2.html">2 &middot; Direction</a><a href="chapter3.html">3 &middot; Chemistry</a><a href="chapter4.html">4 &middot; Real metal</a><a href="chapter5.html">5 &middot; Automation</a></div>
+      <div class="col"><span class="h">Work</span>
+        <a href="agents.html">AI agents</a><a href="research.html">Research</a><a href="about.html#publications">Publications</a><a href="https://akhtar07.github.io/tisci-explorer/" target="_blank" rel="noopener">TiSci explorer</a><a href="https://akhtar07.github.io/compass-explorer/" target="_blank" rel="noopener">COMPASS explorer</a></div>
+      <div class="col"><span class="h">Contact</span>
+        <a href="about.html">About &amp; CV</a>
+        <a href="mailto:faiza21@iitk.ac.in">faiza21@iitk.ac.in</a>
+        <a href="https://www.linkedin.com/in/md-faiz-akhtar-a51960246/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/akhtar07" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://pubs.aip.org/aip/jap/article/138/17/175111/3371105/A-novel-electronic-structure-based-prediction-of" target="_blank" rel="noopener">JAP 2025</a></div>
     </div>
   </div>
 </footer>
+<button class="totop" aria-label="Back to top">&uarr;</button>
 <script src="js/main.js"></script>
 </body>
 </html>
