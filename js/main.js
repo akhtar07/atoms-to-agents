@@ -104,12 +104,59 @@
     Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) so.observe(el); });
   }
 
+
+  var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* hero specimen: cycle EBSD states (undeformed, 10 %, fractured) */
+  $$('.specimen').forEach(function (sp) {
+    var imgs = $$('.plate img', sp), btns = $$('.states button', sp), i = 0, timer = null;
+    if (!imgs.length) return;
+    function show(k) {
+      i = k; imgs.forEach(function (im, j) { im.classList.toggle('on', j === k); });
+      btns.forEach(function (b, j) { b.classList.toggle('on', j === k); });
+    }
+    function auto() { if (!still) timer = setInterval(function () { show((i + 1) % imgs.length); }, 3200); }
+    btns.forEach(function (b, j) { b.addEventListener('click', function () { clearInterval(timer); show(j); }); });
+    show(0); auto();
+  });
+
+  /* scale journey: the step in view picks the figure on the sticky stage */
+  $$('.journey').forEach(function (j) {
+    var steps = $$('.step', j), frames = $$('.frames > *', j), marks = $$('.scale-bar span', j), bar = $('.scale-bar', j);
+    function pick(k) {
+      steps.forEach(function (s, n) { s.classList.toggle('on', n === k); });
+      frames.forEach(function (f, n) { f.classList.toggle('on', n === k); });
+      marks.forEach(function (m, n) { m.classList.toggle('on', n === k); });
+      if (bar) { bar.style.setProperty('--p', ((k + 1) / steps.length * 100) + '%'); bar.style.setProperty('--ac', getComputedStyle(steps[k]).getPropertyValue('--ac')); }
+      var v = frames[k] && frames[k].tagName === 'VIDEO' ? frames[k] : null;
+      frames.forEach(function (f) { if (f.tagName === 'VIDEO' && f !== v) f.pause(); });
+      if (v && !still) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+    }
+    if (!('IntersectionObserver' in window)) { pick(0); return; }
+    var jo = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) pick(steps.indexOf(e.target)); });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    steps.forEach(function (s) { jo.observe(s); });
+    pick(0);
+  });
+
+  /* videos: play only while visible, never with reduced motion */
+  if ('IntersectionObserver' in window) {
+    var vo = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting && !still) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause();
+      });
+    }, { threshold: 0.25 });
+    $$('video[data-auto]').forEach(function (v) { if (still) v.removeAttribute('autoplay'); vo.observe(v); });
+  }
+
   /* click a figure to enlarge it */
   var lb = document.createElement('div'); lb.className = 'lightbox'; lb.innerHTML = '<img alt="">';
   document.body.appendChild(lb);
   lb.addEventListener('click', function () { lb.classList.remove('open'); });
   addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('open'); });
-  $$('figure img').forEach(function (img) {
+  $$('figure img, .rfig img').forEach(function (img) {
     img.addEventListener('click', function () { $('img', lb).src = img.src; $('img', lb).alt = img.alt; lb.classList.add('open'); });
   });
 })();

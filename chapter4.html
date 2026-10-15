@@ -7,7 +7,7 @@
 <meta name="description" content="A hierarchical ICME pipeline carrying titanium from DFT through MD to DAMASK crystal plasticity, validated with cryogenic tension and EBSD. Md Faiz Akhtar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%239b2f3f' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%239b2f3f'/></svg>">
 <style>:root{--ac:var(--c4)}</style>
@@ -77,27 +77,27 @@
 
       <!-- DFT -->
       <rect x="120" y="20" width="600" height="74" rx="12" fill="#f6f4ef" stroke="#9b2f3f"/>
-      <text x="140" y="48" fill="#1d1d1b" font-size="17" font-weight="700" font-family="Inter">Electronic &middot; DFT (VASP)</text>
+      <text x="140" y="48" fill="#1d1d1b" font-size="17" font-weight="700" font-family="IBM Plex Sans, sans-serif">Electronic &middot; DFT (VASP)</text>
       <text x="140" y="72" fill="#55534e" font-size="13" font-family="JetBrains Mono">10⁻¹⁰ m &nbsp;|&nbsp; lattice, elastic constants C&#7522;&#11388;, GSFE for all 5 slip families</text>
       <path d="M420,94 L420,118" stroke="#9b2f3f" stroke-width="2" marker-end="url(#a4)"/>
       <text x="436" y="112" fill="#85817a" font-size="11" font-family="JetBrains Mono">T = 0 K elasticity + fault barriers</text>
 
       <!-- MD -->
       <rect x="120" y="120" width="600" height="74" rx="12" fill="#f6f4ef" stroke="#9b2f3f"/>
-      <text x="140" y="148" fill="#1d1d1b" font-size="17" font-weight="700" font-family="Inter">Atomistic &middot; MD (LAMMPS)</text>
+      <text x="140" y="148" fill="#1d1d1b" font-size="17" font-weight="700" font-family="IBM Plex Sans, sans-serif">Atomistic &middot; MD (LAMMPS)</text>
       <text x="140" y="172" fill="#55534e" font-size="13" font-family="JetBrains Mono">10⁻⁹ m &nbsp;|&nbsp; C&#7522;&#11388;(T), dislocation mobility v(&tau;,T), thermal expansion</text>
       <path d="M420,194 L420,218" stroke="#9b2f3f" stroke-width="2" marker-end="url(#a4)"/>
       <text x="436" y="212" fill="#85817a" font-size="11" font-family="JetBrains Mono">temperature-dependent CRSS + drag</text>
 
       <!-- DAMASK -->
       <rect x="120" y="220" width="600" height="74" rx="12" fill="#f6f4ef" stroke="#9b2f3f"/>
-      <text x="140" y="248" fill="#1d1d1b" font-size="17" font-weight="700" font-family="Inter">Polycrystal &middot; CP-FFT (DAMASK)</text>
+      <text x="140" y="248" fill="#1d1d1b" font-size="17" font-weight="700" font-family="IBM Plex Sans, sans-serif">Polycrystal &middot; CP-FFT (DAMASK)</text>
       <text x="140" y="272" fill="#55534e" font-size="13" font-family="JetBrains Mono">10⁻⁴ m &nbsp;|&nbsp; stress&ndash;strain &sigma;(&epsilon;,T), slip activity, texture, pole figures</text>
       <path d="M420,294 L420,318" stroke="#9b2f3f" stroke-width="2" marker-end="url(#a4)"/>
 
       <!-- experiment -->
       <rect x="120" y="320" width="600" height="36" rx="10" fill="#f6f4ef" stroke="#2f6b3a"/>
-      <text x="140" y="343" fill="#2f6b3a" font-size="14" font-weight="700" font-family="Inter">Experiment &middot; cryogenic tension + EBSD &nbsp;&middot;&nbsp; the reality check (298 &rarr; 143 K)</text>
+      <text x="140" y="343" fill="#2f6b3a" font-size="14" font-weight="700" font-family="IBM Plex Sans, sans-serif">Experiment &middot; cryogenic tension + EBSD &nbsp;&middot;&nbsp; the reality check (298 &rarr; 143 K)</text>
     </svg>
   </div>
 
@@ -181,11 +181,11 @@
       <rect x="140" y="138" width="90" height="112" rx="6" fill="url(#yb)"/>
       <rect x="290" y="73" width="90" height="177" rx="6" fill="url(#yb)"/>
       <line x1="185" y1="130" x2="185" y2="146" stroke="#fff" stroke-width="1.5"/><line x1="335" y1="69" x2="335" y2="77" stroke="#fff" stroke-width="1.5"/>
-      <g font-family="Inter" font-weight="700" fill="#fff" text-anchor="middle">
+      <g font-family="IBM Plex Sans, sans-serif" font-weight="700" fill="#fff" text-anchor="middle">
         <text x="185" y="122" font-size="18">357</text><text x="335" y="60" font-size="18">565</text></g>
       <g font-family="JetBrains Mono" font-size="12" fill="#55534e" text-anchor="middle">
         <text x="185" y="272">298 K</text><text x="335" y="272">143 K</text></g>
-      <g font-family="Inter" font-size="13">
+      <g font-family="IBM Plex Sans, sans-serif" font-size="13">
         <text x="470" y="70" fill="#1d1d1b" font-weight="600">One prismatic CRSS per temperature</text>
         <text x="470" y="92" fill="#55534e">is the only fitted quantity.</text>
         <text x="470" y="132" fill="#9b2f3f" font-family="JetBrains Mono" font-size="12">DFT ratios  1 : 1.69 : 3.38</text>

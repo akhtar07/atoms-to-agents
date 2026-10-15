@@ -8,10 +8,10 @@
 <meta property="og:title" content="Md Faiz Akhtar | IIT Kanpur">
 <meta property="og:description" content="Md Faiz Akhtar, PhD candidate at IIT Kanpur: chemical bonding in titanium, multiscale simulation from DFT to crystal plasticity, MACE potentials, and auditable AI agents for materials science.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#fbfaf7">
+<meta name="theme-color" content="#f3efe6">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%230f5e5a' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%230f5e5a'/></svg>">
 <style>:root{--ac:var(--teal)}</style>
@@ -41,141 +41,204 @@
     </div>
   </div>
 </nav>
-<header class="hero">
-  <div class="wrap hero-grid">
+<header class="hero v3 night">
+  <div class="wrap">
     <div>
-      <span class="eyebrow">PhD candidate, Materials Science and Engineering, IIT Kanpur</span>
-      <h1>Md Faiz Akhtar</h1>
-      <p class="lede">I study why titanium alloys are as strong (or as brittle) as they are, starting from the <b>chemical bond</b>.
-        I use density functional theory and bonding analysis (ICOHP) to explain how small amounts of solute strengthen titanium
-        and which slip systems operate, then carry those numbers through molecular dynamics and crystal plasticity (DAMASK, VPSC)
-        and compare them with tensile tests at low temperature.</p>
-      <p class="lede" style="margin-top:14px">Over the last year I have also been building <b>software agents</b> that run this chain
-        of calculations themselves and keep a record of every decision, so that a person can check the result.</p>
-      <p class="by">Advised by <b>Prof. Somnath Bhowmick</b> and <b>Prof. Nilesh P. Gurao</b>. Prime Minister&rsquo;s Research
-        Fellow (2022&ndash;25). Thesis submission October 2026.</p>
+      <div class="kick">PhD candidate &middot; Materials Science and Engineering &middot; IIT Kanpur</div>
+      <h1>Md Faiz Akhtar<span class="tag-line">I follow the chemical bond from a single DFT calculation all the way to a deforming polycrystal, and then teach software agents to do it.</span></h1>
+      <div class="tri"><i></i><i></i><i></i></div>
+      <p class="lede">My thesis asks why titanium alloys are as strong, or as brittle, as they are. I measure bonds with
+        <b>DFT and ICOHP</b>, carry the numbers through <b>molecular dynamics and crystal plasticity</b>, test them against
+        <b>cryogenic tension and EBSD</b>, and build <b>agents</b> that run the chain and keep a record of every decision.</p>
+      <p class="by">Advised by <b>Prof. Somnath Bhowmick</b> and <b>Prof. Nilesh P. Gurao</b> &middot; Prime Minister&rsquo;s Research Fellow &middot; thesis submission October 2026</p>
       <div class="cta">
-        <a class="btn btn-primary" href="mailto:faiza21@iitk.ac.in">Email</a>
-        <a class="btn btn-ghost" href="assets/Md_Faiz_Akhtar_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
-        <a class="btn btn-ghost" href="https://github.com/akhtar07" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/md-faiz-akhtar-a51960246/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-cu" href="#drawer">See unpublished work</a>
+        <a class="btn btn-ghost" href="#results">Published results</a>
+        <a class="btn btn-ghost" href="assets/Md_Faiz_Akhtar_CV.pdf" target="_blank" rel="noopener">CV</a>
       </div>
     </div>
-    <div class="photo"><img src="assets/img/faiz.jpg" alt="Md Faiz Akhtar" width="340" height="340"></div>
+    <figure class="specimen">
+      <div class="strips ticks">
+        <div class="strip"><img src="assets/img/v3/ipf_0.webp" alt="EBSD inverse pole figure map of undeformed CP titanium at 300 K" width="540" height="204"><span>0 % &middot; undeformed</span></div>
+        <div class="strip"><img src="assets/img/v3/ipf_10.webp" alt="EBSD map after 10 percent deformation" width="540" height="204"><span>10 % strain</span></div>
+        <div class="strip"><img src="assets/img/v3/ipf_frac.webp" alt="EBSD map of the fractured specimen, full of twins" width="540" height="204"><span>fractured</span></div>
+      </div>
+      <figcaption><b>Commercially pure titanium, pulled at 300 K.</b> EBSD orientation maps from the thesis: each grain is
+        coloured by which crystal direction points along the sample normal. The thin needles that appear are deformation twins.
+        <div class="ipf-key"><span style="--k:var(--ipf-r)">0001</span><span style="--k:var(--ipf-g)">10&#772;10</span><span style="--k:var(--ipf-b)">2&#772;1&#772;10</span></div>
+      </figcaption>
+    </figure>
   </div>
+  <div class="marquee" aria-hidden="true"><div class="track">
+    <span style="--k:var(--ipf-r)">VASP</span><span style="--k:var(--ipf-g)">LOBSTER &middot; ICOHP</span><span style="--k:var(--ipf-b)">LAMMPS</span><span style="--k:var(--cu)">DAMASK</span><span style="--k:var(--ipf-r)">VPSC</span><span style="--k:var(--ipf-g)">MACE</span><span style="--k:var(--ipf-b)">OVITO</span><span style="--k:var(--cu)">EBSD</span><span style="--k:var(--ipf-r)">cryogenic tension</span><span style="--k:var(--ipf-g)">vLLM &middot; Qwen3</span><span style="--k:var(--ipf-b)">GraphRAG</span><span style="--k:var(--cu)">SLURM / HPC</span>
+    <span style="--k:var(--ipf-r)">VASP</span><span style="--k:var(--ipf-g)">LOBSTER &middot; ICOHP</span><span style="--k:var(--ipf-b)">LAMMPS</span><span style="--k:var(--cu)">DAMASK</span><span style="--k:var(--ipf-r)">VPSC</span><span style="--k:var(--ipf-g)">MACE</span><span style="--k:var(--ipf-b)">OVITO</span><span style="--k:var(--cu)">EBSD</span><span style="--k:var(--ipf-r)">cryogenic tension</span><span style="--k:var(--ipf-g)">vLLM &middot; Qwen3</span><span style="--k:var(--ipf-b)">GraphRAG</span><span style="--k:var(--cu)">SLURM / HPC</span>
+  </div></div>
 </header>
 
-<!-- THESIS -->
+<!-- THESIS JOURNEY -->
 <section class="section" id="thesis">
   <div class="wrap">
-    <div class="reveal">
-      <div class="section-tag">The PhD thesis</div>
-      <h2>Quantifying the chemical bond</h2>
-      <p class="sub"><em>From Electronic Structure to Autonomous Multiscale Simulations of alpha Titanium Alloys.</em> One premise runs
-        through it: the mechanical behaviour of a metal is largely set by its chemical bonds. The integrated crystal-orbital Hamilton
-        population (ICOHP) measures how strong a bond is. Resolved along crystal directions, it also shows which way the bond points. Each
-        stop below zooms out one scale.</p>
-    </div>
-    <div class="thread reveal" style="margin-top:34px">
-      <div class="node"><div class="k">STRENGTH</div><div class="v">&Phi;<sub>eff</sub></div><div class="d">how strong a bond is</div></div>
-      <div class="node"><div class="k">DIRECTION</div><div class="v">R* &middot; &Gamma;</div><div class="d">which way it points</div></div>
-      <div class="node"><div class="k">CHEMISTRY</div><div class="v">COMPASS</div><div class="d">bonds at scale</div></div>
-      <div class="node"><div class="k">REAL METAL</div><div class="v">ICME</div><div class="d">bonds in a polycrystal</div></div>
-      <div class="node"><div class="k">AUTOMATION</div><div class="v">Agents</div><div class="d">letting software read them</div></div>
-    </div>
+    <div class="sec-no reveal"><b>&sect; 01</b> The thesis, one scale at a time</div>
+    <h2 class="xl reveal">Quantifying the <em>chemical bond</em>, then following it up the scales</h2>
+    <p class="sub reveal"><em>From Electronic Structure to Autonomous Multiscale Simulations of alpha Titanium Alloys.</em> One premise:
+      the mechanical behaviour of a metal is largely set by its chemical bonds. Scroll, and each stop zooms out one scale.</p>
 
-    <div class="timeline" id="journey">
-      <div class="beam"></div>
-
-      <div class="tl-item reveal" style="--ac:var(--c1)">
-        <div class="marker">01</div>
-        <a class="tl-card" href="chapter1.html">
-          <div class="scale">Electronic structure &middot; DFT + LOBSTER</div>
-          <h3>How strong is a bond?<span class="status pub">2 papers published</span></h3>
-          <p>A few hundred ppm of C, N or O transforms titanium. <b style="color:var(--c1)">&Phi;<sub>eff</sub></b>, a parameter-free
-            descriptor built from ICOHP, predicts the measured yield-strength rise of each interstitial. Part II adds Al, V, Mo and
-            short-range order.</p>
-          <span class="go">Read chapter 1</span>
-          <div class="metric"><div class="mv">R&sup2; &gt; 0.97</div><div class="ml">&Phi;<sub>eff</sub> vs measured strengthening &middot; JAP 2025 + MCP 2026</div></div>
-        </a>
+    <div class="journey">
+      <div class="stage" aria-hidden="true">
+        <div class="frames">
+          <img src="assets/img/v3/ch1_phieff_yield.webp" alt="" loading="lazy">
+          <img src="assets/img/v3/ch2_rstar_comparison.webp" alt="" loading="lazy">
+          <img src="assets/img/v3/ch3_classmap.webp" alt="" loading="lazy">
+          <img src="assets/img/v3/cp_curves.webp" alt="" loading="lazy">
+          <img src="assets/img/examples/agents/tisci_explorer.webp" alt="" loading="lazy" class="bleed">
+        </div>
+        <div class="scale-bar"><span>bond</span><span>slip plane</span><span>alloy space</span><span>polycrystal</span><span>agent</span></div>
       </div>
-
-      <div class="tl-item reveal" style="--ac:var(--c2)">
-        <div class="marker">02</div>
-        <a class="tl-card" href="chapter2.html">
-          <div class="scale">Bond anisotropy &middot; DFT + LOBSTER + ANNNI</div>
-          <h3>Which way does a metal slip?<span class="status pub">published + in prep</span></h3>
-          <p><b style="color:var(--c2)">R*</b> sorts all 13 HCP metals into basal or prismatic slip, including Be and Re, where c/a fails.
-            <b style="color:var(--c2)">&Gamma;</b>, from a single DFT run, tracks the strength&ndash;ductility trade-off in Ti&ndash;Al.</p>
-          <span class="go">Read chapter 2</span>
-          <div class="metric"><div class="mv">13 / 13</div><div class="ml">HCP metals classified by R* &middot; Mater. Lett. 2025</div></div>
-        </a>
-      </div>
-
-      <div class="tl-item reveal" style="--ac:var(--c3)">
-        <div class="marker">03</div>
-        <a class="tl-card" href="chapter3.html">
-          <div class="scale">Chemistry at scale &middot; COMPASS &middot; standalone project</div>
-          <h3>Will two elements even mix?<span class="status prep">in preparation</span></h3>
-          <p><b style="color:var(--c3)">COMPASS</b> turns the bond into 13 orbital descriptors and classifies 970 hand-verified binary
-            systems over 69 elements, cross-linked to 127k DFT entries. Interpretable and close to a 132-feature black box.</p>
-          <span class="go">Read chapter 3</span>
-          <div class="metric"><div class="mv">970</div><div class="ml">hand-labelled alloy systems &middot; live explorer</div></div>
-        </a>
-      </div>
-
-      <div class="tl-item reveal" style="--ac:var(--c4)">
-        <div class="marker">04</div>
-        <a class="tl-card" href="chapter4.html">
-          <div class="scale">Real polycrystal &middot; DFT &rarr; MD &rarr; DAMASK / VPSC + experiment</div>
-          <h3>Does it hold up in a real metal?<span class="status pub">complete</span></h3>
-          <p>DFT fixes the slip-resistance ratios at <b style="color:var(--c4)">1 : 1.69 : 3.38</b>; one prismatic CRSS per temperature
-            is calibrated. DAMASK and VPSC then reproduce cryogenic tension tests of CP-Ti from 298 to 143&nbsp;K.</p>
-          <span class="go">Read chapter 4</span>
-          <div class="metric"><div class="mv">6.8 MPa</div><div class="ml">VPSC flow-curve RMSE (15.5 MPa DAMASK) &middot; yield 357&rarr;565 MPa</div></div>
-        </a>
-      </div>
-
-      <div class="tl-item reveal" style="--ac:var(--c5)">
-        <div class="marker">05</div>
-        <a class="tl-card" href="chapter5.html">
-          <div class="scale">Automation &middot; multi-agent ICME</div>
-          <h3>Can an agent do what took me four years?<span class="status live">manuscript drafted</span></h3>
-          <p><b style="color:var(--c5)">ICME-lite</b> runs the whole chain from one sentence for fcc, bcc and hcp metals.
-            <b style="color:var(--c5)">TiSci</b> reads the titanium literature, decides what to compute, and keeps an audit trail of every verdict.</p>
-          <span class="go">Read chapter 5</span>
-          <div class="metric"><div class="mv">203k</div><div class="ml">titanium papers in TiSci&rsquo;s knowledge graph</div></div>
-        </a>
+      <div class="steps">
+        <div class="step" style="--ac:var(--c1)">
+          <div class="no">01 &middot; Electronic structure<span class="pill pub">published</span></div>
+          <h3>How strong is a bond, and does it predict strength?</h3>
+          <figure class="fig-m"><img src="assets/img/v3/ch1_phieff_yield.webp" alt="Phi_eff against measured yield strength" loading="lazy"></figure>
+          <p>A few hundred ppm of C, N or O transforms titanium; hydrogen does the opposite. The Ti&ndash;C bond is more than three times
+            stronger than Ti&ndash;Ti (|ICOHP| 2.587 vs 0.757 eV). A parameter-free descriptor, &Phi;<sub>eff</sub>, built from these
+            bonds tracks the measured rise in yield strength.</p>
+          <div class="stat"><span class="v">R&sup2; &gt; 0.97</span><span class="l">&Phi;<sub>eff</sub> vs measured strengthening<br>JAP 2025 &middot; MCP 2026</span></div>
+          <a class="lnk" href="chapter1.html">Read chapter 1</a>
+        </div>
+        <div class="step" style="--ac:var(--c2)">
+          <div class="no">02 &middot; Bond direction<span class="pill pub">published</span></div>
+          <h3>Which plane does a hexagonal metal slip on?</h3>
+          <figure class="fig-m"><img src="assets/img/v3/ch2_rstar_comparison.webp" alt="R* separates basal and prismatic slip metals" loading="lazy"></figure>
+          <p>The classical c/a rule gets beryllium and rhenium wrong. R*, which adds an electronic term to the geometry, sorts every
+            HCP metal correctly. For alloys, &Gamma; from one DFT run tracks the strength&ndash;ductility trade-off in Ti&ndash;Al.</p>
+          <div class="stat"><span class="v">13 / 13</span><span class="l">HCP metals classified by R*<br>Materials Letters 2025</span></div>
+          <a class="lnk" href="chapter2.html">Read chapter 2</a>
+        </div>
+        <div class="step" style="--ac:var(--c3)">
+          <div class="no">03 &middot; Chemistry at scale<span class="pill prep">in preparation</span></div>
+          <h3>Will two elements even mix?</h3>
+          <figure class="fig-m"><img src="assets/img/v3/ch3_classmap.webp" alt="COMPASS phase-behaviour class map" loading="lazy"></figure>
+          <p>COMPASS turns the bond into 13 orbital descriptors and classifies hand-verified binary systems over 69 elements,
+            cross-linked to 127k DFT entries. Interpretable, and close to a 132-feature black box.</p>
+          <div class="stat"><span class="v">970</span><span class="l">hand-labelled alloy systems<br>live explorer online</span></div>
+          <a class="lnk" href="chapter3.html">Read chapter 3</a>
+        </div>
+        <div class="step" style="--ac:var(--c4)">
+          <div class="no">04 &middot; Real polycrystal<span class="pill prep">thesis, unpublished</span></div>
+          <h3>Does it hold up in a real metal, at 143 K?</h3>
+          <figure class="fig-m"><img src="assets/img/v3/cp_curves.webp" alt="Measured and simulated flow curves at four temperatures" loading="lazy"></figure>
+          <p>DFT fixes the slip-resistance ratios at 1 : 1.69 : 3.38; one prismatic value per temperature is calibrated. DAMASK and
+            VPSC then reproduce cryogenic tension tests of CP-Ti from 298 to 143&nbsp;K, where yield rises from 357 to 565 MPa.</p>
+          <div class="stat"><span class="v">6.8 MPa</span><span class="l">VPSC flow-curve RMSE<br>15.5 MPa with DAMASK</span></div>
+          <a class="lnk" href="chapter4.html">Read chapter 4</a>
+        </div>
+        <div class="step" style="--ac:var(--c5)">
+          <div class="no">05 &middot; Automation<span class="pill wip">manuscript drafted</span></div>
+          <h3>Can an agent do what took me four years?</h3>
+          <figure class="fig-m"><img src="assets/img/examples/agents/tisci_explorer.webp" alt="TiSci explorer" loading="lazy"></figure>
+          <p>ICME-lite runs the whole chain from one sentence for fcc, bcc and hcp metals, with 41 physics rules checking each step.
+            TiSci reads the titanium literature, decides what to compute, and code, not the language model, gives every verdict.</p>
+          <div class="stat"><span class="v">16 &middot; 120 &middot; 455</span><span class="l">solutes, pairs and triples<br>mapped by TiSci in &alpha;-Ti</span></div>
+          <a class="lnk" href="chapter5.html">Read chapter 5</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EXAMPLES -->
-<section class="section" id="examples">
+<!-- PUBLISHED RESULTS -->
+<section class="section" id="results">
   <div class="wrap">
-    <div class="head-row reveal">
-      <div>
-        <div class="section-tag">Examples of work</div>
-        <h2>A few figures from current projects</h2>
-        <p class="sub">Plotted from the run data of ongoing projects outside the thesis. Click any figure to enlarge it.</p>
+    <div class="sec-no reveal"><b style="color:var(--ipf-r)">&sect; 02</b> Published results</div>
+    <h2 class="xl reveal" style="--ac:var(--ipf-r)">The numbers that made it <em>through review</em></h2>
+    <p class="sub reveal">The headline figure from each first-author paper, exactly as printed. Click a figure to enlarge it; the button opens the paper.</p>
+    <div class="results">
+      <div class="result reveal" style="--ac:var(--c1)">
+        <figure class="rfig"><span class="tag-j">JAP 2025</span><img src="assets/img/published/jap2025_fig8_phieff_yield.webp" alt="Phi_eff compared with measured yield-strength ratios" loading="lazy" width="1600" height="1113"></figure>
+        <div class="rtext"><div class="hn">17.6 %</div><div class="hl">largest rise in ideal shear strength (C, N, O); H softens</div><h3>One bond descriptor predicts how much an interstitial strengthens titanium</h3><p>C, N and O raise the ideal shear strength of &alpha;-Ti by 3.5 to 17.6 %, while H softens it. &Phi;<sub>eff</sub>, built from ICOHP bond strengths, follows the measured yield-strength ratios with no empirical fitting.</p>
+          <div class="cite">M. F. Akhtar, N. P. Gurao, S. Bhowmick, <i>Journal of Applied Physics</i> 138, 175111 (2025). Fig. 8.</div>
+          <div class="cta"><a class="btn btn-cu" href="https://doi.org/10.1063/5.0289250" target="_blank" rel="noopener">Read the paper</a><a class="btn btn-ghost" href="chapter1.html">The chapter</a></div></div>
       </div>
-      <a class="btn btn-ghost" href="research.html">All projects &rarr;</a>
+      <div class="result reveal" style="--ac:var(--c2)">
+        <figure class="rfig"><span class="tag-j">Mater. Lett. 2025</span><img src="assets/img/published/matlet2025_fig2_rstar.webp" alt="R, R* and J0/Ecoh for thirteen HCP metals" loading="lazy" width="1569" height="878"></figure>
+        <div class="rtext"><div class="hn">13 / 13</div><div class="hl">HCP metals whose primary slip system R* gets right</div><h3>Basal or prismatic? One number decides, including Be and Re</h3><p>R* combines the c/a ratio with the electronic term J<sub>0</sub>/E<sub>coh</sub>. Below 1 a metal slips on the basal plane, above 1 on the prismatic plane, for every one of the thirteen HCP metals studied.</p>
+          <div class="cite">M. F. Akhtar, N. P. Gurao, S. Bhowmick, <i>Materials Letters</i> 400, 139019 (2025). Fig. 2.</div>
+          <div class="cta"><a class="btn btn-cu" href="https://doi.org/10.1016/j.matlet.2025.139019" target="_blank" rel="noopener">Read the paper</a><a class="btn btn-ghost" href="chapter2.html">The chapter</a></div></div>
+      </div>
+      <div class="result reveal" style="--ac:var(--c4)">
+        <figure class="rfig"><span class="tag-j">Mater. Chem. Phys. 2026</span><img src="assets/img/published/mcp2026_fig8_tensile_strength.webp" alt="Predicted and measured tensile strength of Ti-Al, Ti-V and Ti-Mo" loading="lazy" width="1600" height="519"></figure>
+        <div class="rtext"><div class="hn">2.7 %</div><div class="hl">mean deviation from measured tensile strength, Ti&ndash;Mo (6.1 % for Ti&ndash;Al)</div><h3>Bonding plus short-range order predicts the strength of real alloys</h3><p>Al, V and Mo prefer second-neighbour sites, so a random solid solution is the wrong reference; Mo shows the strongest ordering (about 229 meV). With it included, an ICOHP model predicts measured tensile strengths within a few per cent.</p>
+          <div class="cite">M. F. Akhtar, N. P. Gurao, S. Bhowmick, <i>Materials Chemistry and Physics</i> 368, 133019 (2026). Fig. 8.</div>
+          <div class="cta"><a class="btn btn-cu" href="https://doi.org/10.1016/j.matchemphys.2026.133019" target="_blank" rel="noopener">Read the paper</a><a class="btn btn-ghost" href="chapter1.html">The chapter</a></div></div>
+      </div>
     </div>
-    <div class="examples reveal">
-      <figure class="card" style="--ac:var(--amber)"><img class="cover" src="assets/img/examples/gbs/gb_sliding_render.webp" alt="Sliding events in a copper grain boundary" loading="lazy" width="1600" height="1000">
-        <figcaption><span class="p">Grain-boundary sliding &middot; LAMMPS</span>A 110,432-atom Cu bicrystal under shear. The rust clusters are the few boundary atoms that rearranged in one step.</figcaption></figure>
-      <figure class="card" style="--ac:var(--amber)"><img src="assets/img/examples/gbs/cluster_shape_metals.webp" alt="Sliding cluster size in four metals" loading="lazy" width="1600" height="1000">
-        <figcaption><span class="p">Grain-boundary sliding &middot; analysis</span>6,029 sliding events in Al, Cu, Fe and Mg. In every metal the unit is a flattened disc about 1 nm wide.</figcaption></figure>
-      <figure class="card" style="--ac:var(--c3)"><img src="assets/img/examples/mace/zeroshot_shear_benchmark.webp" alt="Zero-shot shear modulus error of MACE models" loading="lazy" width="1600" height="1000">
-        <figcaption><span class="p">ML potentials &middot; MACE</span>Shear modulus error of seven foundation models on 304 d-block structures, before fine-tuning: 9.2% at best, 46.2% at worst.</figcaption></figure>
-      <figure class="card" style="--ac:var(--c3)"><img src="assets/img/examples/mace/finetune_learning_curve.webp" alt="Fine-tuning learning curves" loading="lazy" width="1600" height="1000">
-        <figcaption><span class="p">ML potentials &middot; fine-tuning</span>A ten-model committee: validation energy error falls from 40.8 to 2.4 meV/atom.</figcaption></figure>
-      <figure class="card" style="--ac:var(--rose)"><img src="assets/img/examples/magnetic/dft_label_margins.webp" alt="DFT+U audit of magnetic labels" loading="lazy" width="1600" height="1000">
-        <figcaption><span class="p">Magnetism &middot; DFT+U audit</span>In 21 of 26 Materials Project compounds the ferromagnetic label is overturned by a lower-energy order.</figcaption></figure>
-      <figure class="card" style="--ac:var(--teal)"><img src="assets/img/examples/mxene/bond_vs_phonon_sign.webp" alt="Bond change versus phonon shift" loading="lazy" width="1600" height="1000">
-        <figcaption><span class="p">2D materials &middot; a negative result</span>Bond weakening predicts the sign of a phonon shift in only 158 of 324 cases.</figcaption></figure>
+    <div class="sec-no reveal" style="margin-top:56px">With collaborators</div>
+    <div class="pubgrid">
+      <a class="pcard reveal" style="--ac:var(--indigo)" href="https://doi.org/10.1103/PhysRevB.109.214102" target="_blank" rel="noopener">
+        <div class="pimg"><img src="assets/img/published/prb2024_fig6_ml_parity.webp" alt="" loading="lazy"></div>
+        <div class="pk">Phys. Rev. B 2024</div><div class="pn">&asymp;80&times;</div><p>Machine learning predicts stacking-fault energies about 80 times faster than DFT (test R&sup2; 0.973 to 0.995).</p><span class="pd">doi &rarr;</span></a>
+      <a class="pcard reveal" style="--ac:var(--teal)" href="https://doi.org/10.1007/978-981-99-6863-3_10" target="_blank" rel="noopener">
+        <div class="pimg"><img src="assets/img/published/springer2024_fig4_gsfe_surface.webp" alt="" loading="lazy"></div>
+        <div class="pk">Springer 2024</div><div class="pn">11 FCC</div><p>DFT stacking-fault energies of 11 FCC metals; the Cu GSFE surface gives Peierls stresses close to MD.</p><span class="pd">doi &rarr;</span></a>
+      <a class="pcard reveal" style="--ac:var(--violet)" href="https://doi.org/10.1021/acs.jpcc.4c00497" target="_blank" rel="noopener">
+        <div class="pimg"><img src="assets/img/published/jpcc2024_toc.webp" alt="" loading="lazy"></div>
+        <div class="pk">J. Phys. Chem. C 2024</div><div class="pn">&beta;<sub>12</sub></div><p>Exfoliated borophene on Au(111) is metallic &beta;<sub>12</sub>: the STM cell matches DFT (5.06 and 2.92 &Aring;).</p><span class="pd">doi &rarr;</span></a>
+      <a class="pcard reveal" style="--ac:var(--rose)" href="https://doi.org/10.1021/acs.jpcc.5c00397" target="_blank" rel="noopener">
+        <div class="pimg"><img src="assets/img/published/jpcc2025_toc.webp" alt="" loading="lazy"></div>
+        <div class="pk">J. Phys. Chem. C 2025</div><div class="pn">B<sub>6</sub> to B<sub>16</sub></div><p>A third spin-coating cycle grows metallic boron clusters on borophene; DFT tracks the charge transfer.</p><span class="pd">doi &rarr;</span></a>
     </div>
+    <p class="reveal" style="margin-top:26px"><a class="lnk-u" href="about.html#publications">Full publication list &rarr;</a></p>
+  </div>
+</section>
+
+
+<!-- UNPUBLISHED -->
+<section class="section night" id="drawer">
+  <div class="wrap">
+    <div class="sec-no reveal"><b style="color:var(--ipf-g)">&sect; 03</b> Not yet published</div>
+    <h2 class="xl reveal">What is <em style="color:#fff">in the drawer</em></h2>
+    <p class="sub reveal" style="max-width:62ch">Manuscripts in preparation and work in progress. Here is a first look at each one; the drafts,
+      data and code are available on request. One email is enough.</p>
+    <div class="drawer">
+      <article class="dcard reveal" style="--ac:var(--amber)">
+        <div class="peek"><video data-auto muted loop playsinline preload="none" poster="assets/media/gbs-cu-sigma29-twist.webp"><source src="assets/media/gbs-cu-sigma29-twist.webm" type="video/webm"><source src="assets/media/gbs-cu-sigma29-twist.mp4" type="video/mp4"></video><span class="stamp">manuscript</span><div class="redact"><i></i><i></i><i></i></div></div>
+        <div class="bd"><div class="k">Grain boundaries &middot; LAMMPS</div><h3>A sliding theory, caught in the act</h3><p>Prof. K. A. Padmanabhan&rsquo;s model says grain boundaries slide by shearing small oblate units. Finite-temperature MD in four metals finds them.</p>
+          <ul class="facts"><li>6,029 sliding events in Al, Cu, Fe and Mg</li><li>each unit: a flattened disc about 1 nm wide</li><li>Cu activation energy 70 (59&ndash;81) kJ/mol vs 65.2 predicted</li></ul>
+          <div class="ask"><a href="mailto:faiza21@iitk.ac.in?subject=Draft%20request%3A%20grain-boundary%20sliding&amp;body=Hi%20Faiz%2C%0A%0AI%20saw%20the%20grain-boundary%20sliding%20work%20on%20your%20website%20and%20would%20like%20to%20read%20the%20draft.%0A%0AAbout%20me%3A%0A">Ask for the draft</a><small>draft &middot; data &middot; code</small></div></div>
+      </article>
+      <article class="dcard reveal" style="--ac:var(--c4)">
+        <div class="peek"><img src="assets/img/v3/ipf_frac.webp" alt="" loading="lazy"><span class="stamp">thesis chapter</span><div class="redact"><i></i><i></i><i></i></div></div>
+        <div class="bd"><div class="k">Cryogenic CP-Ti &middot; EBSD + DAMASK</div><h3>Colder titanium got stronger and more ductile. Why?</h3><p>Tension tests from 298 to 143 K, EBSD before and after, and crystal plasticity whose slip ratios come from DFT, not fitting.</p>
+          <ul class="facts"><li>yield 357 &rarr; 565 MPa on cooling to 143 K</li><li>elongation rises from 28 to 36 %</li><li>twin fraction at 143 K predicted within 0.6 points, uncalibrated</li></ul>
+          <div class="ask"><a href="mailto:faiza21@iitk.ac.in?subject=Draft%20request%3A%20cryogenic%20titanium%20%28EBSD%20%2B%20crystal%20plasticity%29&amp;body=Hi%20Faiz%2C%0A%0AI%20saw%20the%20cryogenic%20titanium%20%28EBSD%20%2B%20crystal%20plasticity%29%20work%20on%20your%20website%20and%20would%20like%20to%20read%20the%20draft.%0A%0AAbout%20me%3A%0A">Ask for the draft</a><small>draft &middot; data &middot; code</small></div></div>
+      </article>
+      <article class="dcard reveal" style="--ac:var(--c5)">
+        <div class="peek"><img src="assets/img/examples/agents/tisci_explorer.webp" alt="" loading="lazy"><span class="stamp">npj draft</span><div class="redact"><i></i><i></i><i></i></div></div>
+        <div class="bd"><div class="k">AI agents &middot; TiSci + ICME-lite</div><h3>An agent that is not allowed to judge its own results</h3><p>The language model proposes; deterministic code accepts or rejects. Every verdict sits in an audit trail you can replay.</p>
+          <ul class="facts"><li>16 solutes, 120 pairs and 455 triples mapped in &alpha;-Ti</li><li>prismatic CRSS follows shear modulus (&rho; = &minus;0.88), not stacking-fault energy (+0.19)</li><li>ICME-lite: 98 % of 102 prompts routed correctly</li></ul>
+          <div class="ask"><a href="mailto:faiza21@iitk.ac.in?subject=Draft%20request%3A%20TiSci%20%2F%20ICME-lite%20agent&amp;body=Hi%20Faiz%2C%0A%0AI%20saw%20the%20TiSci%20%2F%20ICME-lite%20agent%20work%20on%20your%20website%20and%20would%20like%20to%20read%20the%20draft.%0A%0AAbout%20me%3A%0A">Ask for the draft</a><small>draft &middot; data &middot; code</small></div></div>
+      </article>
+      <article class="dcard reveal" style="--ac:var(--c3)">
+        <div class="peek"><img src="assets/img/examples/mace/finetune_learning_curve.webp" alt="" loading="lazy"><span class="stamp">ongoing</span><div class="redact"><i></i><i></i><i></i></div></div>
+        <div class="bd"><div class="k">ML potentials &middot; MACE</div><h3>How wrong are foundation potentials before you fine-tune them?</h3><p>Seven foundation models benchmarked zero-shot, then 10-model committees with active learning for high-entropy alloys.</p>
+          <ul class="facts"><li>zero-shot shear modulus error: 9.2 % at best, 46.2 % at worst</li><li>validation energy error 40.8 &rarr; 2.4 meV/atom</li><li>CoCrFeMnNi offset cut from 21.7 to 2.6 meV/atom</li></ul>
+          <div class="ask"><a href="mailto:faiza21@iitk.ac.in?subject=Draft%20request%3A%20MACE%20fine-tuning%20for%20HEAs&amp;body=Hi%20Faiz%2C%0A%0AI%20saw%20the%20MACE%20fine-tuning%20for%20HEAs%20work%20on%20your%20website%20and%20would%20like%20to%20read%20the%20draft.%0A%0AAbout%20me%3A%0A">Ask for the draft</a><small>draft &middot; data &middot; code</small></div></div>
+      </article>
+      <article class="dcard reveal" style="--ac:var(--rose)">
+        <div class="peek"><img src="assets/img/examples/magnetic/dft_label_margins.webp" alt="" loading="lazy"><span class="stamp">draft</span><div class="redact"><i></i><i></i><i></i></div></div>
+        <div class="bd"><div class="k">Magnetism &middot; data audit</div><h3>Most magnetic labels in a database did not survive DFT+U</h3><p>64,635 records from 7 sources, an ML screen down to 26 candidates, then DFT+U on every one of them.</p>
+          <ul class="facts"><li>21 of 26 ferromagnetic labels overturned</li><li>by a lower-energy magnetic order</li><li>a warning for anyone training on these labels</li></ul>
+          <div class="ask"><a href="mailto:faiza21@iitk.ac.in?subject=Draft%20request%3A%20magnetic%20label%20audit&amp;body=Hi%20Faiz%2C%0A%0AI%20saw%20the%20magnetic%20label%20audit%20work%20on%20your%20website%20and%20would%20like%20to%20read%20the%20draft.%0A%0AAbout%20me%3A%0A">Ask for the draft</a><small>draft &middot; data &middot; code</small></div></div>
+      </article>
+      <article class="dcard reveal" style="--ac:var(--teal)">
+        <div class="peek"><img src="assets/img/examples/mxene/bond_vs_phonon_sign.webp" alt="" loading="lazy"><span class="stamp">draft</span><div class="redact"><i></i><i></i><i></i></div></div>
+        <div class="bd"><div class="k">2D materials &middot; a negative result</div><h3>Doping weakens the bond. It does not predict the phonon.</h3><p>An exact electronic/structural decomposition across 22 carbides, MXenes and dichalcogenides.</p>
+          <ul class="facts"><li>the bond rule holds in 66 of 66 metal&ndash;ligand cases</li><li>but predicts the phonon-shift sign in only 158 of 324</li><li>so where does the shift come from?</li></ul>
+          <div class="ask"><a href="mailto:faiza21@iitk.ac.in?subject=Draft%20request%3A%20MXene%20bonding%20vs%20phonons&amp;body=Hi%20Faiz%2C%0A%0AI%20saw%20the%20MXene%20bonding%20vs%20phonons%20work%20on%20your%20website%20and%20would%20like%20to%20read%20the%20draft.%0A%0AAbout%20me%3A%0A">Ask for the draft</a><small>draft &middot; data &middot; code</small></div></div>
+      </article>
+    </div>
+    <div class="drawer-cta reveal"><p>Working on something close to one of these, or want the data behind a figure? I am glad to share drafts and talk shop.</p>
+      <a class="btn btn-cu" href="mailto:faiza21@iitk.ac.in?subject=Your%20unpublished%20work&amp;body=Hi%20Faiz%2C%0A%0AI%20saw%20your%20unpublished%20work%20on%20your%20website%20and%20would%20like%20to%20read%20the%20draft.%0A%0AAbout%20me%3A%0A">Email me</a></div>
   </div>
 </section>
 
@@ -184,7 +247,7 @@
   <div class="wrap">
     <div class="head-row reveal">
       <div>
-        <div class="section-tag" style="--ac:var(--c5)">AI for materials science</div>
+        <div class="sec-no"><b style="color:var(--c5)">&sect; 04</b> AI for materials science</div>
         <h2>Agents that run the calculations and keep the record</h2>
         <p class="sub">Four systems, each built because the previous one hit a wall. The rule they share: the language model may
           parse, propose and narrate, but deterministic code decides every physical number and every verdict.</p>
@@ -229,64 +292,11 @@
   </div>
 </section>
 
-<!-- BEYOND THE THESIS -->
-<section class="section" id="research">
-  <div class="wrap">
-    <div class="head-row reveal">
-      <div>
-        <div class="section-tag">Beyond the thesis</div>
-        <h2>Other things I&rsquo;m working on</h2>
-        <p class="sub">Machine-learned potentials, grain-boundary mechanics, magnetism, 2D materials: the same toolkit pointed
-          at different questions, mostly with collaborators.</p>
-      </div>
-      <a class="btn btn-ghost" href="research.html">All research &rarr;</a>
-    </div>
-    <div class="grid g3">
-      <a class="card reveal" href="research.html#mace" style="--ac:var(--c3)">
-        <div class="kick">ML potentials &middot; ongoing</div>
-        <h3>Fine-tuning MACE for high-entropy alloys</h3>
-        <p>Seven foundation models benchmarked on 307 crystals; 1,870 DFT anchors; 10-member GPU committees with active learning.</p>
-        <div class="big">40.8&rarr;2.4</div><p style="margin-top:4px">meV/atom validation error, zero-shot &rarr; fine-tuned</p>
-      </a>
-      <a class="card reveal" href="research.html#gbs" style="--ac:var(--amber)">
-        <div class="kick">Atomistic test of a theory &middot; manuscript</div>
-        <h3>Grain-boundary sliding by shear of oblate spheroidal units</h3>
-        <p>Finite-temperature MD in Cu, Al, Fe and Mg, with Prof. K. A. Padmanabhan, finds the units his model postulates.</p>
-        <div class="big">70 kJ/mol</div><p style="margin-top:4px">&Delta;F<sub>0</sub>(Cu) from MD vs 65.2 predicted</p>
-      </a>
-      <a class="card reveal" href="research.html#magnetic" style="--ac:var(--rose)">
-        <div class="kick">Magnetism &middot; data audit &middot; draft</div>
-        <h3>Auditing magnetic labels in materials databases</h3>
-        <p>64,635 records from 7 sources &rarr; ML screen &rarr; 26 DMI candidates &rarr; DFT+U. Most database labels did not survive.</p>
-        <div class="big">21 / 26</div><p style="margin-top:4px">magnetic-order labels overturned by DFT+U</p>
-      </a>
-      <a class="card reveal" href="research.html#mxene" style="--ac:var(--teal)">
-        <div class="kick">2D materials &middot; draft</div>
-        <h3>Doping weakens metal&ndash;ligand bonds, but doesn&rsquo;t predict phonons</h3>
-        <p>An exact electronic/structural decomposition across 22 carbides, MXenes and dichalcogenides.</p>
-        <div class="big">66 / 66</div><p style="margin-top:4px">metal&ndash;ligand bond cases follow the rule</p>
-      </a>
-      <a class="card reveal" href="chapter3.html" style="--ac:var(--c3)">
-        <div class="kick">Alloy design &middot; explorer live</div>
-        <h3>COMPASS: will two elements mix?</h3>
-        <p>A hand-verified benchmark of binary phase behaviour, and which descriptors and which DFT actually matter.</p>
-        <div class="big">127,487</div><p style="margin-top:4px">cross-linked DFT entries</p>
-      </a>
-      <a class="card reveal" href="research.html#more" style="--ac:var(--indigo)">
-        <div class="kick">And more</div>
-        <h3>Interstitials in HCP metals, phase-field Cu, borophene, MXene batteries</h3>
-        <p>Published borophene and stacking-fault work with collaborators, plus drafts on Mg/Zn/Zr interstitials and MD-informed phase-field grain growth.</p>
-        <span class="go">See everything</span>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- NEWS -->
 <section class="section tight" id="news">
   <div class="wrap">
     <div class="reveal">
-      <div class="section-tag">Recent</div>
+      <div class="sec-no"><b>&sect; 05</b> Recent</div>
       <h2>2026 so far</h2>
     </div>
     <div class="news" style="margin-top:28px">
@@ -302,32 +312,20 @@
   </div>
 </section>
 
-<!-- SELECTED PUBLICATIONS -->
-<section class="section" id="pubs">
-  <div class="wrap">
-    <div class="head-row reveal">
-      <div>
-        <div class="section-tag">Selected publications</div>
-        <h2>On paper</h2>
-      </div>
-      <a class="btn btn-ghost" href="about.html#publications">All 7 published + 9 in prep &rarr;</a>
-    </div>
-    <div class="pubs">
-      <div class="pubitem reveal"><div class="yr">2026</div><div><div class="tt">Linking electronic bonding and short-range order to strength in &alpha;-titanium alloys: a first-principles study</div><div class="au"><b>M. F. Akhtar</b>, N. P. Gurao, S. Bhowmick</div><div class="vn">Materials Chemistry and Physics 368, 133019</div></div><div class="lk"><a href="https://www.sciencedirect.com/science/article/pii/S0254058426010138" target="_blank" rel="noopener">article</a></div></div>
-      <div class="pubitem reveal"><div class="yr">2025</div><div><div class="tt">A novel electronic structure-based prediction of interstitial strengthening in &alpha;-titanium</div><div class="au"><b>M. F. Akhtar</b>, N. P. Gurao, S. Bhowmick</div><div class="vn">Journal of Applied Physics 138, 175111</div></div><div class="lk"><a href="https://pubs.aip.org/aip/jap/article/138/17/175111/3371105/A-novel-electronic-structure-based-prediction-of" target="_blank" rel="noopener">article</a><a href="https://doi.org/10.1063/5.0289250" target="_blank" rel="noopener">doi</a></div></div>
-      <div class="pubitem reveal"><div class="yr">2025</div><div><div class="tt">Predicting primary slip systems in HCP metals: a combined geometrical and electronic approach</div><div class="au"><b>M. F. Akhtar</b>, N. P. Gurao, S. Bhowmick</div><div class="vn">Materials Letters 400, 139019</div></div><div class="lk"><a href="https://doi.org/10.1016/j.matlet.2025.139019" target="_blank" rel="noopener">doi</a></div></div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT -->
-<section class="section" id="contact">
-  <div class="wrap" style="max-width:760px">
-    <div class="section-tag">Contact</div>
-    <h2>Get in touch</h2>
-    <p class="sub">I am looking for postdoctoral and research positions in first-principles materials physics,
-      machine-learned potentials and AI for science. Email is the best way to reach me:
-      <a href="mailto:faiza21@iitk.ac.in" style="color:var(--teal);text-decoration:underline;text-underline-offset:3px">faiza21@iitk.ac.in</a>.</p>
+<section class="section night contact-v3" id="contact">
+  <div class="wrap">
+    <div class="sec-no"><b style="color:var(--ipf-b)">&sect; 06</b> Contact</div>
+    <h2>Curious about a figure, a draft or a <em>collaboration</em>?</h2>
+    <p class="sub" style="max-width:60ch">I am looking for postdoctoral and research positions in first-principles materials physics,
+      machine-learned potentials and AI for science. Email is the fastest way to reach me.</p>
+    <a class="mail" href="mailto:faiza21@iitk.ac.in">faiza21@iitk.ac.in</a>
+    <div class="cta" style="margin-top:0">
+      <a class="btn btn-cu" href="mailto:faiza21@iitk.ac.in?subject=Hello%20from%20your%20website">Write to me</a>
+      <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.25);color:#fff" href="https://www.linkedin.com/in/md-faiz-akhtar-a51960246/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.25);color:#fff" href="https://github.com/akhtar07" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="tri"><i></i><i></i><i></i></div>
   </div>
 </section>
 <footer>
