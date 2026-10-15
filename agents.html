@@ -249,6 +249,8 @@ def sign_checks(draft: dict, outputs: dict, hyp: dict | None = None) -&gt; dict:
         out[&quot;verdict_llm&quot;] = draft.get(&quot;verdict&quot;); out[&quot;verdict&quot;] = derived</pre>
       </div>
     </div>
+    <figure class="card reveal" style="margin:26px 0 0;padding:0;overflow:hidden"><img src="assets/img/examples/agents/tisci_explorer.webp" alt="TiSci Explorer overview page" loading="lazy" width="1440" height="940">
+      <figcaption style="padding:12px 16px 16px"><b>TiSci Explorer, overview page.</b> The public read-only snapshot of the campaign: 201,495 works harvested, a 1.16 million node knowledge graph, 791 hypotheses and 125 tested. Every number is read from the agent&rsquo;s stored records.</figcaption></figure>
     <div class="note update" style="--ac:var(--teal)"><b>Two snapshots.</b> The thesis (frozen 24&nbsp;Sep&nbsp;2026) reports 201,495 works,
       1,162,619 nodes and 182 cycles; the numbers above come from the later manuscript campaign (8&nbsp;Oct&nbsp;2026).</div>
     <div class="cta reveal">
@@ -301,6 +303,39 @@ $ icme "CRSS and tension test for hcp Ti"
       <p style="font-size:.85rem;color:var(--muted)">Demonstrated live at iNCAM 2026. Ti agreement: 0.89&times; (MD inputs), 3.1&times; (DFT inputs).</p>
     </div>
   </div>
+<div class="wrap">
+    <div class="reveal" style="margin-top:34px">
+      <h3>Example: the critic at every stage</h3>
+      <p>A real ICME-lite run for hcp Ti on the MACE engine (24&nbsp;Sep&nbsp;2026), one line per stage, copied from its run record.
+        The critic passes the elastic and stacking-fault stages, abstains where it has no reference, and flags all four
+        Peierls&ndash;Nabarro cores as too narrow to trust in absolute terms.</p>
+    </div>
+    <div class="term-stack reveal">
+      <div class="term" data-script>
+        <div class="bar"><span>icme-lite &middot; run record &middot; Ti, MACE engine</span></div>
+        <div class="body"></div>
+        <script type="text/plain">
+# elastic
+C11 127.2  C12 109.5  C13 85.7  C33 127.3  C44 20.6  C66 8.9 GPa
+! critic: no reference values held for Ti, so this is an abstention, not a pass
+# stacking-fault energy lines
++ critic: all checks passed
+# Peierls-Nabarro CRSS
+basal <a>          tau0  274.5 MPa   zeta/b 0.737
+prismatic <a>      tau0  228.1 MPa   zeta/b 0.784
+pyramidal <a>      tau0 2316.9 MPa   zeta/b 0.397
+pyramidal <c+a>    tau0 2574.1 MPa   zeta/b 0.516
+x critic flag pn_narrow_core: all 4 cores narrower than one Burgers vector
+x propagate the RATIOS between systems, not these magnitudes
+# crystal plasticity
+DAMASK 40 increments converged, yield 250.1 MPa;  VPSC yield 308.6 MPa (ratio 1.23)
++ critic: all checks passed
+# status: COMPLETED in 820 s
+# not remediable by a retry: zeta/b < 1 needs a different model (atomistic core relaxation)
+        </script>
+      </div>
+    </div>
+</div>
 </section>
 
 <!-- ICME AGENT -->
@@ -346,6 +381,31 @@ $ icme "CRSS and tension test for hcp Ti"
           <text x="210" y="222" fill="#55534e" text-anchor="middle">scale bridges: DFT &rarr; potentials &rarr; CRSS</text>
           <text x="210" y="240" fill="#85817a" text-anchor="middle">PBS / SLURM &middot; self-healing &middot; notifications</text>
         </svg>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:30px">
+      <h3>Example: a DAMASK run that repairs itself</h3>
+      <p>From the DAMASK supervisor&rsquo;s log (8&nbsp;Aug&nbsp;2026), an aluminium creep run at 573&nbsp;K. It fails twice for two different
+        reasons; each time the error handler names the failure, applies a fix and retries.</p>
+    </div>
+    <div class="term-stack reveal">
+      <div class="term" data-script>
+        <div class="bar"><span>damask_agent.log &middot; Al_creep_a05f075d</span></div>
+        <div class="body"></div>
+        <script type="text/plain">
+16:43:53  bridge: Al FCC T=573.15K | VASP=True LAMMPS=True
+16:43:54  generating load.yaml: creep_simulation
+16:43:54  DAMASK_grid run, attempt 1/3
+x 16:43:56  DAMASK ABORT: MPI_ABORT was invoked on rank 8
+! 16:43:56  diagnosed DAMASK_ABORT: material.yaml parse error at line 1832 (numpy scalar tag)
+16:43:56  fix: regenerating material.yaml with dislotwin
+16:44:02  DAMASK_grid run, attempt 2/3
+x 16:48:08  DAMASK ABORT: error 950
+! 16:48:08  diagnosed MAX_CUTBACK
+16:48:08  fix: itmax 100 -> 200 in numerics.yaml
+16:48:14  DAMASK_grid run, attempt 3/3
++ 16:53:53  completed, wall time 339.5 s; HDF5 written and opened for validation
+        </script>
       </div>
     </div>
     <div class="cta reveal"><a class="btn btn-ghost" href="chapter5.html#since">Its story in chapter 5 &rarr;</a></div>
