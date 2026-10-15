@@ -3,17 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chapter 2 · Which way does a metal slip? — From Atoms to Agents</title>
-<meta name="description" content="Predicting primary slip systems in HCP metals and alloys from bond anisotropy — the R* and Gamma descriptors. Md Faiz Akhtar.">
+<title>Chapter 2 · Which way does a metal slip? | Md Faiz Akhtar</title>
+<meta name="description" content="Predicting primary slip systems in HCP metals and alloys from bond anisotropy: the R* and Gamma descriptors. Md Faiz Akhtar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%232dd4bf' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%232dd4bf'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%230f5e5a' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%230f5e5a'/></svg>">
 <style>:root{--ac:var(--c2)}</style>
 </head>
 <body>
-<div id="progress"></div>
 
 <nav class="nav">
   <div class="wrap">
@@ -45,7 +44,7 @@
     <div class="ch-kicker">Chapter 2 · Bond anisotropy</div>
     <h1>Which way does a metal slip?</h1>
     <p class="scaleline">Strength is a number. Slip is a <em>direction</em>. This chapter asks what decides whether an HCP
-      metal deforms on its basal or its prismatic planes &mdash; and answers it with the geometry of the bonds.</p>
+      metal deforms on its basal or its prismatic planes, and answers it with the geometry of the bonds.</p>
     <div class="ch-meta">
       <span class="chip"><b>Method</b> &nbsp;DFT + LOBSTER + ANNNI model</span>
       <span class="chip"><b>System</b> &nbsp;13 HCP metals &middot; Ti / Mg / Zn alloys</span>
@@ -59,16 +58,16 @@
 
   <p class="first reveal">Every HCP metal has a personality. Magnesium slips on its basal plane, which is why it is so hard to
     form sheet from. Titanium and zirconium slip on their prismatic planes, which is part of why they are so much more
-    workable. For a century the explanation was the <strong>c/a ratio</strong> &mdash; squash the hexagonal cell or stretch
+    workable. For a century the explanation was the <strong>c/a ratio</strong>: squash the hexagonal cell or stretch
     it, and the easy slip plane changes. It is a beautiful rule. It is also wrong often enough to be dangerous.</p>
 
   <p class="reveal">Beryllium and rhenium have c/a ratios that say one thing and slip behaviour that says another. So in the
-    paper that became this chapter I went looking for what c/a was standing in for &mdash; and found it in the bonds.</p>
+    paper that became this chapter I went looking for what c/a was standing in for, and found it in the bonds.</p>
 
   <figure class="reveal">
     <img src="assets/img/ch2_ca_structures.png" alt="HCP unit cell at ideal, greater-than and less-than-ideal c/a ratios">
     <figcaption><b>FIG 1</b> &nbsp;The same HCP cell at ideal c/a, stretched, and squashed. The classic picture: geometry
-      alone is supposed to decide the slip plane. It mostly does &mdash; until it doesn&rsquo;t.<span class="fig-pub">· from the published paper</span></figcaption>
+      alone is supposed to decide the slip plane. It mostly does, until it doesn&rsquo;t.<span class="fig-pub">· from the published paper</span></figcaption>
   </figure>
 
   <h2 class="reveal">The R* parameter</h2>
@@ -81,7 +80,7 @@
     <small>R* &gt; 1 &rarr; prismatic slip &nbsp;&middot;&nbsp; R* &lt; 1 &rarr; basal slip</small>
   </div>
 
-  <p class="pull reveal">One line drawn at R* = 1 sorts all thirteen HCP metals correctly &mdash; including the ones that
+  <p class="pull reveal">One line drawn at R* = 1 sorts all thirteen HCP metals correctly, including the ones that
     break the c/a rule.</p>
 
   <figure class="reveal">
@@ -94,7 +93,7 @@
   <div class="kpis reveal">
     <div class="kpi"><div class="n">13 / 13</div><div class="l">HCP metals correctly classified by R*</div></div>
     <div class="kpi"><div class="n">Zn</div><div class="l">c/a = 1.86 says prismatic; R* = 0.40 correctly says basal</div></div>
-    <div class="kpi"><div class="n">Re, Be</div><div class="l">the metals where plain c/a fails &mdash; R* gets them right</div></div>
+    <div class="kpi"><div class="n">Re, Be</div><div class="l">the metals where plain c/a fails; R* gets them right</div></div>
   </div>
 
   <figure class="reveal">
@@ -106,7 +105,7 @@
   <h2 class="reveal">From metals to alloys: the &Gamma; descriptor</h2>
   <p class="reveal">R* sorts the pure elements. But the question every alloy designer actually asks is sharper: <em>how much
     aluminium can I add to titanium before it stops slipping the way I want?</em> That needed a descriptor that reads the
-    bond directions themselves, not the averaged crystal. So I defined <strong>&Gamma;</strong> &mdash; the ratio of bond
+    bond directions themselves, not the averaged crystal. So I defined <strong>&Gamma;</strong>, the ratio of bond
     strength along the c-axis (apical) to bond strength in the basal plane, straight from ICOHP.</p>
 
   <div class="eq reveal">
@@ -115,8 +114,7 @@
   </div>
 
   <p class="reveal">Two things make me fond of this one. First, I could derive an analytic Slater&ndash;Koster form for &Gamma;
-    that shows bond-length geometry dominates &mdash; to a good approximation &Gamma;<sub>geom</sub> &asymp; (d<sub>bas</sub>/d<sub>ap</sub>)<sup>5</sup> &mdash;
-    with a small electronic correction (RMSE 0.031). So the descriptor is interpretable, not a black box, and it comes out of a
+    that shows bond-length geometry dominates: to a good approximation &Gamma;<sub>geom</sub> &asymp; (d<sub>bas</sub>/d<sub>ap</sub>)<sup>5</sup>, with a small electronic correction (RMSE 0.031). So the descriptor is interpretable, not a black box, and it comes out of a
     <em>single</em> DFT calculation. Second, when I built special quasi-random structures for the alloys, &Gamma; tracked a real
     change: in <strong>Ti<sub>1&minus;x</sub>Al<sub>x</sub>, &Gamma; reaches unity near 14 at.% aluminium</strong>. Between pure Ti
     and about 18 at.% Al the prismatic unstable stacking-fault energy rises by <strong>96%</strong>, the basal one by only
@@ -131,23 +129,22 @@
 
   <p class="reveal">What this means physically: the CRSS ratio of prismatic to basal slip moves from 0.59 toward unity, so basal
     slip becomes <em>less unfavourable</em> as Al is added. That is consistent with Ti&ndash;Al alloys getting stronger without a
-    severe loss of ductility &mdash; which makes &Gamma; a first-principles indicator of the strength&ndash;ductility trade-off.</p>
+    severe loss of ductility, which makes &Gamma; a first-principles indicator of the strength&ndash;ductility trade-off.</p>
 
   <p class="reveal">You can watch it happen in the stacking-fault energies. As aluminium goes into titanium, the ratio
-    <em>r</em> = &gamma;<sub>usf</sub><sup>prism</sup> / &gamma;<sub>usf</sub><sup>basal</sup> climbs steadily from 0.59 toward
-    1 &mdash; the prismatic plane losing its advantage &mdash; while the negative-control systems sit flat:</p>
+    <em>r</em> = &gamma;<sub>usf</sub><sup>prism</sup> / &gamma;<sub>usf</sub><sup>basal</sup> climbs steadily from 0.59 toward 1 (the prismatic plane losing its advantage), while the negative-control systems sit flat:</p>
 
   <div class="tbl-scroll reveal">
     <table class="dtable">
       <caption>Unstable stacking-fault energies from 64-atom SQS supercells (mJ/m&sup2;); r = prismatic / basal barrier</caption>
       <thead><tr><th>System</th><th>composition</th><th>x</th><th>&gamma;<sub>usf</sub> basal</th><th>&gamma;<sub>usf</sub> prism</th><th>r</th></tr></thead>
       <tbody>
-        <tr class="grouphead"><td colspan="6">Ti&ndash;Al &mdash; the prismatic&rarr;basal crossover</td></tr>
+        <tr class="grouphead"><td colspan="6">Ti&ndash;Al: the prismatic&rarr;basal crossover</td></tr>
         <tr><td>Pure Ti</td><td>Ti</td><td class="num">0</td><td class="num">446</td><td class="num">264</td><td class="num">0.59</td></tr>
         <tr><td>Ti&ndash;Al</td><td>Ti&#8323;&#8321;Al&#8321;</td><td class="num">0.031</td><td class="num">490</td><td class="num">291</td><td class="num">0.59</td></tr>
         <tr><td>Ti&ndash;Al</td><td>Ti&#8323;&#8320;Al&#8322;</td><td class="num">0.062</td><td class="num">528</td><td class="num">374</td><td class="num">0.71</td></tr>
         <tr><td>Ti&ndash;Al</td><td>Ti&#8322;&#8329;Al&#8323;</td><td class="num">0.094</td><td class="num">534</td><td class="num">404</td><td class="num hl">0.76</td></tr>
-        <tr class="grouphead"><td colspan="6">Negative controls &mdash; predicted to stay prismatic, and they do</td></tr>
+        <tr class="grouphead"><td colspan="6">Negative controls: predicted to stay prismatic, and they do</td></tr>
         <tr><td>Hf&ndash;Zr</td><td>Hf&#8321;&#8326;Zr&#8321;&#8326;</td><td class="num">0.50</td><td class="num">538</td><td class="num">262</td><td class="num">0.49</td></tr>
         <tr><td>Sc&ndash;Zr</td><td>Sc&#8322;&#8326;Zr&#8326;</td><td class="num">0.188</td><td class="num">450</td><td class="num">253</td><td class="num">0.56</td></tr>
       </tbody>
@@ -157,36 +154,36 @@
   <div class="diagram reveal">
     <svg viewBox="0 0 820 250" role="img" aria-label="Stacking-fault barrier ratio r versus aluminium content">
       <defs><marker id="a2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
-        <path d="M0,0 L6,3 L0,6 Z" fill="#2dd4bf"/></marker></defs>
+        <path d="M0,0 L6,3 L0,6 Z" fill="#0f5e5a"/></marker></defs>
       <!-- axes -->
-      <line x1="90" y1="200" x2="780" y2="200" stroke="#22304b" stroke-width="1.5"/>
-      <line x1="90" y1="40" x2="90" y2="200" stroke="#22304b" stroke-width="1.5"/>
-      <text x="44" y="46" fill="#93a0b8" font-size="12" font-family="JetBrains Mono">r=1</text>
-      <text x="44" y="150" fill="#93a0b8" font-size="12" font-family="JetBrains Mono">0.6</text>
+      <line x1="90" y1="200" x2="780" y2="200" stroke="#cfc9bc" stroke-width="1.5"/>
+      <line x1="90" y1="40" x2="90" y2="200" stroke="#cfc9bc" stroke-width="1.5"/>
+      <text x="44" y="46" fill="#55534e" font-size="12" font-family="JetBrains Mono">r=1</text>
+      <text x="44" y="150" fill="#55534e" font-size="12" font-family="JetBrains Mono">0.6</text>
       <!-- r=1 transition line -->
-      <line x1="90" y1="44" x2="780" y2="44" stroke="#fb7185" stroke-width="1.2" stroke-dasharray="6 5"/>
-      <text x="600" y="36" fill="#fb7185" font-size="12" font-family="JetBrains Mono">basal takes over (r &rarr; 1)</text>
+      <line x1="90" y1="44" x2="780" y2="44" stroke="#9b2f3f" stroke-width="1.2" stroke-dasharray="6 5"/>
+      <text x="600" y="36" fill="#9b2f3f" font-size="12" font-family="JetBrains Mono">basal takes over (r &rarr; 1)</text>
       <!-- Ti-Al rising curve: r 0.59,0.59,0.71,0.76 at x 0,0.031,0.062,0.094 -->
       <!-- map x:0..0.10 -> 110..720 ; r:0.5..1.0 -> 200..44 -->
-      <polyline points="110,170 300,170 490,98 720,68" fill="none" stroke="#2dd4bf" stroke-width="3" marker-end="url(#a2)"/>
-      <circle cx="110" cy="170" r="5" fill="#2dd4bf"/><circle cx="300" cy="170" r="5" fill="#2dd4bf"/>
-      <circle cx="490" cy="98" r="5" fill="#2dd4bf"/><circle cx="720" cy="68" r="6" fill="#fff" stroke="#2dd4bf" stroke-width="2"/>
-      <text x="120" y="190" fill="#6b7892" font-size="11" font-family="JetBrains Mono">0%</text>
-      <text x="700" y="190" fill="#6b7892" font-size="11" font-family="JetBrains Mono">~9% Al</text>
-      <text x="120" y="158" fill="#2dd4bf" font-size="12" font-family="JetBrains Mono">Ti&ndash;Al</text>
+      <polyline points="110,170 300,170 490,98 720,68" fill="none" stroke="#0f5e5a" stroke-width="3" marker-end="url(#a2)"/>
+      <circle cx="110" cy="170" r="5" fill="#0f5e5a"/><circle cx="300" cy="170" r="5" fill="#0f5e5a"/>
+      <circle cx="490" cy="98" r="5" fill="#0f5e5a"/><circle cx="720" cy="68" r="6" fill="#fff" stroke="#0f5e5a" stroke-width="2"/>
+      <text x="120" y="190" fill="#85817a" font-size="11" font-family="JetBrains Mono">0%</text>
+      <text x="700" y="190" fill="#85817a" font-size="11" font-family="JetBrains Mono">~9% Al</text>
+      <text x="120" y="158" fill="#0f5e5a" font-size="12" font-family="JetBrains Mono">Ti&ndash;Al</text>
       <!-- flat controls -->
-      <polyline points="110,178 720,182" fill="none" stroke="#6b7892" stroke-width="2.5" stroke-dasharray="4 4"/>
-      <text x="500" y="205" fill="#6b7892" font-size="11" font-family="JetBrains Mono">Hf&ndash;Zr, Sc&ndash;Zr (flat, stay prismatic)</text>
-      <text x="300" y="232" fill="#93a0b8" font-size="12" font-family="Inter" text-anchor="middle">aluminium content &rarr;</text>
+      <polyline points="110,178 720,182" fill="none" stroke="#85817a" stroke-width="2.5" stroke-dasharray="4 4"/>
+      <text x="500" y="205" fill="#85817a" font-size="11" font-family="JetBrains Mono">Hf&ndash;Zr, Sc&ndash;Zr (flat, stay prismatic)</text>
+      <text x="300" y="232" fill="#55534e" font-size="12" font-family="Inter" text-anchor="middle">aluminium content &rarr;</text>
     </svg>
     <figcaption style="margin-top:14px;font-size:.86rem;color:var(--muted)">The prismatic/basal barrier ratio for Ti&ndash;Al climbs
-      toward the basal-slip transition as aluminium is added, while the negative controls stay flat &mdash; drawn from the
+      toward the basal-slip transition as aluminium is added, while the negative controls stay flat. Drawn from the
       stacking-fault data in the table above.</figcaption>
   </div>
 
   <div class="note reveal"><b>Negative controls matter:</b> Hf&ndash;Zr and Sc&ndash;Zr were predicted to stay prismatic, and they
     do; Sc&ndash;Y reinforces prismatic slip. A descriptor you can fool is worthless, so I went looking for systems that
-    <em>should</em> not transition &mdash; and &Gamma; correctly left them alone. The pure-metal R* result above is published; the &Gamma; alloy work is a manuscript in preparation and is part of the final thesis.</div>
+    <em>should</em> not transition, and &Gamma; correctly left them alone. The pure-metal R* result above is published; the &Gamma; alloy work is a manuscript in preparation and is part of the final thesis.</div>
 
   <div class="note update reveal"><b>Updated with the final thesis numbers (Oct 2026):</b> an earlier version of this page, based on the
     first 64-atom SQS series (table above, up to 9.4 at.% Al), said &Gamma; crosses 1 near 9 at.% Al. Extending the series to
@@ -195,7 +192,7 @@
   <h2 class="reveal">Why it matters for the rest of the journey</h2>
   <p class="reveal">Chapters 1 and 2 are two readings of the same gauge. ICOHP told me how <em>strong</em> a bond is, and now
     how <em>directional</em> it is. Between them they cover a single grain of a single metal. But an alloy is a choice between
-    elements long before it is a microstructure &mdash; so the next chapter pulls all the way back and asks the most basic
+    elements long before it is a microstructure, so the next chapter pulls all the way back and asks the most basic
     chemistry question of all: <strong>given any two elements, will they even form a solid solution?</strong></p>
 
   <div class="pager">

@@ -1,6 +1,6 @@
 # From Atoms to Agents
 
-My PhD journey, told one chapter at a time — from the electronic structure of titanium
+My PhD journey, told one chapter at a time, from the electronic structure of titanium
 to an AI agent that runs multiscale materials simulations.
 
 **Md Faiz Akhtar** · Materials Science & Engineering, IIT Kanpur
@@ -9,17 +9,17 @@ A plain HTML/CSS/JS static site. No build step, no dependencies.
 
 ```
 website/
-├── index.html          # landing page — hero, thesis timeline, agents, research, news, papers
-├── agents.html         # AI agents — TiSci, ICME-lite, ICME Agent, SciAgent, LLM benchmarks
-├── research.html       # work beyond the thesis — MACE/HEA, GB sliding, magnetic audit, MXenes, COMPASS, more
-├── about.html          # CV page — education, experience, filterable publications, talks, skills
-├── chapter1.html       # Strength   — Φ_eff interstitial strengthening (+ SRO)
-├── chapter2.html       # Direction  — R* and Γ slip-system descriptors
-├── chapter3.html       # Chemistry  — COMPASS orbital descriptors
-├── chapter4.html       # Real metal — DFT→MD→DAMASK ICME + cryogenic experiment
-├── chapter5.html       # Automation — the multi-agent ICME framework
+├── index.html          # landing page: hero, thesis timeline, agents, research, news, papers
+├── agents.html         # AI agents: TiSci, ICME-lite, ICME Agent, SciAgent, LLM benchmarks
+├── research.html       # work beyond the thesis: MACE/HEA, GB sliding, magnetic audit, MXenes, COMPASS, more
+├── about.html          # CV page: education, experience, filterable publications, talks, skills
+├── chapter1.html       # Strength:   Φ_eff interstitial strengthening (+ SRO)
+├── chapter2.html       # Direction:  R* and Γ slip-system descriptors
+├── chapter3.html       # Chemistry:  COMPASS orbital descriptors
+├── chapter4.html       # Real metal: DFT→MD→DAMASK ICME + cryogenic experiment
+├── chapter5.html       # Automation: the multi-agent ICME framework
 ├── css/style.css       # the whole design system
-├── js/main.js          # reveal, counters, tabs, typing terminals, filters, TOC scrollspy, hero canvas
+├── js/main.js          # nav, fade-in, log blocks, tabs, filters, contents highlight, figure lightbox
 ├── assets/img/         # the figures (compressed for web)
 ├── assets/Md_Faiz_Akhtar_CV.pdf  # the CV linked from every page
 ├── .github/workflows/  # GitHub Pages deploy workflow
@@ -56,11 +56,11 @@ and **Settings → Actions → General → Workflow permissions → Read and wri
 
 ## Editing
 
-- Prose lives directly in each `.html` file — search for the text and edit it.
+- Prose lives directly in each `.html` file; search for the text and edit it.
 - Reusable pieces (cards, KPI tiles, bar charts `.mbar`, rings `.ring`, tabs, terminals
   `.term`, the side TOC `.toc`) are plain classes in `css/style.css`; copy an existing
-  block to add a new one. Animated numbers use `data-count` and keep the real value in
-  the HTML, so they still read correctly without JavaScript.
+  block to add a new one. Numbers marked `data-count` keep the real value in
+  the HTML and are written out as-is.
 - Colours and layout are all in `css/style.css` (CSS variables at the top).
 - To swap a figure, drop a new file into `assets/img/` with the same name.
 

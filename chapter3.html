@@ -3,17 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chapter 3 · Will two elements even mix? — From Atoms to Agents</title>
-<meta name="description" content="COMPASS: orbital descriptors that classify binary alloy phase behaviour — isomorphous, intermetallic or immiscible — interpretably. Md Faiz Akhtar.">
+<title>Chapter 3 · Will two elements even mix? | Md Faiz Akhtar</title>
+<meta name="description" content="COMPASS: orbital descriptors that classify binary alloy phase behaviour (isomorphous, intermetallic or immiscible) interpretably. Md Faiz Akhtar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%23a78bfa' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%23a78bfa'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%235b4a86' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%235b4a86'/></svg>">
 <style>:root{--ac:var(--c3)}</style>
 </head>
 <body>
-<div id="progress"></div>
 
 <nav class="nav">
   <div class="wrap">
@@ -44,14 +43,13 @@
   <div class="wrap">
     <div class="ch-kicker">Chapter 3 · Chemistry at scale &middot; standalone project</div>
     <h1>Will two elements even mix?</h1>
-    <p class="scaleline">Pull back from one grain to the whole periodic table. Before strength or slip, there is a more basic
-      question &mdash; given any two metals, do they dissolve, compound, or refuse each other? <strong>COMPASS</strong> answers it
+    <p class="scaleline">Pull back from one grain to the whole periodic table. Before strength or slip, there is a more basic question: given any two metals, do they dissolve, compound, or refuse each other? <strong>COMPASS</strong> answers it
       from orbitals.</p>
     <div class="ch-meta">
       <span class="chip"><b>Method</b> &nbsp;Tight-binding orbital descriptors + DFT/LOBSTER</span>
       <span class="chip"><b>Resource</b> &nbsp;970 hand-verified pairs &middot; 69 elements &middot; 127k-entry DFT database</span>
       <span class="chip"><b>Status</b> &nbsp;Manuscript in preparation (2026)</span>
-      <span class="chip"><b>Note</b> &nbsp;not part of the final thesis &mdash; a standalone project</span>
+      <span class="chip"><b>Note</b> &nbsp;not part of the final thesis; a standalone project</span>
     </div>
   </div>
 </header>
@@ -60,24 +58,23 @@
 
   <p class="first reveal">The Hume&ndash;Rothery rules are the oldest piece of alloy intuition we have: two metals form a solid
     solution if their atoms are similar in size, electronegativity, valence and crystal structure. Generations of metallurgists
-    have carried them in their heads. The trouble is they are qualitative &mdash; two fuzzy rules of thumb &mdash; and on a fair,
+    have carried them in their heads. The trouble is they are qualitative (two fuzzy rules of thumb), and on a fair,
     hand-checked benchmark they are right only a little more often than a coin weighted by luck.</p>
 
-  <p class="reveal">I wanted to keep the <em>interpretability</em> of Hume&ndash;Rothery &mdash; the whole point is that a human can
-    understand the answer &mdash; while making it quantitative and honest. That is <strong>COMPASS</strong>: a small set of
+  <p class="reveal">I wanted to keep the <em>interpretability</em> of Hume&ndash;Rothery (the whole point is that a human can understand the answer) while making it quantitative and honest. That is <strong>COMPASS</strong>: a small set of
     orbital descriptors that predict how any binary pair behaves, and tell you <em>why</em>.</p>
 
   <a class="linkout reveal" href="https://akhtar07.github.io/compass-explorer/" target="_blank" rel="noopener">
     <span class="ic">&#129517;</span>
-    <span class="tx"><b>Try the COMPASS Explorer &mdash; live tool</b>
-      <span>Pick any two of the 69 elements and watch the descriptors and predicted phase behaviour update in real time &mdash; the interactive app I built on top of this work.</span></span>
+    <span class="tx"><b>Try the COMPASS Explorer (live tool)</b>
+      <span>Pick any two of the 69 elements and watch the descriptors and predicted phase behaviour update in real time. This is the interactive app I built on top of this work.</span></span>
     <span class="arr">&rarr;</span>
   </a>
 
   <h2 class="reveal">Thirteen descriptors, built from the atom up</h2>
   <p class="reveal">Eight of the descriptors (D1&ndash;D8) come straight from Harrison tight-binding
-    theory and free-atom data &mdash; orbital energies, radii, bond-energy estimates. Four more (D9&ndash;D12)
-    come from first-principles DFT bonding analysis &mdash; the same ICOHP and ICOBI bond measures that
+    theory and free-atom data: orbital energies, radii, bond-energy estimates. Four more (D9&ndash;D12)
+    come from first-principles DFT bonding analysis, the same ICOHP and ICOBI bond measures that
     run through this whole thesis (available for the original 610-pair subset). A thirteenth, D13, is simply the
     periodic-table group distance between the two elements. Every descriptor is a physical quantity you can name.</p>
 
@@ -85,38 +82,38 @@
     <svg viewBox="0 0 820 300" role="img" aria-label="COMPASS descriptor pipeline diagram">
       <defs>
         <marker id="arr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
-          <path d="M0,0 L6,3 L0,6 Z" fill="#a78bfa"/></marker>
+          <path d="M0,0 L6,3 L0,6 Z" fill="#5b4a86"/></marker>
         <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#818cf8"/></linearGradient>
+          <stop offset="0" stop-color="#5b4a86"/><stop offset="1" stop-color="#3d4f86"/></linearGradient>
       </defs>
       <!-- two atoms -->
-      <circle cx="70" cy="150" r="34" fill="none" stroke="#a78bfa" stroke-width="2"/>
-      <circle cx="70" cy="150" r="11" fill="#a78bfa"/>
-      <text x="70" y="215" fill="#93a0b8" font-size="13" text-anchor="middle" font-family="JetBrains Mono">element A</text>
-      <circle cx="70" cy="150" r="34" fill="none" stroke="#818cf8" stroke-width="2" transform="translate(46,0)"/>
-      <text x="116" y="150" fill="#fff" font-size="20" text-anchor="middle" font-family="JetBrains Mono" dy="6">B</text>
-      <path d="M150,150 L210,150" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr)"/>
+      <circle cx="70" cy="150" r="34" fill="none" stroke="#5b4a86" stroke-width="2"/>
+      <circle cx="70" cy="150" r="11" fill="#5b4a86"/>
+      <text x="70" y="215" fill="#55534e" font-size="13" text-anchor="middle" font-family="JetBrains Mono">element A</text>
+      <circle cx="70" cy="150" r="34" fill="none" stroke="#3d4f86" stroke-width="2" transform="translate(46,0)"/>
+      <text x="116" y="150" fill="#1d1d1b" font-size="20" text-anchor="middle" font-family="JetBrains Mono" dy="6">B</text>
+      <path d="M150,150 L210,150" stroke="#5b4a86" stroke-width="2" marker-end="url(#arr)"/>
 
       <!-- descriptor stack -->
-      <rect x="220" y="60" width="210" height="180" rx="12" fill="#172238" stroke="#22304b"/>
-      <text x="325" y="86" fill="#a78bfa" font-size="13" text-anchor="middle" font-family="JetBrains Mono">13 INTERPRETABLE DESCRIPTORS</text>
-      <text x="240" y="116" fill="#e8ecf4" font-size="13" font-family="JetBrains Mono">D2 · orbital-energy mismatch</text>
-      <text x="240" y="142" fill="#e8ecf4" font-size="13" font-family="JetBrains Mono">D7 · size mismatch</text>
-      <text x="240" y="168" fill="#93a0b8" font-size="13" font-family="JetBrains Mono">D1,D3–D6 · bonding</text>
-      <text x="240" y="194" fill="#93a0b8" font-size="13" font-family="JetBrains Mono">D8 · valence</text>
-      <text x="240" y="220" fill="#6b7892" font-size="12" font-family="JetBrains Mono">D9–D12 · ICOHP/ICOBI · D13 · group dist.</text>
-      <path d="M440,150 L500,150" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr)"/>
+      <rect x="220" y="60" width="210" height="180" rx="12" fill="#f6f4ef" stroke="#cfc9bc"/>
+      <text x="325" y="86" fill="#5b4a86" font-size="13" text-anchor="middle" font-family="JetBrains Mono">13 INTERPRETABLE DESCRIPTORS</text>
+      <text x="240" y="116" fill="#1d1d1b" font-size="13" font-family="JetBrains Mono">D2 · orbital-energy mismatch</text>
+      <text x="240" y="142" fill="#1d1d1b" font-size="13" font-family="JetBrains Mono">D7 · size mismatch</text>
+      <text x="240" y="168" fill="#55534e" font-size="13" font-family="JetBrains Mono">D1,D3–D6 · bonding</text>
+      <text x="240" y="194" fill="#55534e" font-size="13" font-family="JetBrains Mono">D8 · valence</text>
+      <text x="240" y="220" fill="#85817a" font-size="12" font-family="JetBrains Mono">D9–D12 · ICOHP/ICOBI · D13 · group dist.</text>
+      <path d="M440,150 L500,150" stroke="#5b4a86" stroke-width="2" marker-end="url(#arr)"/>
 
       <!-- four classes -->
       <g font-family="Inter" font-size="13">
-        <rect x="510" y="60"  width="290" height="40" rx="9" fill="#0e1422" stroke="#34d399"/>
-        <text x="528" y="85" fill="#34d399">Isomorphous &mdash; full solid solution</text>
-        <rect x="510" y="108" width="290" height="40" rx="9" fill="#0e1422" stroke="#60a5fa"/>
-        <text x="528" y="133" fill="#60a5fa">Partial solubility</text>
-        <rect x="510" y="156" width="290" height="40" rx="9" fill="#0e1422" stroke="#fbbf24"/>
-        <text x="528" y="181" fill="#fbbf24">Intermetallic &mdash; ordered compound</text>
-        <rect x="510" y="204" width="290" height="40" rx="9" fill="#0e1422" stroke="#fb7185"/>
-        <text x="528" y="229" fill="#fb7185">Immiscible &mdash; will not mix</text>
+        <rect x="510" y="60"  width="290" height="40" rx="9" fill="#f6f4ef" stroke="#2f6b3a"/>
+        <text x="528" y="85" fill="#2f6b3a">Isomorphous: full solid solution</text>
+        <rect x="510" y="108" width="290" height="40" rx="9" fill="#f6f4ef" stroke="#1f5c8a"/>
+        <text x="528" y="133" fill="#1f5c8a">Partial solubility</text>
+        <rect x="510" y="156" width="290" height="40" rx="9" fill="#f6f4ef" stroke="#a8641c"/>
+        <text x="528" y="181" fill="#a8641c">Intermetallic: ordered compound</text>
+        <rect x="510" y="204" width="290" height="40" rx="9" fill="#f6f4ef" stroke="#9b2f3f"/>
+        <text x="528" y="229" fill="#9b2f3f">Immiscible: will not mix</text>
       </g>
     </svg>
     <figcaption style="margin-top:14px;font-size:.86rem;color:var(--muted)">How COMPASS reads a binary pair: free-atom orbital
@@ -124,23 +121,23 @@
       metallurgist actually cares about.</figcaption>
   </div>
 
-  <h2 class="reveal">The honest benchmark &mdash; and an open resource</h2>
+  <h2 class="reveal">The honest benchmark, and an open resource</h2>
   <p class="reveal">A model is only as trustworthy as the data it is judged on, so I built the benchmark by hand:
     <strong>970 binary pairs across 69 elements</strong> (including the lanthanides and actinides), each one labelled by reading
     the actual CALPHAD phase diagram and sorting it into isomorphous, partial, intermetallic or immiscible. No scraped labels,
     no shortcuts. Alongside it I assembled a <strong>127,487-entry, three-source DFT database</strong> (Materials Project, OQMD,
-    JARVIS) over 2,628 metal&ndash;metal systems &mdash; with the first cross-source agreement check for this chemistry. Then I
+    JARVIS) over 2,628 metal&ndash;metal systems, with the first cross-source agreement check for this chemistry. Then I
     tested COMPASS against the classic two-rule Hume&ndash;Rothery baseline and a 132-feature machine-learning model (MAGPIE).</p>
 
   <div class="kpis reveal">
-    <div class="kpi"><div class="n">0.709</div><div class="l">LOEO macro-F1 (COMPASS-13) &mdash; within ~0.07 of MAGPIE&rsquo;s 0.777</div></div>
+    <div class="kpi"><div class="n">0.709</div><div class="l">LOEO macro-F1 (COMPASS-13), within ~0.07 of MAGPIE&rsquo;s 0.777</div></div>
     <div class="kpi"><div class="n">+0.27</div><div class="l">balanced-accuracy gain over Hume&ndash;Rothery (P &lt; 0.001)</div></div>
     <div class="kpi"><div class="n">970</div><div class="l">binary pairs hand-verified across 69 elements</div></div>
     <div class="kpi"><div class="n">127k</div><div class="l">tri-source DFT entries (MP&middot;OQMD&middot;JARVIS), 2,628 systems</div></div>
   </div>
 
   <p class="reveal">The framing matters, and I want to be honest about it: the 132-feature MAGPIE black box is the
-    <em>most</em> accurate single representation. COMPASS comes within about 0.07 in macro-F1 &mdash; but, unlike the black box,
+    <em>most</em> accurate single representation. COMPASS comes within about 0.07 in macro-F1, but unlike the black box,
     it tells you <em>why</em>, through explicit per-class rules and SHAP. Transparency, not raw accuracy, is the contribution.</p>
 
   <figure class="reveal">
@@ -153,38 +150,37 @@
   </figure>
 
   <p class="pull reveal">Two master variables carry most of the signal: D2, the bond-weighted orbital-energy mismatch, and
-    D7, the Hume&ndash;Rothery size mismatch. Eighty years on, size and energy still rule &mdash; but now with numbers.</p>
+    D7, the Hume&ndash;Rothery size mismatch. Eighty years on, size and energy still rule, but now with numbers.</p>
 
   <figure class="reveal">
     <img src="assets/img/ch3_shap_v2.png" alt="TreeSHAP global descriptor importance, stacked across the four phase classes" style="background:#fff;padding:16px;border-radius:12px">
     <figcaption><b>FIG 2</b> &nbsp;Which descriptors drive each class. TreeSHAP attribution ranks the descriptors
       D<sub>2</sub>&nbsp;&gt;&nbsp;D<sub>7</sub>&nbsp;&gt;&nbsp;D<sub>4</sub>&nbsp;&hellip;: D<sub>2</sub> (orbital-energy mismatch)
       rules the isomorphous and intermetallic classes, while D<sub>7</sub> (size mismatch) rules the partial and immiscible ones.
-      The model rediscovers the textbook physics on its own &mdash; nothing here is a black box.<span class="fig-pub">&middot; from the COMPASS study</span></figcaption>
+      The model rediscovers the textbook physics on its own; nothing here is a black box.<span class="fig-pub">&middot; from the COMPASS study</span></figcaption>
   </figure>
 
   <div class="tbl-scroll reveal">
     <table class="dtable">
-      <caption>LOEO macro-F1 across feature sets &mdash; MAGPIE is most accurate; COMPASS-13 is within ~0.07 and fully interpretable</caption>
+      <caption>LOEO macro-F1 across feature sets. MAGPIE is most accurate; COMPASS-13 is within ~0.07 and fully interpretable</caption>
       <thead><tr><th>Feature set</th><th># features</th><th>LOEO macro-F1</th><th>Note</th></tr></thead>
       <tbody>
         <tr><td>e/a baseline</td><td class="num">2</td><td class="num">0.400</td><td>valence-electron lower bound</td></tr>
-        <tr><td>COMPASS-13</td><td class="num">13</td><td class="num hl">0.709</td><td>interpretable &mdash; rules + SHAP</td></tr>
+        <tr><td>COMPASS-13</td><td class="num">13</td><td class="num hl">0.709</td><td>interpretable: rules + SHAP</td></tr>
         <tr><td>JARVIS-CFID</td><td class="num">2190</td><td class="num">0.741</td><td>large composition featurization</td></tr>
         <tr><td>MAGPIE (full)</td><td class="num">132</td><td class="num">0.777</td><td>most accurate single feature set</td></tr>
       </tbody>
     </table>
-    <p style="font-size:.84rem;color:var(--muted);margin-top:8px">Adding per-system convex-hull stability to MAGPIE lifts this to <b>0.817</b> (+0.040) &mdash; the one DFT quantity worth computing. Per-element DFT bonding descriptors, by contrast, are redundant with composition.</p>
+    <p style="font-size:.84rem;color:var(--muted);margin-top:8px">Adding per-system convex-hull stability to MAGPIE lifts this to <b>0.817</b> (+0.040), the one DFT quantity worth computing. Per-element DFT bonding descriptors, by contrast, are redundant with composition.</p>
   </div>
 
   <p class="reveal">And because the bonding descriptors come from the same first-principles machinery as the rest of this thesis,
     I could check them against DFT directly: D6 correlates with ICOHP at r = 0.88 for the pure metals, and the orbital bond
-    order tracks the Friedel bond-order estimate at r = 0.69. The tight-binding shortcuts are not hand-waving &mdash; they agree
+    order tracks the Friedel bond-order estimate at r = 0.69. The tight-binding shortcuts are not hand-waving; they agree
     with the full quantum calculation.</p>
 
-  <div class="note update reveal"><b>Latest numbers (Oct 2026):</b> in the current version of the manuscript &mdash; &ldquo;What predicts and what
-    explains binary-alloy phase behaviour? A 970-system ground-truth benchmark of orbital descriptors, composition statistics, and DFT&rdquo; &mdash;
-    the leave-one-element-out macro-F1 is <strong>0.697</strong> for COMPASS (<strong>0.794</strong> with the convex hull), <strong>0.777</strong> for MAGPIE
+  <div class="note update reveal"><b>Latest numbers (Oct 2026):</b> in the current version of the manuscript, &ldquo;What predicts and what
+    explains binary-alloy phase behaviour? A 970-system ground-truth benchmark of orbital descriptors, composition statistics, and DFT&rdquo;, the leave-one-element-out macro-F1 is <strong>0.697</strong> for COMPASS (<strong>0.794</strong> with the convex hull), <strong>0.777</strong> for MAGPIE
     (<strong>0.815</strong> with the hull) and <strong>0.277</strong> for the Hume&ndash;Rothery rules. Balanced accuracy is about 0.86 on the isomorphous class and 0.82 on
     intermetallics, and 32% of pairs carry more than one label. The conclusion is unchanged: MAGPIE is the most accurate; COMPASS is close and interpretable;
     the convex hull is the one DFT quantity worth adding.</div>
@@ -196,8 +192,7 @@
 
   <h2 class="reveal">Why it matters for the rest of the journey</h2>
   <p class="reveal">With Chapter 3 the bond-centred view reaches its widest: from one bond in one grain, out to a map of how
-    every pair of elements behaves. That is as far as pure electronic structure can take you on its own. To go further &mdash; to
-    predict how a <em>real</em> piece of titanium yields and textures when you pull on it &mdash; the electrons have to hand off to
+    every pair of elements behaves. That is as far as pure electronic structure can take you on its own. To go further, and predict how a <em>real</em> piece of titanium yields and textures when you pull on it, the electrons have to hand off to
     larger scales. That hand-off is Chapter 4.</p>
 
   <div class="pager">

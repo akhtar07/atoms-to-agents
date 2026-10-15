@@ -3,17 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chapter 1 · How strong is a bond? — From Atoms to Agents</title>
-<meta name="description" content="Predicting interstitial strengthening in titanium from electronic structure alone — the story behind the Phi-eff descriptor. Md Faiz Akhtar.">
+<title>Chapter 1 · How strong is a bond? | Md Faiz Akhtar</title>
+<meta name="description" content="Predicting interstitial strengthening in titanium from electronic structure alone: the story behind the Phi-eff descriptor. Md Faiz Akhtar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%23f5a524' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%23f5a524'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='none' stroke='%23b5542c' stroke-width='6'/><circle cx='50' cy='50' r='9' fill='%23b5542c'/></svg>">
 <style>:root{--ac:var(--c1)}</style>
 </head>
 <body>
-<div id="progress"></div>
 
 <nav class="nav">
   <div class="wrap">
@@ -44,8 +43,7 @@
   <div class="wrap">
     <div class="ch-kicker">Chapter 1 · Electronic structure</div>
     <h1>How strong is a bond?</h1>
-    <p class="scaleline">The smallest scale in the whole thesis &mdash; a single light atom dropped into titanium &mdash;
-      and the question that started everything: can I predict strengthening from electrons alone?</p>
+    <p class="scaleline">The smallest scale in the whole thesis (a single light atom dropped into titanium) and the question that started everything: can I predict strengthening from electrons alone?</p>
     <div class="ch-meta">
       <span class="chip"><b>Method</b> &nbsp;DFT (VASP) + LOBSTER</span>
       <span class="chip"><b>System</b> &nbsp;&alpha;-Ti + H, C, N, O</span>
@@ -57,22 +55,21 @@
 
 <article class="prose section">
 
-  <p class="first reveal">Titanium has a strange sensitivity. You can take a perfectly good ingot and ruin it &mdash;
-    or transform it &mdash; with a few hundred parts per million of oxygen or carbon. Aerospace suppliers grade
+  <p class="first reveal">Titanium has a strange sensitivity. You can take a perfectly good ingot and ruin it, or transform it, with a few hundred parts per million of oxygen or carbon. Aerospace suppliers grade
     titanium almost entirely by these invisible interstitial atoms. So the very first question I asked in my PhD
     was disarmingly simple: <strong>if a carbon atom strengthens titanium more than a hydrogen atom does, why?</strong>
     And could I see that answer in the electrons, before ever lifting a hammer?</p>
 
   <p class="reveal">The honest motivation was frustration. The textbook way to predict interstitial strengthening is to fit
-    constants to experiments &mdash; useful, but circular. It tells you <em>that</em> carbon is potent, not <em>why</em>,
+    constants to experiments. That is useful, but circular. It tells you <em>that</em> carbon is potent, not <em>why</em>,
     and it can&rsquo;t predict a system nobody has measured yet. I wanted a number that came straight out of quantum
     mechanics and still landed on the experimental yield strength.</p>
 
   <h2 class="reveal">Where does an interstitial sit?</h2>
-  <p class="reveal">Before strength, geometry. A light atom in HCP titanium has a choice of holes to occupy &mdash; octahedral,
+  <p class="reveal">Before strength, geometry. A light atom in HCP titanium has a choice of holes to occupy: octahedral,
     tetrahedral, hexahedral, crowdion. I computed the enthalpy of mixing for every interstitial in every site. Oxygen,
     nitrogen and carbon all settle into the octahedral site; hydrogen, the odd one out, prefers the tetrahedral pocket.
-    That single fact &mdash; <em>where</em> the atom lives &mdash; turns out to set everything that follows.</p>
+    That single fact, <em>where</em> the atom lives, turns out to set everything that follows.</p>
 
   <figure class="reveal">
     <img src="assets/img/ch1_interstitial_sites.png" alt="Interstitial site geometry and relative stabilities in alpha-Ti">
@@ -83,15 +80,15 @@
 
   <h2 class="reveal">Reading the bond directly: ICOHP</h2>
   <p class="reveal">Here is the move the whole thesis rests on. Using LOBSTER, I projected the DFT wavefunctions back onto
-    pairs of atoms and integrated the crystal-orbital Hamilton population &mdash; <strong>ICOHP</strong> &mdash; which is,
+    pairs of atoms and integrated the crystal-orbital Hamilton population (<strong>ICOHP</strong>), which is,
     quite literally, the strength of a single bond in energy units. A Ti&ndash;Ti bond sits at &minus;0.76&nbsp;eV. Add the
     interstitials and the contrast is dramatic.</p>
 
   <div class="kpis reveal">
-    <div class="kpi"><div class="n">&minus;0.71<small> eV</small></div><div class="l">Ti&ndash;H bond &mdash; <em>weaker</em> than Ti&ndash;Ti &rarr; softening</div></div>
-    <div class="kpi"><div class="n">&minus;2.59<small> eV</small></div><div class="l">Ti&ndash;C bond &mdash; 3.4&times; stronger &rarr; potent strengthener</div></div>
-    <div class="kpi"><div class="n">&minus;2.56<small> eV</small></div><div class="l">Ti&ndash;N bond &mdash; nearly as strong as C</div></div>
-    <div class="kpi"><div class="n">&minus;2.04<small> eV</small></div><div class="l">Ti&ndash;O bond &mdash; strong, but below C and N</div></div>
+    <div class="kpi"><div class="n">&minus;0.71<small> eV</small></div><div class="l">Ti&ndash;H bond: <em>weaker</em> than Ti&ndash;Ti &rarr; softening</div></div>
+    <div class="kpi"><div class="n">&minus;2.59<small> eV</small></div><div class="l">Ti&ndash;C bond: 3.4&times; stronger &rarr; potent strengthener</div></div>
+    <div class="kpi"><div class="n">&minus;2.56<small> eV</small></div><div class="l">Ti&ndash;N bond: nearly as strong as C</div></div>
+    <div class="kpi"><div class="n">&minus;2.04<small> eV</small></div><div class="l">Ti&ndash;O bond: strong, but below C and N</div></div>
   </div>
 
   <p class="reveal">The bonding picture from the projected density of states and pCOHP makes the mechanism visual: carbon,
@@ -113,8 +110,7 @@
   </figure>
 
   <h2 class="reveal">From bonds to slip resistance</h2>
-  <p class="reveal">A bond strength is only interesting if it changes how the metal deforms. So I pushed the lattice &mdash;
-    computing ideal shear strength and the generalized stacking-fault energy (GSFE), the energy barrier a dislocation has
+  <p class="reveal">A bond strength is only interesting if it changes how the metal deforms. So I pushed the lattice, computing ideal shear strength and the generalized stacking-fault energy (GSFE), the energy barrier a dislocation has
     to climb to glide. The interstitials raise that barrier most when they sit right on the fault plane, and the effect
     fades as you move them away. The strengthening is local, and it tracks the bonding hierarchy exactly.</p>
 
@@ -131,14 +127,14 @@
   </figure>
 
   <h2 class="reveal">The descriptor: &Phi;<sub>eff</sub></h2>
-  <p class="reveal">All of this &mdash; site preference, bond strength, fault barriers &mdash; I folded into one quantity.
+  <p class="reveal">All of this (site preference, bond strength, fault barriers) I folded into one quantity.
     <strong>&Phi;<sub>eff</sub></strong> is built from the ICOHP of the Ti&ndash;interstitial bond relative to Ti&ndash;Ti,
     weighted by how the solute sits on the slip plane. It has no fitting parameters. It is the closest thing in this thesis
     to a punchline.</p>
 
   <div class="eq reveal">
     &Delta;&sigma;<sub>yield</sub> &nbsp;=&nbsp; A &middot; &Phi;<sub>eff</sub> &nbsp;+&nbsp; B
-    <small>A parameter-free, first-principles predictor of interstitial strengthening &mdash; R&sup2; &gt; 0.97 against experiment.</small>
+    <small>A parameter-free, first-principles predictor of interstitial strengthening, R&sup2; &gt; 0.97 against experiment.</small>
   </div>
 
   <p class="pull reveal">When I plotted &Phi;<sub>eff</sub> against the measured yield strength, the points fell on a line.
@@ -147,31 +143,30 @@
   <figure class="reveal">
     <img src="assets/img/ch1_phieff_yield.png" alt="Phi-eff versus experimental yield strength for H, C, N, O">
     <figcaption><b>FIG 6 &middot; the one to remember</b> &nbsp;&Phi;<sub>eff</sub> (circles, computed) tracks experimental
-      yield strength (squares) across H, C, N and O as a function of solute content &mdash; with no empirical calibration.
+      yield strength (squares) across H, C, N and O as a function of solute content, with no empirical calibration.
       <span class="fig-pub">· from the published paper</span></figcaption>
   </figure>
 
-  <h2 class="reveal">Part II &mdash; when atoms have company: short-range order</h2>
-  <p class="reveal">A real titanium alloy is never just titanium plus one interstitial. There are substitutional elements too
-    &mdash; aluminium, vanadium, molybdenum &mdash; and they are not randomly scattered. They prefer certain neighbour
+  <h2 class="reveal">Part II. When atoms have company: short-range order</h2>
+  <p class="reveal">A real titanium alloy is never just titanium plus one interstitial. There are substitutional elements too (aluminium, vanadium, molybdenum), and they are not randomly scattered. They prefer certain neighbour
     distances, an effect called <strong>short-range order (SRO)</strong>. In the second part of this chapter (now published in
     <a href="https://www.sciencedirect.com/science/article/pii/S0254058426010138" target="_blank" rel="noopener"><em>Materials Chemistry and Physics</em></a>) I asked whether the same bonding language still works once the lattice gets crowded.</p>
 
   <figure class="reveal">
     <img src="assets/img/ch1_binding_energy.png" alt="Binding energy versus neighbour distance for Ti-Al, Ti-V, Ti-Mo">
     <figcaption><b>FIG 7</b> &nbsp;Binding energy versus solute&ndash;solute separation. All three substitutionals prefer to
-      cluster at the second-nearest-neighbour shell &mdash; molybdenum most strongly (+229&nbsp;meV). SRO is real and it is directional. <span class="fig-pub">· from the published paper</span></figcaption>
+      cluster at the second-nearest-neighbour shell, molybdenum most strongly (+229&nbsp;meV). SRO is real and it is directional. <span class="fig-pub">· from the published paper</span></figcaption>
   </figure>
 
   <p class="reveal">And the bonding hierarchy held. The same ICOHP that ranked the interstitials now ranks the substitutionals
     (Ti&ndash;Mo &gt; Ti&ndash;Al &gt; Ti&ndash;V), and it maps cleanly onto how each one raises the stacking-fault barrier.
     When I combined substitutionals and interstitials into ternary systems, the interstitial bonds actually got
-    <em>stronger</em> &mdash; the alloy chemistry and the interstitial strengthening reinforce one another.</p>
+    <em>stronger</em>: the alloy chemistry and the interstitial strengthening reinforce one another.</p>
 
   <figure class="reveal">
     <img src="assets/img/ch1_pdos_substitutional.png" alt="DOS, pCOHP and bonding orbitals for Ti-Al, Ti-V, Ti-Mo">
     <figcaption><b>FIG 8</b> &nbsp;DOS, pCOHP and the bonding / non-bonding / anti-bonding orbitals for the substitutionals.
-      Molybdenum forms the most covalent, directional bond &mdash; and the largest strengthening. <span class="fig-pub">· from the published paper</span></figcaption>
+      Molybdenum forms the most covalent, directional bond, and the largest strengthening. <span class="fig-pub">· from the published paper</span></figcaption>
   </figure>
 
   <figure class="reveal">
@@ -188,8 +183,8 @@
   </figure>
 
   <div class="kpis reveal">
-    <div class="kpi"><div class="n">2NN</div><div class="l">preferred solute&ndash;solute shell for Al, V and Mo &mdash; a random solid solution is the wrong reference</div></div>
-    <div class="kpi"><div class="n">Mo&gt;Al&gt;V</div><div class="l">bond-strength order with SRO included &mdash; and the order of the stacking-fault barriers</div></div>
+    <div class="kpi"><div class="n">2NN</div><div class="l">preferred solute&ndash;solute shell for Al, V and Mo; a random solid solution is the wrong reference</div></div>
+    <div class="kpi"><div class="n">Mo&gt;Al&gt;V</div><div class="l">bond-strength order with SRO included, which is also the order of the stacking-fault barriers</div></div>
     <div class="kpi"><div class="n">6.1<small>%</small></div><div class="l">mean error of the tensile-strength model for Ti&ndash;Al (one calibrated constant per binary)</div></div>
     <div class="kpi"><div class="n">2.7<small>%</small></div><div class="l">mean error of the same model for Ti&ndash;Mo</div></div>
   </div>
@@ -197,14 +192,14 @@
 
   <div class="note update reveal"><b>Where this stands &middot; updated Oct 2026:</b> both halves are now published. Part I in the
     <a href="https://pubs.aip.org/aip/jap/article/138/17/175111/3371105/A-novel-electronic-structure-based-prediction-of" target="_blank" rel="noopener"><em>Journal of Applied Physics</em> 138, 175111 (2025)</a>;
-    Part II &mdash; &ldquo;Linking electronic bonding and short-range order to strength in &alpha;-titanium alloys: a first-principles study&rdquo; &mdash; in
+    Part II, &ldquo;Linking electronic bonding and short-range order to strength in &alpha;-titanium alloys: a first-principles study&rdquo;, in
     <a href="https://www.sciencedirect.com/science/article/pii/S0254058426010138" target="_blank" rel="noopener"><em>Materials Chemistry and Physics</em> 368, 133019 (2026)</a>.
     Every figure above is from the two published papers.</div>
 
   <h2 class="reveal">Why it matters for the rest of the journey</h2>
   <p class="reveal">Chapter 1 established the grammar I use for everything afterwards: <strong>the integrated bond strength,
     ICOHP, is a currency I can spend at any scale.</strong> Here it bought me a strength predictor. In the next chapter it
-    buys something different &mdash; not how strong a bond is, but which <em>direction</em> it points, and therefore which way
+    buys something different: not how strong a bond is, but which <em>direction</em> it points, and therefore which way
     the whole crystal chooses to slip.</p>
 
   <div class="pager">
