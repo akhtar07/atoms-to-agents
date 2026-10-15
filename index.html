@@ -57,16 +57,10 @@
         <a class="btn btn-ghost" href="assets/Md_Faiz_Akhtar_CV.pdf" target="_blank" rel="noopener">CV</a>
       </div>
     </div>
-    <figure class="specimen">
-      <div class="strips ticks">
-        <div class="strip"><img src="assets/img/v3/ipf_0.webp" alt="EBSD inverse pole figure map of undeformed CP titanium at 300 K" width="540" height="204"><span>0 % &middot; undeformed</span></div>
-        <div class="strip"><img src="assets/img/v3/ipf_10.webp" alt="EBSD map after 10 percent deformation" width="540" height="204"><span>10 % strain</span></div>
-        <div class="strip"><img src="assets/img/v3/ipf_frac.webp" alt="EBSD map of the fractured specimen, full of twins" width="540" height="204"><span>fractured</span></div>
-      </div>
-      <figcaption><b>Commercially pure titanium, pulled at 300 K.</b> EBSD orientation maps from the thesis: each grain is
-        coloured by which crystal direction points along the sample normal. The thin needles that appear are deformation twins.
-        <div class="ipf-key"><span style="--k:var(--ipf-r)">0001</span><span style="--k:var(--ipf-g)">10&#772;10</span><span style="--k:var(--ipf-b)">2&#772;1&#772;10</span></div>
-      </figcaption>
+    <figure class="specimen atoms">
+      <div class="vid ticks"><video autoplay data-auto muted loop playsinline preload="metadata" poster="assets/media/gbs-cu-sigma5-twist.webp" aria-label="Molecular dynamics of a copper grain boundary under shear"><source src="assets/media/gbs-cu-sigma5-twist.webm" type="video/webm"><source src="assets/media/gbs-cu-sigma5-twist.mp4" type="video/mp4"></video><span class="live">&#9679; LAMMPS &middot; Cu &Sigma;5 twist boundary &middot; sheared</span></div>
+      <figcaption><b>It starts with atoms.</b> A copper grain boundary sheared in molecular dynamics. Orange atoms are the ones that just slid, and they move in small separate patches rather than as one sweeping line.
+        <a href="#lab" class="lnk-u" style="color:#fff">Then the grains &darr;</a></figcaption>
     </figure>
   </div>
   <div class="marquee" aria-hidden="true"><div class="track">
@@ -74,11 +68,47 @@
     <span style="--k:var(--ipf-r)">VASP</span><span style="--k:var(--ipf-g)">LOBSTER &middot; ICOHP</span><span style="--k:var(--ipf-b)">LAMMPS</span><span style="--k:var(--cu)">DAMASK</span><span style="--k:var(--ipf-r)">VPSC</span><span style="--k:var(--ipf-g)">MACE</span><span style="--k:var(--ipf-b)">OVITO</span><span style="--k:var(--cu)">EBSD</span><span style="--k:var(--ipf-r)">cryogenic tension</span><span style="--k:var(--ipf-g)">vLLM &middot; Qwen3</span><span style="--k:var(--ipf-b)">GraphRAG</span><span style="--k:var(--cu)">SLURM / HPC</span>
   </div></div>
 </header>
+<section class="lab night" id="lab" aria-label="EBSD of titanium under tension">
+  <div class="lab-track">
+    <div class="lab-stage">
+      <div class="wrap lab-grid">
+        <div class="lab-copy">
+          <div class="sec-no"><b style="color:var(--ipf-g)">&sect; 01</b> The specimen</div>
+          <h2 class="xl">Pull titanium apart, <em>one scroll at a time</em></h2>
+          <p class="lab-lede">Real EBSD maps of commercially pure titanium from my thesis, tested at room temperature and at 143&nbsp;K. Scroll to strain it; switch maps to see the same grains three ways.</p>
+          <div class="lab-modes" role="tablist"><button data-m="ipf" class=on>Orientation</button><button data-m="kam">Misorientation</button><button data-m="tb">Twin boundaries</button></div>
+          <dl class="lab-read">
+            <div><dt>temperature</dt><dd data-k="t">298 K</dd></div>
+            <div><dt>state</dt><dd data-k="e">undeformed</dd></div>
+            <div><dt>extension twins</dt><dd><span data-k="et">8.5</span><small> % area</small></dd></div>
+            <div><dt>contraction twins</dt><dd><span data-k="ct">5.8</span><small> % area</small></dd></div>
+          </dl>
+          <p class="lab-cap" data-k="c">The as-received plate. Equiaxed grains, and it already holds 8.5&nbsp;% extension-twin area before any load.</p>
+          <div class="lab-chartbox"><svg class="lab-chart" viewBox="0 0 270 142" role="img" aria-label="Yield and tensile strength of CP titanium against test temperature">
+<line x1="30" y1="120" x2="252" y2="120" class="ax"/>
+<text x="0" y="26">600</text><text x="0" y="95">400</text>
+<line x1="30" x2="252" y1="22.9" y2="22.9" class="gr"/><line x1="30" x2="252" y1="92.3" y2="92.3" class="gr"/>
+<polyline points="30.0,87.8 136.5,49.3 207.4,37.8 250.0,24.7" class="lu"/><polyline points="30.0,107.2 136.5,54.8 207.4,43.7 250.0,35.1" class="ly"/><circle cx="30.0" cy="107.2" r="3.2" class="dy" data-t="298"/><circle cx="30.0" cy="87.8" r="2.4" class="du"/><circle cx="136.5" cy="54.8" r="3.2" class="dy" data-t="223"/><circle cx="136.5" cy="49.3" r="2.4" class="du"/><circle cx="207.4" cy="43.7" r="3.2" class="dy" data-t="173"/><circle cx="207.4" cy="37.8" r="2.4" class="du"/><circle cx="250.0" cy="35.1" r="3.2" class="dy" data-t="143"/><circle cx="250.0" cy="24.7" r="2.4" class="du"/><text x="30.0" y="136" text-anchor="middle">298</text><text x="136.5" y="136" text-anchor="middle">223</text><text x="207.4" y="136" text-anchor="middle">173</text><text x="250.0" y="136" text-anchor="middle">143</text>
+<text x="252" y="17" text-anchor="end" class="lab-l">tensile strength</text>
+<text x="252" y="50" text-anchor="end" class="lab-l y">yield, MPa</text>
+</svg></div>
+        </div>
+        <div class="lab-view">
+          <div class="lab-maps" data-m="ipf"><img src="assets/img/ebsd/300_0_ipf.webp" alt="" loading="lazy" data-s="0" data-m="ipf" width="800" height="627"><img src="assets/img/ebsd/300_0_kam.webp" alt="" loading="lazy" data-s="0" data-m="kam" width="800" height="627"><img src="assets/img/ebsd/300_0_tb.webp" alt="" loading="lazy" data-s="0" data-m="tb" width="800" height="627"><img src="assets/img/ebsd/300_10_ipf.webp" alt="" loading="lazy" data-s="1" data-m="ipf" width="800" height="627"><img src="assets/img/ebsd/300_10_kam.webp" alt="" loading="lazy" data-s="1" data-m="kam" width="800" height="627"><img src="assets/img/ebsd/300_10_tb.webp" alt="" loading="lazy" data-s="1" data-m="tb" width="800" height="627"><img src="assets/img/ebsd/300_f_ipf.webp" alt="" loading="lazy" data-s="2" data-m="ipf" width="800" height="627"><img src="assets/img/ebsd/300_f_kam.webp" alt="" loading="lazy" data-s="2" data-m="kam" width="800" height="627"><img src="assets/img/ebsd/300_f_tb.webp" alt="" loading="lazy" data-s="2" data-m="tb" width="800" height="627"><img src="assets/img/ebsd/143_10_ipf.webp" alt="" loading="lazy" data-s="3" data-m="ipf" width="800" height="627"><img src="assets/img/ebsd/143_10_kam.webp" alt="" loading="lazy" data-s="3" data-m="kam" width="800" height="627"><img src="assets/img/ebsd/143_10_tb.webp" alt="" loading="lazy" data-s="3" data-m="tb" width="800" height="627"><img src="assets/img/ebsd/143_f_ipf.webp" alt="" loading="lazy" data-s="4" data-m="ipf" width="800" height="627"><img src="assets/img/ebsd/143_f_kam.webp" alt="" loading="lazy" data-s="4" data-m="kam" width="800" height="627"><img src="assets/img/ebsd/143_f_tb.webp" alt="" loading="lazy" data-s="4" data-m="tb" width="800" height="627"><span class="lab-scale">50 &micro;m bar in each map</span></div>
+          <div class="lab-legend"><div data-m="ipf" class=on><span><i style="background:#e0413a"></i>0001</span><span><i style="background:#27a866"></i>101&#772;0</span><span><i style="background:#3d6be0"></i>21&#772;1&#772;0 &nbsp;&middot;&nbsp; colour = crystal direction along the sample normal</span></div><div data-m="kam"><span class="kbar"></span><span>0&deg; to 5&deg; kernel-average misorientation &nbsp;&middot;&nbsp; red = heavily bent lattice</span></div><div data-m="tb"><span><i style="background:#e0413a"></i>contraction twin</span><span><i style="background:#2a3fd1"></i>extension twin</span><span>&nbsp;&middot;&nbsp; on the image-quality map</span></div></div>
+          <div class="lab-rail"><span data-s="0"><b>298 K</b>undeformed</span><span data-s="1"><b>298 K</b>10&nbsp;% strain</span><span data-s="2"><b>298 K</b>fractured &middot; 28&nbsp;%</span><span data-s="3"><b>143 K</b>10&nbsp;% strain</span><span data-s="4"><b>143 K</b>fractured &middot; 36&nbsp;%</span><i class="lab-prog"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap lab-foot"><p><b>Being honest about it.</b> The extra twinning on cooling (0.5 points at 10&nbsp;% strain) is about the size of the model scatter across seeds, so these maps alone are weak evidence that cold titanium twins more. What the maps do show clearly is the lattice bending and the twins that the crystal-plasticity models in <a class="lnk-u" href="chapter4.html">chapter 4</a> have to reproduce.</p></div>
+  <script type="application/json" class="lab-data">[{"t":"298 K","e":"undeformed","et":"8.5","ct":"5.8","y":357,"c":"The as-received plate. Equiaxed grains, and it already holds 8.5&nbsp;% extension-twin area before any load."},{"t":"298 K","e":"10&nbsp;% strain","et":"11.5","ct":"6.2","y":357,"c":"Ten percent strain at room temperature. Misorientation builds up inside the grains and extension twins add 3.0 points of area."},{"t":"298 K","e":"fractured &middot; 28&nbsp;%","et":"11.6","ct":"5.9","y":357,"c":"At fracture after 28&nbsp;% elongation. Extension-twin area reaches 11.6&nbsp;%; contraction twins barely move."},{"t":"143 K","e":"10&nbsp;% strain","et":"12","ct":"6.3","y":565,"c":"Cooled to 143&nbsp;K, the same 10&nbsp;% strain needs far more stress: yield rises from 357 to 565&nbsp;MPa. Extension twins add 3.5 points."},{"t":"143 K","e":"fractured &middot; 36&nbsp;%","et":"13","ct":"10","y":565,"c":"At fracture the cold specimen has stretched 36&nbsp;%, more than at room temperature, and much of the map sits near the top of the 0&ndash;5&deg; misorientation scale."}]</script>
+</section>
 
 <!-- THESIS JOURNEY -->
 <section class="section" id="thesis">
   <div class="wrap">
-    <div class="sec-no reveal"><b>&sect; 01</b> The thesis, one scale at a time</div>
+    <div class="sec-no reveal"><b>&sect; 02</b> The thesis, one scale at a time</div>
     <h2 class="xl reveal">Quantifying the <em>chemical bond</em>, then following it up the scales</h2>
     <p class="sub reveal"><em>From Electronic Structure to Autonomous Multiscale Simulations of alpha Titanium Alloys.</em> One premise:
       the mechanical behaviour of a metal is largely set by its chemical bonds. Scroll, and each stop zooms out one scale.</p>
@@ -90,7 +120,7 @@
           <img src="assets/img/v3/ch2_rstar_comparison.webp" alt="" loading="lazy">
           <img src="assets/img/v3/ch3_classmap.webp" alt="" loading="lazy">
           <img src="assets/img/v3/cp_curves.webp" alt="" loading="lazy">
-          <video muted loop playsinline preload="none" poster="assets/media/explorer-tisci.webp" class="bleed" style="object-position:top"><source src="assets/media/explorer-tisci.webm" type="video/webm"><source src="assets/media/explorer-tisci.mp4" type="video/mp4"></video>
+          <img src="assets/img/examples/agents/tisci_explorer.webp" alt="" loading="lazy" class="bleed">
         </div>
         <div class="scale-bar"><span>bond</span><span>slip plane</span><span>alloy space</span><span>polycrystal</span><span>agent</span></div>
       </div>
@@ -135,7 +165,7 @@
         <div class="step" style="--ac:var(--c5)">
           <div class="no">05 &middot; Automation<span class="pill wip">manuscript drafted</span></div>
           <h3>Can an agent do what took me four years?</h3>
-          <figure class="fig-m"><video data-auto muted loop playsinline preload="none" poster="assets/media/explorer-tisci.webp" aria-label="TiSci explorer recording" style="display:block;width:100%;height:auto"><source src="assets/media/explorer-tisci.webm" type="video/webm"><source src="assets/media/explorer-tisci.mp4" type="video/mp4"></video></figure>
+          <figure class="fig-m"><img src="assets/img/examples/agents/tisci_explorer.webp" alt="TiSci explorer" loading="lazy"></figure>
           <p>ICME-lite runs the whole chain from one sentence for fcc, bcc and hcp metals, with 41 physics rules checking each step.
             TiSci reads the titanium literature, decides what to compute, and code, not the language model, gives every verdict.</p>
           <div class="stat"><span class="v">16 &middot; 120 &middot; 455</span><span class="l">solutes, pairs and triples<br>mapped by TiSci in &alpha;-Ti</span></div>
@@ -149,7 +179,7 @@
 <!-- PUBLISHED RESULTS -->
 <section class="section" id="results">
   <div class="wrap">
-    <div class="sec-no reveal"><b style="color:var(--ipf-r)">&sect; 02</b> Published results</div>
+    <div class="sec-no reveal"><b style="color:var(--ipf-r)">&sect; 03</b> Published results</div>
     <h2 class="xl reveal" style="--ac:var(--ipf-r)">The numbers that made it <em>through review</em></h2>
     <p class="sub reveal">The headline figure from each first-author paper, exactly as printed. Click a figure to enlarge it; the button opens the paper.</p>
     <div class="results">
@@ -195,7 +225,7 @@
 <!-- UNPUBLISHED -->
 <section class="section night" id="drawer">
   <div class="wrap">
-    <div class="sec-no reveal"><b style="color:var(--ipf-g)">&sect; 03</b> Not yet published</div>
+    <div class="sec-no reveal"><b style="color:var(--ipf-g)">&sect; 04</b> Not yet published</div>
     <h2 class="xl reveal">What is <em style="color:#fff">in the drawer</em></h2>
     <p class="sub reveal" style="max-width:62ch">Manuscripts in preparation and work in progress. Here is a first look at each one; the drafts,
       data and code are available on request. One email is enough.</p>
@@ -219,7 +249,7 @@
           <div class="ask"><a href="mailto:faiza21@iitk.ac.in?subject=Draft%20request%3A%20TiSci%20%2F%20ICME-lite%20agent&amp;body=Hi%20Faiz%2C%0A%0AI%20saw%20the%20TiSci%20%2F%20ICME-lite%20agent%20work%20on%20your%20website%20and%20would%20like%20to%20read%20the%20draft.%0A%0AAbout%20me%3A%0A">Ask for the draft</a><small>draft &middot; data &middot; code</small></div></div>
       </article>
       <article class="dcard reveal" style="--ac:var(--c3)">
-        <div class="peek"><video data-auto muted loop playsinline preload="none" poster="assets/media/mace-active-learning.webp"><source src="assets/media/mace-active-learning.webm" type="video/webm"><source src="assets/media/mace-active-learning.mp4" type="video/mp4"></video><span class="stamp">ongoing</span><div class="redact"><i></i><i></i><i></i></div></div>
+        <div class="peek"><img src="assets/img/examples/mace/finetune_learning_curve.webp" alt="" loading="lazy"><span class="stamp">ongoing</span><div class="redact"><i></i><i></i><i></i></div></div>
         <div class="bd"><div class="k">ML potentials &middot; MACE</div><h3>How wrong are foundation potentials before you fine-tune them?</h3><p>Seven foundation models benchmarked zero-shot, then 10-model committees with active learning for high-entropy alloys.</p>
           <ul class="facts"><li>zero-shot shear modulus error: 9.2 % at best, 46.2 % at worst</li><li>validation energy error 40.8 &rarr; 2.4 meV/atom</li><li>CoCrFeMnNi offset cut from 21.7 to 2.6 meV/atom</li></ul>
           <div class="ask"><a href="mailto:faiza21@iitk.ac.in?subject=Draft%20request%3A%20MACE%20fine-tuning%20for%20HEAs&amp;body=Hi%20Faiz%2C%0A%0AI%20saw%20the%20MACE%20fine-tuning%20for%20HEAs%20work%20on%20your%20website%20and%20would%20like%20to%20read%20the%20draft.%0A%0AAbout%20me%3A%0A">Ask for the draft</a><small>draft &middot; data &middot; code</small></div></div>
@@ -247,7 +277,7 @@
   <div class="wrap">
     <div class="head-row reveal">
       <div>
-        <div class="sec-no"><b style="color:var(--c5)">&sect; 04</b> AI for materials science</div>
+        <div class="sec-no"><b style="color:var(--c5)">&sect; 05</b> AI for materials science</div>
         <h2>Agents that run the calculations and keep the record</h2>
         <p class="sub">Four systems, each built because the previous one hit a wall. The rule they share: the language model may
           parse, propose and narrate, but deterministic code decides every physical number and every verdict.</p>
@@ -296,7 +326,7 @@
 <section class="section tight" id="news">
   <div class="wrap">
     <div class="reveal">
-      <div class="sec-no"><b>&sect; 05</b> Recent</div>
+      <div class="sec-no"><b>&sect; 06</b> Recent</div>
       <h2>2026 so far</h2>
     </div>
     <div class="news" style="margin-top:28px">
@@ -315,7 +345,7 @@
 <!-- CONTACT -->
 <section class="section night contact-v3" id="contact">
   <div class="wrap">
-    <div class="sec-no"><b style="color:var(--ipf-b)">&sect; 06</b> Contact</div>
+    <div class="sec-no"><b style="color:var(--ipf-b)">&sect; 07</b> Contact</div>
     <h2>Curious about a figure, a draft or a <em>collaboration</em>?</h2>
     <p class="sub" style="max-width:60ch">I am looking for postdoctoral and research positions in first-principles materials physics,
       machine-learned potentials and AI for science. Email is the fastest way to reach me.</p>

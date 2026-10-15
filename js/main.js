@@ -160,3 +160,53 @@
     img.addEventListener('click', function () { $('img', lb).src = img.src; $('img', lb).alt = img.alt; lb.classList.add('open'); });
   });
 })();
+
+/* specimen lab: scroll position picks the strain state, buttons pick the map */
+(function () {
+  var lab = document.querySelector('.lab'); if (!lab) return;
+  var track = lab.querySelector('.lab-track'), maps = lab.querySelector('.lab-maps');
+  var imgs = Array.prototype.slice.call(maps.querySelectorAll('img'));
+  var rail = Array.prototype.slice.call(lab.querySelectorAll('.lab-rail span'));
+  var prog = lab.querySelector('.lab-prog'), dots = Array.prototype.slice.call(lab.querySelectorAll('.lab-chart .dy'));
+  var data = JSON.parse(lab.querySelector('.lab-data').textContent);
+  var out = {}; Array.prototype.forEach.call(lab.querySelectorAll('[data-k]'), function (el) { out[el.dataset.k] = el; });
+  var mode = 'ipf', state = -1;
+  function paint() {
+    imgs.forEach(function (im) { im.classList.toggle('on', +im.dataset.s === state && im.dataset.m === mode); });
+  }
+  function set(k) {
+    if (k === state) return; state = k; var d = data[k];
+    ['t', 'e', 'et', 'ct'].forEach(function (key) {
+      var el = out[key]; if (el.innerHTML !== d[key]) { el.innerHTML = d[key]; el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
+    });
+    out.c.innerHTML = d.c;
+    rail.forEach(function (r, n) { r.classList.toggle('on', n === k); r.classList.toggle('done', n < k); });
+    dots.forEach(function (c) { c.classList.toggle('on', +c.dataset.t === (d.t === '143 K' ? 143 : 298)); });
+    paint();
+  }
+  Array.prototype.forEach.call(lab.querySelectorAll('.lab-modes button'), function (b) {
+    b.addEventListener('click', function () {
+      mode = b.dataset.m;
+      Array.prototype.forEach.call(lab.querySelectorAll('.lab-modes button'), function (x) { x.classList.toggle('on', x === b); });
+      Array.prototype.forEach.call(lab.querySelectorAll('.lab-legend > div'), function (x) { x.classList.toggle('on', x.dataset.m === mode); });
+      paint();
+    });
+  });
+  rail.forEach(function (r, n) {
+    r.style.cursor = 'pointer';
+    r.addEventListener('click', function () {
+      var top = track.getBoundingClientRect().top + scrollY, span = track.offsetHeight - innerHeight;
+      scrollTo({ top: top + span * (n + 0.5) / data.length, behavior: 'smooth' });
+    });
+  });
+  var ticking = false;
+  function onScroll() {
+    ticking = false;
+    var r = track.getBoundingClientRect(), span = track.offsetHeight - innerHeight;
+    var p = Math.min(1, Math.max(0, -r.top / span));
+    if (prog) prog.style.setProperty('--p', (p * 100).toFixed(1) + '%');
+    set(Math.min(data.length - 1, Math.floor(p * data.length)));
+  }
+  addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  addEventListener('resize', onScroll); onScroll();
+})();
